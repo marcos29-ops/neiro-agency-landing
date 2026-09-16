@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neiro Agency — Automatizaciones con IA</title>
+<meta name="description" content="Ayudo a negocios a implementar automatizaciones con IA personalizadas para cada cuello de botella de su operación.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+  :root { --accent: #2F6BFF; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #ffffff; color: #12131A; font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif; overflow-x: hidden; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: #1D46C7; }
+  h1, h2, h3 { font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; margin: 0; letter-spacing: -0.02em; }
+  p { margin: 0; }
+  input, select, textarea { font-family: inherit; font-size: 15px; color: #12131A; background: #ffffff; border: 1px solid #DDE0E7; border-radius: 10px; padding: 14px 16px; outline: none; width: 100%; transition: border-color .2s ease, box-shadow .2s ease; }
+  input:focus, select:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(47,107,255,.14); }
+  input::placeholder, textarea::placeholder { color: #A2A7B5; }
+  @keyframes dcFadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  .reveal { transition: opacity .8s cubic-bezier(.22,.68,.3,1), transform .8s cubic-bezier(.22,.68,.3,1); }
+  body[data-anim="on"] .reveal { opacity: 0; transform: translateY(22px); }
+  body[data-anim="on"] .reveal.is-in { opacity: 1; transform: none; }
+  .reveal[data-d="1"] { transition-delay: .09s; }
+  .reveal[data-d="2"] { transition-delay: .18s; }
+  .reveal[data-d="3"] { transition-delay: .27s; }
+  .pop { animation: dcFadeUp .45s cubic-bezier(.22,.68,.3,1) both; }
+  .lift { transition: transform .28s cubic-bezier(.22,.68,.3,1), box-shadow .28s ease, border-color .28s ease; }
+  .lift:hover { transform: translateY(-5px); box-shadow: 0 14px 34px rgba(18,19,26,.09); border-color: #C9D5F2; }
+  .btn { cursor: pointer; user-select: none; transition: transform .18s cubic-bezier(.22,.68,.3,1), box-shadow .22s ease, background-color .22s ease, border-color .22s ease; border: none; font: inherit; }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(47,107,255,.26); }
+  .btn:active { transform: translateY(0); box-shadow: none; }
+  .btn-ghost:hover { box-shadow: 0 10px 24px rgba(18,19,26,.10); border-color: #B9C0CF; }
+  .rail { scrollbar-width: thin; scrollbar-color: #D2D7E3 transparent; }
+  .rail::-webkit-scrollbar { height: 8px; }
+  .rail::-webkit-scrollbar-thumb { background: #D2D7E3; border-radius: 999px; }
+  .rail::-webkit-scrollbar-track { background: transparent; }
+  .arrow { cursor: pointer; transition: background-color .2s ease, border-color .2s ease, transform .2s ease; border: none; font: inherit; }
+  .arrow:hover { background: #EDF2FF; border-color: var(--accent); transform: translateY(-2px); }
+  [hidden] { display: none !important; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .pop, .lift, .btn, .arrow { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div style="border-bottom: 1px solid #ECEDF1; background: rgba(255,255,255,.92); backdrop-filter: saturate(180%) blur(10px); position: sticky; top: 0; z-index: 10;">
+  <div style="max-width: 1160px; margin: 0 auto; padding: 20px clamp(20px, 4vw, 40px); display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+    <div style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 21px; letter-spacing: -0.02em; display: flex; gap: 7px;">
+      <span style="color: #12131A;">Neiro</span><span style="color: var(--accent);">Agency</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 2px; border: 1px solid #E4E6EC; border-radius: 999px; padding: 4px;">
+      <button class="btn" style="font-size: 13px; font-weight: 500; color: #ffffff; background: #12131A; border-radius: 999px; padding: 5px 13px;">ES</button>
+      <button class="btn" style="font-size: 13px; font-weight: 500; color: #777C8A; padding: 5px 13px; background: transparent;">EN</button>
+    </div>
+  </div>
+</div>
+
+<div style="max-width: 1160px; width: 100%; margin: 0 auto; padding: clamp(60px, 8vw, 104px) clamp(20px, 4vw, 40px) clamp(60px, 7vw, 96px); display: flex; align-items: center; gap: clamp(32px, 5vw, 72px); flex-wrap: wrap;">
+  <div class="reveal" style="flex: 1 1 460px; display: flex; flex-direction: column; align-items: flex-start; gap: 24px;">
+    <h1 style="font-size: clamp(34px, 5vw, 58px); line-height: 1.06; font-weight: 700; color: #12131A; text-wrap: pretty;">Automatizaciones con IA, hechas a la medida de tu negocio.</h1>
+    <p style="font-size: clamp(16px, 1.6vw, 18px); line-height: 1.65; color: #5A5F6E; max-width: 520px;">Ayudo a negocios a implementar automatizaciones con IA personalizadas para cada cuello de botella de su operación.</p>
+    <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+      <button class="btn" data-scroll="contacto" style="font-size: 15px; font-weight: 500; color: #ffffff; background: var(--accent); border-radius: 10px; padding: 15px 26px;">Hablemos de tu negocio</button>
+      <button class="btn btn-ghost" data-scroll="guias" style="font-size: 15px; font-weight: 500; color: #12131A; background: #ffffff; border: 1px solid #DDE0E7; border-radius: 10px; padding: 15px 26px;">Ver recursos gratuitos</button>
+    </div>
+  </div>
+  <div class="reveal" data-d="2" style="flex: 1 1 320px; display: flex; justify-content: center;">
+    <svg viewBox="0 0 320 300" style="width: 100%; max-width: 360px; height: auto;" aria-hidden="true">
+      <line x1="160" y1="66" x2="70" y2="150" stroke="#D5DEF6" stroke-width="1.6"></line>
+      <line x1="160" y1="66" x2="250" y2="150" stroke="#D5DEF6" stroke-width="1.6"></line>
+      <line x1="70" y1="150" x2="160" y2="238" stroke="#D5DEF6" stroke-width="1.6"></line>
+      <line x1="250" y1="150" x2="160" y2="238" stroke="#D5DEF6" stroke-width="1.6"></line>
+      <line x1="70" y1="150" x2="250" y2="150" stroke="#D5DEF6" stroke-width="1.6"></line>
+      <line x1="160" y1="66" x2="160" y2="238" stroke="#EDF2FF" stroke-width="1.6"></line>
+      <circle cx="160" cy="66" r="15" fill="#2F6BFF"></circle>
+      <circle cx="70" cy="150" r="11" fill="#ffffff" stroke="#2F6BFF" stroke-width="1.8"></circle>
+      <circle cx="250" cy="150" r="11" fill="#ffffff" stroke="#2F6BFF" stroke-width="1.8"></circle>
+      <circle cx="160" cy="238" r="11" fill="#ffffff" stroke="#2F6BFF" stroke-width="1.8"></circle>
+      <circle cx="160" cy="152" r="26" fill="#EDF2FF"></circle>
+      <path d="M150 152h20M160 142v20" stroke="#2F6BFF" stroke-width="1.8" stroke-linecap="round"></path>
+    </svg>
+  </div>
+</div>
+
+<div style="background: #FAFBFD; border-top: 1px solid #ECEDF1; border-bottom: 1px solid #ECEDF1;">
+  <div class="reveal" style="max-width: 1160px; margin: 0 auto; padding: clamp(56px, 7vw, 92px) clamp(20px, 4vw, 40px); display: flex; align-items: center; gap: clamp(28px, 4vw, 56px); flex-wrap: wrap;">
+    <div style="flex: 0 0 132px; height: 132px; background: #EDF2FF; border-radius: 20px; display: flex; align-items: center; justify-content: center;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#2F6BFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 62px; height: 62px;" aria-hidden="true">
+        <path d="M12 3 4 7.5v9L12 21l8-4.5v-9L12 3Z"></path>
+        <circle cx="12" cy="12" r="2.6"></circle>
+        <path d="M12 9.4V6M12 14.6V18M14.6 12H18M6 12h3.4"></path>
+      </svg>
+    </div>
+    <div style="flex: 1 1 420px; display: flex; flex-direction: column; align-items: flex-start; gap: 18px;">
+      <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Sobre mí</span>
+      <h2 style="font-size: clamp(26px, 3vw, 30px); line-height: 1.22; font-weight: 700; color: #12131A;">Automatización con criterio técnico.</h2>
+      <p style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E; max-width: 620px;">Marcos Vargas — Ingeniero en Sistemas, con experiencia en el sector de IA y Cloud. Enfocado en construir agentes de IA para negocios, tanto soluciones internas como de atención al cliente.</p>
+      <span style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 10px 16px;">Microsoft Certified · Azure AI Fundamentals</span>
+    </div>
+  </div>
+</div>
+
+<div style="max-width: 1160px; width: 100%; margin: 0 auto; padding: clamp(60px, 7vw, 96px) clamp(20px, 4vw, 40px); display: flex; flex-direction: column; gap: 44px;">
+  <div class="reveal" style="display: flex; flex-direction: column; gap: 16px; max-width: 680px;">
+    <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Qué hago</span>
+    <h2 style="font-size: clamp(28px, 4vw, 38px); line-height: 1.16; font-weight: 700; color: #12131A;">Automatización con un propósito claro.</h2>
+  </div>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+
+    <div class="reveal lift" style="border: 1px solid #E8EAEF; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 18px; background: #ffffff;">
+      <div style="width: 50px; height: 50px; border-radius: 12px; background: #EDF2FF; display: flex; align-items: center; justify-content: center;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2F6BFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;" aria-hidden="true">
+          <circle cx="10.5" cy="10.5" r="6.5"></circle>
+          <path d="m20 20-4.4-4.4"></path>
+          <path d="M7.6 10.8h1.7l1.2-2.3 1.4 4 1-1.7h1.5"></path>
+        </svg>
+      </div>
+      <h3 style="font-size: 19px; line-height: 1.3; font-weight: 700; color: #12131A;">Diagnóstico de automatización</h3>
+      <p style="font-size: 15px; line-height: 1.68; color: #5A5F6E;">Identifico los cuellos de botella de tu operación donde la IA puede ahorrar tiempo real.</p>
+    </div>
+
+    <div class="reveal lift" data-d="1" style="border: 1px solid #E8EAEF; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 18px; background: #ffffff;">
+      <div style="width: 50px; height: 50px; border-radius: 12px; background: #EDF2FF; display: flex; align-items: center; justify-content: center;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2F6BFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;" aria-hidden="true">
+          <circle cx="12" cy="5" r="2.4"></circle>
+          <circle cx="5" cy="18" r="2.4"></circle>
+          <circle cx="19" cy="18" r="2.4"></circle>
+          <path d="M10.4 6.8 6.3 15.6M13.6 6.8l4.1 8.8M7.4 18h9.2"></path>
+        </svg>
+      </div>
+      <h3 style="font-size: 19px; line-height: 1.3; font-weight: 700; color: #12131A;">Agentes de IA a medida</h3>
+      <p style="font-size: 15px; line-height: 1.68; color: #5A5F6E;">Construyo agentes aplicados al uso interno de tu negocio, que resuelven tareas repetitivas y procesos manuales específicos de tu operación.</p>
+    </div>
+
+    <div class="reveal lift" data-d="2" style="border: 1px solid #E8EAEF; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 18px; background: #ffffff;">
+      <div style="width: 50px; height: 50px; border-radius: 12px; background: #EDF2FF; display: flex; align-items: center; justify-content: center;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2F6BFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;" aria-hidden="true">
+          <path d="M20 14.5a2.5 2.5 0 0 1-2.5 2.5H9l-4 3.2V6.5A2.5 2.5 0 0 1 7.5 4h10A2.5 2.5 0 0 1 20 6.5Z"></path>
+          <path d="m12.5 8.2.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9Z"></path>
+        </svg>
+      </div>
+      <h3 style="font-size: 19px; line-height: 1.3; font-weight: 700; color: #12131A;">Atención al cliente automatizada</h3>
+      <p style="font-size: 15px; line-height: 1.68; color: #5A5F6E;">Agentes que responden, califican y escalan conversaciones con clientes sin que tengas que contratar más gente.</p>
+    </div>
+
+  </div>
+</div>
+
+<div id="guias" style="background: #FAFBFD; border-top: 1px solid #ECEDF1; border-bottom: 1px solid #ECEDF1;">
+  <div style="max-width: 1160px; margin: 0 auto; padding: clamp(60px, 7vw, 96px) clamp(20px, 4vw, 40px); display: flex; flex-direction: column; gap: 36px;">
+
+    <div class="reveal" style="display: flex; flex-direction: column; gap: 16px; max-width: 660px;">
+      <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Contenido gratuito</span>
+      <h2 style="font-size: clamp(28px, 4vw, 38px); line-height: 1.16; font-weight: 700; color: #12131A;">Guías prácticas, sin costo.</h2>
+      <p style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E;">Elegí las que te sirvan y te llegan al correo.</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+        <h3 style="font-size: 26px; line-height: 1.25; font-weight: 700; color: var(--accent);">Generar dinero con IA</h3>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <button class="arrow" data-rail-left="rail-guias-dinero" style="width: 40px; height: 40px; border: 1px solid #DDE0E7; border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width: 17px; height: 17px;" aria-hidden="true"><path d="m14.5 5-7 7 7 7"></path></svg>
+          </button>
+          <button class="arrow" data-rail-right="rail-guias-dinero" style="width: 40px; height: 40px; border: 1px solid #DDE0E7; border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width: 17px; height: 17px;" aria-hidden="true"><path d="m9.5 5 7 7-7 7"></path></svg>
+          </button>
+        </div>
+      </div>
+      <div id="rail-guias-dinero" class="rail" style="display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 18px; margin: -4px -4px -18px;"></div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+        <h3 style="font-size: 26px; line-height: 1.25; font-weight: 700; color: var(--accent);">Claude: tips y herramientas</h3>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <button class="arrow" data-rail-left="rail-guias-claude" style="width: 40px; height: 40px; border: 1px solid #DDE0E7; border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width: 17px; height: 17px;" aria-hidden="true"><path d="m14.5 5-7 7 7 7"></path></svg>
+          </button>
+          <button class="arrow" data-rail-right="rail-guias-claude" style="width: 40px; height: 40px; border: 1px solid #DDE0E7; border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width: 17px; height: 17px;" aria-hidden="true"><path d="m9.5 5 7 7-7 7"></path></svg>
+          </button>
+        </div>
+      </div>
+      <div id="rail-guias-claude" class="rail" style="display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 18px; margin: -4px -4px -18px;"></div>
+    </div>
+
+    <div id="guias-form" class="pop" hidden style="background: #ffffff; border: 1px solid #E8EAEF; border-radius: 18px; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 22px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <h3 id="picked-title" style="font-size: 21px; line-height: 1.3; font-weight: 700; color: #12131A;"></h3>
+          <p style="font-size: 14.5px; line-height: 1.6; color: #5A5F6E;">Completá tus datos y te las mando al correo ahora mismo.</p>
+        </div>
+        <button class="btn" id="clear-picks" style="font-size: 13.5px; font-weight: 500; color: #5A5F6E; background: #ffffff; border: 1px solid #DDE0E7; border-radius: 8px; padding: 9px 16px;">Limpiar selección</button>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Nombre</span>
+          <input type="text" id="guia-nombre" placeholder="Tu nombre completo">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Correo</span>
+          <input type="email" id="guia-correo" placeholder="tu@correo.com">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-size: 13px; font-weight: 500; color: #5A5F6E;">País</span>
+          <select id="guia-pais">
+            <option>Costa Rica</option><option>Panamá</option><option>México</option><option>Colombia</option>
+            <option>Argentina</option><option>Chile</option><option>Perú</option><option>Ecuador</option>
+            <option>Guatemala</option><option>El Salvador</option><option>Honduras</option><option>Nicaragua</option>
+            <option>República Dominicana</option><option>Venezuela</option><option>Uruguay</option><option>Bolivia</option>
+            <option>Paraguay</option><option>Estados Unidos</option><option>España</option><option>Portugal</option>
+            <option>Italia</option><option>Francia</option><option>Alemania</option><option>Reino Unido</option>
+            <option>Países Bajos</option><option>Otro</option>
+          </select>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Rol actual</span>
+          <select id="guia-rol">
+            <option>Ingeniero / Desarrollador</option><option>Marketing</option><option>Dueño de negocio</option>
+            <option>Emprendedor</option><option>Ventas</option><option>Operaciones</option>
+            <option>Finanzas / Contabilidad</option><option>Recursos Humanos</option><option>Consultor / Freelance</option>
+            <option>Estudiante</option><option>Otro</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+        <button class="btn" id="submit-guias" style="font-size: 15px; font-weight: 500; color: #ffffff; background: var(--accent); border-radius: 10px; padding: 15px 28px;"></button>
+      </div>
+    </div>
+
+    <div id="guias-sent" class="pop" hidden style="background: #EDF2FF; border: 1px solid #C9D5F2; border-radius: 18px; padding: clamp(24px, 3vw, 36px); display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+      <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px;" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"></path></svg>
+      </div>
+      <div style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 4px;">
+        <h3 style="font-size: 19px; line-height: 1.3; font-weight: 700; color: #12131A;">Listo, revisá tu correo.</h3>
+        <p style="font-size: 14.5px; line-height: 1.6; color: #444C63;">Te acaban de llegar las guías que elegiste.</p>
+      </div>
+      <button class="btn" id="reset-guias" style="font-size: 13.5px; font-weight: 500; color: #12131A; background: #ffffff; border: 1px solid #C9D5F2; border-radius: 8px; padding: 10px 18px;">Elegir otras guías</button>
+    </div>
+
+    <p id="guias-empty" style="font-size: 14.5px; color: #8C91A0;">Tocá las guías que quieras descargar para continuar.</p>
+
+  </div>
+</div>
+
+<div style="max-width: 1160px; width: 100%; margin: 0 auto; padding: clamp(60px, 7vw, 96px) clamp(20px, 4vw, 40px);">
+  <div class="reveal" style="background: var(--accent); border-radius: 24px; padding: clamp(40px, 6vw, 72px) clamp(28px, 5vw, 64px); display: flex; align-items: center; justify-content: space-between; gap: clamp(28px, 4vw, 48px); flex-wrap: wrap;">
+    <div style="flex: 1 1 460px; display: flex; flex-direction: column; gap: 18px;">
+      <h2 style="font-size: clamp(28px, 4vw, 38px); line-height: 1.16; font-weight: 700; color: #ffffff;">¿Querés que te ayudemos?</h2>
+      <p style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #DCE6FF; max-width: 560px;">Contame en qué proceso estás perdiendo más tiempo y vemos juntos si tiene sentido automatizarlo. Si no lo tiene, te lo digo.</p>
+    </div>
+    <div style="display: flex;">
+      <button class="btn" data-scroll="contacto" style="font-size: 15px; font-weight: 500; color: var(--accent); background: #ffffff; border-radius: 10px; padding: 16px 30px; text-align: center;">Agendar una llamada</button>
+    </div>
+  </div>
+</div>
+
+<div id="contacto" style="background: #FAFBFD; border-top: 1px solid #ECEDF1; border-bottom: 1px solid #ECEDF1;">
+  <div class="reveal" style="max-width: 720px; margin: 0 auto; padding: clamp(60px, 7vw, 96px) clamp(20px, 4vw, 40px); display: flex; flex-direction: column; gap: 32px;">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center;">
+      <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Contacto</span>
+      <h2 style="font-size: clamp(26px, 3.6vw, 34px); line-height: 1.18; font-weight: 700; color: #12131A;">Contame de tu negocio y veamos qué se puede automatizar.</h2>
+    </div>
+
+    <div style="background: #ffffff; border: 1px solid #E8EAEF; border-radius: 18px; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 18px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Nombre</span>
+          <input type="text" id="c-nombre" placeholder="Tu nombre">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Correo</span>
+          <input type="email" id="c-correo" placeholder="tu@correo.com">
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Teléfono</span>
+        <div style="display: flex; gap: 10px;">
+          <select id="c-pais-tel" style="flex: 0 0 220px;">
+            <option>+93 Afganistán</option><option>+355 Albania</option><option>+49 Alemania</option><option>+376 Andorra</option>
+            <option>+244 Angola</option><option>+1268 Antigua y Barbuda</option><option>+966 Arabia Saudita</option><option>+213 Argelia</option>
+            <option>+54 Argentina</option><option>+374 Armenia</option><option>+61 Australia</option><option>+43 Austria</option>
+            <option>+994 Azerbaiyán</option><option>+1242 Bahamas</option><option>+880 Bangladés</option><option>+1246 Barbados</option>
+            <option>+973 Baréin</option><option>+32 Bélgica</option><option>+501 Belice</option><option>+229 Benín</option>
+            <option>+375 Bielorrusia</option><option>+591 Bolivia</option><option>+387 Bosnia y Herzegovina</option><option>+267 Botsuana</option>
+            <option>+55 Brasil</option><option>+673 Brunéi</option><option>+359 Bulgaria</option><option>+226 Burkina Faso</option>
+            <option>+257 Burundi</option><option>+975 Bután</option><option>+238 Cabo Verde</option><option>+855 Camboya</option>
+            <option>+237 Camerún</option><option>+1 Canadá</option><option>+974 Catar</option><option>+235 Chad</option>
+            <option>+56 Chile</option><option>+86 China</option><option>+357 Chipre</option><option>+57 Colombia</option>
+            <option>+269 Comoras</option><option>+850 Corea del Norte</option><option>+82 Corea del Sur</option><option>+225 Costa de Marfil</option>
+            <option selected>+506 Costa Rica</option><option>+385 Croacia</option><option>+53 Cuba</option><option>+45 Dinamarca</option>
+            <option>+1767 Dominica</option><option>+593 Ecuador</option><option>+20 Egipto</option><option>+503 El Salvador</option>
+            <option>+971 Emiratos Árabes Unidos</option><option>+291 Eritrea</option><option>+421 Eslovaquia</option><option>+386 Eslovenia</option>
+            <option>+34 España</option><option>+1 Estados Unidos</option><option>+372 Estonia</option><option>+268 Esuatini</option>
+            <option>+251 Etiopía</option><option>+679 Fiyi</option><option>+63 Filipinas</option><option>+358 Finlandia</option>
+            <option>+33 Francia</option><option>+241 Gabón</option><option>+220 Gambia</option><option>+995 Georgia</option>
+            <option>+233 Ghana</option><option>+1473 Granada</option><option>+30 Grecia</option><option>+502 Guatemala</option>
+            <option>+224 Guinea</option><option>+245 Guinea-Bisáu</option><option>+240 Guinea Ecuatorial</option><option>+592 Guyana</option>
+            <option>+509 Haití</option><option>+504 Honduras</option><option>+852 Hong Kong</option><option>+36 Hungría</option>
+            <option>+91 India</option><option>+62 Indonesia</option><option>+964 Irak</option><option>+98 Irán</option>
+            <option>+353 Irlanda</option><option>+354 Islandia</option><option>+972 Israel</option><option>+39 Italia</option>
+            <option>+1876 Jamaica</option><option>+81 Japón</option><option>+962 Jordania</option><option>+7 Kazajistán</option>
+            <option>+254 Kenia</option><option>+996 Kirguistán</option><option>+686 Kiribati</option><option>+965 Kuwait</option>
+            <option>+856 Laos</option><option>+266 Lesoto</option><option>+371 Letonia</option><option>+961 Líbano</option>
+            <option>+231 Liberia</option><option>+218 Libia</option><option>+423 Liechtenstein</option><option>+370 Lituania</option>
+            <option>+352 Luxemburgo</option><option>+853 Macao</option><option>+261 Madagascar</option><option>+60 Malasia</option>
+            <option>+265 Malaui</option><option>+960 Maldivas</option><option>+223 Malí</option><option>+356 Malta</option>
+            <option>+212 Marruecos</option><option>+230 Mauricio</option><option>+222 Mauritania</option><option>+52 México</option>
+            <option>+373 Moldavia</option><option>+377 Mónaco</option><option>+976 Mongolia</option><option>+382 Montenegro</option>
+            <option>+258 Mozambique</option><option>+264 Namibia</option><option>+674 Nauru</option><option>+977 Nepal</option>
+            <option>+505 Nicaragua</option><option>+227 Níger</option><option>+234 Nigeria</option><option>+47 Noruega</option>
+            <option>+64 Nueva Zelanda</option><option>+968 Omán</option><option>+31 Países Bajos</option><option>+92 Pakistán</option>
+            <option>+507 Panamá</option><option>+675 Papúa Nueva Guinea</option><option>+595 Paraguay</option><option>+51 Perú</option>
+            <option>+48 Polonia</option><option>+351 Portugal</option><option>+1787 Puerto Rico</option><option>+44 Reino Unido</option>
+            <option>+236 República Centroafricana</option><option>+420 República Checa</option><option>+242 República del Congo</option>
+            <option>+243 República Democrática del Congo</option><option>+1809 República Dominicana</option><option>+250 Ruanda</option>
+            <option>+40 Rumanía</option><option>+7 Rusia</option><option>+685 Samoa</option><option>+378 San Marino</option>
+            <option>+1758 Santa Lucía</option><option>+239 Santo Tomé y Príncipe</option><option>+221 Senegal</option><option>+381 Serbia</option>
+            <option>+248 Seychelles</option><option>+232 Sierra Leona</option><option>+65 Singapur</option><option>+963 Siria</option>
+            <option>+252 Somalia</option><option>+94 Sri Lanka</option><option>+27 Sudáfrica</option><option>+249 Sudán</option>
+            <option>+211 Sudán del Sur</option><option>+46 Suecia</option><option>+41 Suiza</option><option>+597 Surinam</option>
+            <option>+66 Tailandia</option><option>+886 Taiwán</option><option>+255 Tanzania</option><option>+992 Tayikistán</option>
+            <option>+670 Timor Oriental</option><option>+228 Togo</option><option>+676 Tonga</option><option>+1868 Trinidad y Tobago</option>
+            <option>+216 Túnez</option><option>+993 Turkmenistán</option><option>+90 Turquía</option><option>+688 Tuvalu</option>
+            <option>+380 Ucrania</option><option>+256 Uganda</option><option>+598 Uruguay</option><option>+998 Uzbekistán</option>
+            <option>+678 Vanuatu</option><option>+58 Venezuela</option><option>+84 Vietnam</option><option>+967 Yemen</option>
+            <option>+253 Yibuti</option><option>+260 Zambia</option><option>+263 Zimbabue</option>
+          </select>
+          <input type="tel" id="c-telefono" placeholder="8888 8888" style="flex: 1;">
+        </div>
+        <span id="c-tel-error" hidden style="font-size: 13px; color: #C0392B;"></span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Contame en qué trabajás y cómo lo hacés hoy</span>
+        <textarea rows="4" id="c-mensaje" placeholder="A qué se dedica tu negocio, cómo es tu día a día, qué tarea se repite todas las semanas..."></textarea>
+      </div>
+      <button class="btn" id="c-submit" style="font-size: 15px; font-weight: 500; color: #ffffff; background: var(--accent); border-radius: 10px; padding: 15px 24px; text-align: center;">Enviar mensaje</button>
+    </div>
+  </div>
+</div>
+
+<div class="reveal" style="max-width: 1160px; width: 100%; margin: 0 auto; padding: clamp(60px, 7vw, 96px) clamp(20px, 4vw, 40px); display: flex; flex-direction: column; gap: 34px;">
+  <div style="display: flex; flex-direction: column; gap: 14px;">
+    <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Información</span>
+    <h2 style="font-size: clamp(28px, 4vw, 38px); line-height: 1.16; font-weight: 700; color: #12131A;">Marcos Vargas</h2>
+    <p style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E; max-width: 560px;">Detrás de Neiro Agency hay una sola persona, y estos son sus datos.</p>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: #E8EAEF; border: 1px solid #E8EAEF; border-radius: 18px; overflow: hidden;">
+
+    <div style="background: #ffffff; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
+      <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #8C91A0;">Formación</span>
+      <span style="font-size: 17px; font-weight: 500; color: #12131A;">Ingeniero en Sistemas</span>
+    </div>
+
+    <div style="background: #ffffff; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
+      <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #8C91A0;">Especialidad</span>
+      <span style="font-size: 17px; font-weight: 500; color: #12131A;">Inteligencia Artificial y Cloud</span>
+    </div>
+
+    <div style="background: #ffffff; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
+      <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #8C91A0;">Certificación</span>
+      <span style="font-size: 17px; font-weight: 500; color: #12131A;">Microsoft Certified · Azure AI Fundamentals</span>
+    </div>
+
+    <div style="background: #ffffff; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
+      <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #8C91A0;">Correo</span>
+      <span style="font-size: 17px; font-weight: 500; color: var(--accent);">soluciones@neiro.agency</span>
+    </div>
+
+    <div style="background: #ffffff; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
+      <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #8C91A0;">Instagram</span>
+      <div style="display: flex; align-items: center; gap: 9px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px; flex-shrink: 0;" aria-hidden="true">
+          <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
+          <circle cx="12" cy="12" r="4"></circle>
+          <circle cx="16.9" cy="7.1" r="0.9" fill="#12131A" stroke="none"></circle>
+        </svg>
+        <span style="font-size: 17px; font-weight: 500; color: #12131A;">@marcosvarbor</span>
+      </div>
+    </div>
+
+    <div style="background: #ffffff; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
+      <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #8C91A0;">TikTok</span>
+      <div style="display: flex; align-items: center; gap: 9px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px; flex-shrink: 0;" aria-hidden="true">
+          <circle cx="8" cy="17" r="3.2"></circle>
+          <path d="M11.2 17V4.5c1 2.1 2.7 3.2 5 3.4"></path>
+        </svg>
+        <span style="font-size: 17px; font-weight: 500; color: #12131A;">@marcosvargas2907</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div style="border-top: 1px solid #ECEDF1;">
+  <div style="max-width: 1160px; width: 100%; margin: 0 auto; padding: 32px clamp(20px, 4vw, 40px) 40px; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap;">
+    <div style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 17px; letter-spacing: -0.02em; display: flex; gap: 6px;">
+      <span style="color: #12131A;">Neiro</span><span style="color: var(--accent);">Agency</span>
+    </div>
+    <span style="font-size: 14px; color: #8C91A0;">Automatización con IA para negocios</span>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

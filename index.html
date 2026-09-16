@@ -37,6 +37,9 @@
   .rail::-webkit-scrollbar-track { background: transparent; }
   .arrow { cursor: pointer; transition: background-color .2s ease, border-color .2s ease, transform .2s ease; border: none; font: inherit; }
   .arrow:hover { background: #EDF2FF; border-color: var(--accent); transform: translateY(-2px); }
+  .field-error { font-size: 13px; color: #C0392B; }
+  .lang-btn.is-active { color: #ffffff !important; background: #12131A !important; }
+  .lang-btn:not(.is-active) { color: #777C8A !important; background: transparent !important; }
   [hidden] { display: none !important; }
   @media (prefers-reduced-motion: reduce) {
     .reveal, .pop, .lift, .btn, .arrow { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; }
@@ -51,19 +54,19 @@
       <span style="color: #12131A;">Neiro</span><span style="color: var(--accent);">Agency</span>
     </div>
     <div style="display: flex; align-items: center; gap: 2px; border: 1px solid #E4E6EC; border-radius: 999px; padding: 4px;">
-      <button class="btn" style="font-size: 13px; font-weight: 500; color: #ffffff; background: #12131A; border-radius: 999px; padding: 5px 13px;">ES</button>
-      <button class="btn" style="font-size: 13px; font-weight: 500; color: #777C8A; padding: 5px 13px; background: transparent;">EN</button>
+      <button class="btn lang-btn is-active" id="lang-es" style="font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px;">ES</button>
+      <button class="btn lang-btn" id="lang-en" style="font-size: 13px; font-weight: 500; padding: 5px 13px;">EN</button>
     </div>
   </div>
 </div>
 
 <div style="max-width: 1160px; width: 100%; margin: 0 auto; padding: clamp(60px, 8vw, 104px) clamp(20px, 4vw, 40px) clamp(60px, 7vw, 96px); display: flex; align-items: center; gap: clamp(32px, 5vw, 72px); flex-wrap: wrap;">
   <div class="reveal" style="flex: 1 1 460px; display: flex; flex-direction: column; align-items: flex-start; gap: 24px;">
-    <h1 style="font-size: clamp(34px, 5vw, 58px); line-height: 1.06; font-weight: 700; color: #12131A; text-wrap: pretty;">Automatizaciones con IA, hechas a la medida de tu negocio.</h1>
-    <p style="font-size: clamp(16px, 1.6vw, 18px); line-height: 1.65; color: #5A5F6E; max-width: 520px;">Ayudo a negocios a implementar automatizaciones con IA personalizadas para cada cuello de botella de su operación.</p>
+    <h1 data-en="AI automations, tailored to your business." style="font-size: clamp(34px, 5vw, 58px); line-height: 1.06; font-weight: 700; color: #12131A; text-wrap: pretty;">Automatizaciones con IA, hechas a la medida de tu negocio.</h1>
+    <p data-en="I help businesses implement custom AI automations for every bottleneck in their operation." style="font-size: clamp(16px, 1.6vw, 18px); line-height: 1.65; color: #5A5F6E; max-width: 520px;">Ayudo a negocios a implementar automatizaciones con IA personalizadas para cada cuello de botella de su operación.</p>
     <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
-      <button class="btn" data-scroll="contacto" style="font-size: 15px; font-weight: 500; color: #ffffff; background: var(--accent); border-radius: 10px; padding: 15px 26px;">Hablemos de tu negocio</button>
-      <button class="btn btn-ghost" data-scroll="guias" style="font-size: 15px; font-weight: 500; color: #12131A; background: #ffffff; border: 1px solid #DDE0E7; border-radius: 10px; padding: 15px 26px;">Ver recursos gratuitos</button>
+      <button class="btn" data-scroll="contacto" data-en="Let's talk about your business" style="font-size: 15px; font-weight: 500; color: #ffffff; background: var(--accent); border-radius: 10px; padding: 15px 26px;">Hablemos de tu negocio</button>
+      <button class="btn btn-ghost" data-scroll="guias" data-en="See free resources" style="font-size: 15px; font-weight: 500; color: #12131A; background: #ffffff; border: 1px solid #DDE0E7; border-radius: 10px; padding: 15px 26px;">Ver recursos gratuitos</button>
     </div>
   </div>
   <div class="reveal" data-d="2" style="flex: 1 1 320px; display: flex; justify-content: center;">
@@ -94,9 +97,9 @@
       </svg>
     </div>
     <div style="flex: 1 1 420px; display: flex; flex-direction: column; align-items: flex-start; gap: 18px;">
-      <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Sobre mí</span>
-      <h2 style="font-size: clamp(26px, 3vw, 30px); line-height: 1.22; font-weight: 700; color: #12131A;">Automatización con criterio técnico.</h2>
-      <p style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E; max-width: 620px;">Marcos Vargas — Ingeniero en Sistemas, con experiencia en el sector de IA y Cloud. Enfocado en construir agentes de IA para negocios, tanto soluciones internas como de atención al cliente.</p>
+      <span data-en="About me" style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Sobre mí</span>
+      <h2 data-en="Automation with technical judgment." style="font-size: clamp(26px, 3vw, 30px); line-height: 1.22; font-weight: 700; color: #12131A;">Automatización con criterio técnico.</h2>
+      <p data-en="Marcos Vargas — Systems Engineer, with experience in AI and Cloud. Focused on building AI agents for businesses, both for internal use and customer support." style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E; max-width: 620px;">Marcos Vargas — Ingeniero en Sistemas, con experiencia en el sector de IA y Cloud. Enfocado en construir agentes de IA para negocios, tanto soluciones internas como de atención al cliente.</p>
       <span style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 10px 16px;">Microsoft Certified · Azure AI Fundamentals</span>
     </div>
   </div>
@@ -104,8 +107,8 @@
 
 <div style="max-width: 1160px; width: 100%; margin: 0 auto; padding: clamp(60px, 7vw, 96px) clamp(20px, 4vw, 40px); display: flex; flex-direction: column; gap: 44px;">
   <div class="reveal" style="display: flex; flex-direction: column; gap: 16px; max-width: 680px;">
-    <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Qué hago</span>
-    <h2 style="font-size: clamp(28px, 4vw, 38px); line-height: 1.16; font-weight: 700; color: #12131A;">Automatización con un propósito claro.</h2>
+    <span data-en="What I do" style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Qué hago</span>
+    <h2 data-en="Automation with a clear purpose." style="font-size: clamp(28px, 4vw, 38px); line-height: 1.16; font-weight: 700; color: #12131A;">Automatización con un propósito claro.</h2>
   </div>
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
 
@@ -117,8 +120,8 @@
           <path d="M7.6 10.8h1.7l1.2-2.3 1.4 4 1-1.7h1.5"></path>
         </svg>
       </div>
-      <h3 style="font-size: 19px; line-height: 1.3; font-weight: 700; color: #12131A;">Diagnóstico de automatización</h3>
-      <p style="font-size: 15px; line-height: 1.68; color: #5A5F6E;">Identifico los cuellos de botella de tu operación donde la IA puede ahorrar tiempo real.</p>
+      <h3 data-en="Automation diagnosis" style="font-size: 19px; line-height: 1.3; font-weight: 700; color: #12131A;">Diagnóstico de automatización</h3>
+      <p data-en="I identify the bottlenecks in your operation where AI can save real time." style="font-size: 15px; line-height: 1.68; color: #5A5F6E;">Identifico los cuellos de botella de tu operación donde la IA puede ahorrar tiempo real.</p>
     </div>
 
     <div class="reveal lift" data-d="1" style="border: 1px solid #E8EAEF; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 18px; background: #ffffff;">
@@ -130,8 +133,8 @@
           <path d="M10.4 6.8 6.3 15.6M13.6 6.8l4.1 8.8M7.4 18h9.2"></path>
         </svg>
       </div>
-      <h3 style="font-size: 19px; line-height: 1.3; font-weight: 700; color: #12131A;">Agentes de IA a medida</h3>
-      <p style="font-size: 15px; line-height: 1.68; color: #5A5F6E;">Construyo agentes aplicados al uso interno de tu negocio, que resuelven tareas repetitivas y procesos manuales específicos de tu operación.</p>
+      <h3 data-en="Custom AI agents" style="font-size: 19px; line-height: 1.3; font-weight: 700; color: #12131A;">Agentes de IA a medida</h3>
+      <p data-en="I build agents for internal use in your business, solving repetitive tasks and manual processes specific to your operation." style="font-size: 15px; line-height: 1.68; color: #5A5F6E;">Construyo agentes aplicados al uso interno de tu negocio, que resuelven tareas repetitivas y procesos manuales específicos de tu operación.</p>
     </div>
 
     <div class="reveal lift" data-d="2" style="border: 1px solid #E8EAEF; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 18px; background: #ffffff;">
@@ -141,8 +144,8 @@
           <path d="m12.5 8.2.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9Z"></path>
         </svg>
       </div>
-      <h3 style="font-size: 19px; line-height: 1.3; font-weight: 700; color: #12131A;">Atención al cliente automatizada</h3>
-      <p style="font-size: 15px; line-height: 1.68; color: #5A5F6E;">Agentes que responden, califican y escalan conversaciones con clientes sin que tengas que contratar más gente.</p>
+      <h3 data-en="Automated customer support" style="font-size: 19px; line-height: 1.3; font-weight: 700; color: #12131A;">Atención al cliente automatizada</h3>
+      <p data-en="Agents that answer, qualify and escalate conversations with customers without you having to hire more people." style="font-size: 15px; line-height: 1.68; color: #5A5F6E;">Agentes que responden, califican y escalan conversaciones con clientes sin que tengas que contratar más gente.</p>
     </div>
 
   </div>
@@ -152,14 +155,14 @@
   <div style="max-width: 1160px; margin: 0 auto; padding: clamp(60px, 7vw, 96px) clamp(20px, 4vw, 40px); display: flex; flex-direction: column; gap: 36px;">
 
     <div class="reveal" style="display: flex; flex-direction: column; gap: 16px; max-width: 660px;">
-      <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Contenido gratuito</span>
-      <h2 style="font-size: clamp(28px, 4vw, 38px); line-height: 1.16; font-weight: 700; color: #12131A;">Guías prácticas, sin costo.</h2>
-      <p style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E;">Elegí las que te sirvan y te llegan al correo.</p>
+      <span data-en="Free content" style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Contenido gratuito</span>
+      <h2 data-en="Practical guides, at no cost." style="font-size: clamp(28px, 4vw, 38px); line-height: 1.16; font-weight: 700; color: #12131A;">Guías prácticas, sin costo.</h2>
+      <p data-en="Pick the ones you want and they'll be emailed to you." style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E;">Elegí las que te sirvan y te llegan al correo.</p>
     </div>
 
     <div style="display: flex; flex-direction: column; gap: 20px;">
       <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
-        <h3 style="font-size: 26px; line-height: 1.25; font-weight: 700; color: var(--accent);">Generar dinero con IA</h3>
+        <h3 data-en="Make money with AI" style="font-size: 26px; line-height: 1.25; font-weight: 700; color: var(--accent);">Generar dinero con IA</h3>
         <div style="display: flex; align-items: center; gap: 10px;">
           <button class="arrow" data-rail-left="rail-guias-dinero" style="width: 40px; height: 40px; border: 1px solid #DDE0E7; border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center;">
             <svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width: 17px; height: 17px;" aria-hidden="true"><path d="m14.5 5-7 7 7 7"></path></svg>
@@ -174,7 +177,7 @@
 
     <div style="display: flex; flex-direction: column; gap: 20px;">
       <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
-        <h3 style="font-size: 26px; line-height: 1.25; font-weight: 700; color: var(--accent);">Claude: tips y herramientas</h3>
+        <h3 data-en="Claude: tips and tools" style="font-size: 26px; line-height: 1.25; font-weight: 700; color: var(--accent);">Claude: tips y herramientas</h3>
         <div style="display: flex; align-items: center; gap: 10px;">
           <button class="arrow" data-rail-left="rail-guias-claude" style="width: 40px; height: 40px; border: 1px solid #DDE0E7; border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center;">
             <svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width: 17px; height: 17px;" aria-hidden="true"><path d="m14.5 5-7 7 7 7"></path></svg>
@@ -191,22 +194,24 @@
       <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
         <div style="display: flex; flex-direction: column; gap: 6px;">
           <h3 id="picked-title" style="font-size: 21px; line-height: 1.3; font-weight: 700; color: #12131A;"></h3>
-          <p style="font-size: 14.5px; line-height: 1.6; color: #5A5F6E;">Completá tus datos y te las mando al correo ahora mismo.</p>
+          <p data-en="Fill in your details and I'll email them to you right now." style="font-size: 14.5px; line-height: 1.6; color: #5A5F6E;">Completá tus datos y te las mando al correo ahora mismo.</p>
         </div>
-        <button class="btn" id="clear-picks" style="font-size: 13.5px; font-weight: 500; color: #5A5F6E; background: #ffffff; border: 1px solid #DDE0E7; border-radius: 8px; padding: 9px 16px;">Limpiar selección</button>
+        <button class="btn" id="clear-picks" data-en="Clear selection" style="font-size: 13.5px; font-weight: 500; color: #5A5F6E; background: #ffffff; border: 1px solid #DDE0E7; border-radius: 8px; padding: 9px 16px;">Limpiar selección</button>
       </div>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
         <div style="display: flex; flex-direction: column; gap: 8px;">
-          <span style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Nombre</span>
-          <input type="text" id="guia-nombre" placeholder="Tu nombre completo">
+          <span data-en="Name" style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Nombre</span>
+          <input type="text" id="guia-nombre" data-en-ph="Your full name" placeholder="Tu nombre completo">
+          <span id="guia-nombre-error" class="field-error" hidden></span>
         </div>
         <div style="display: flex; flex-direction: column; gap: 8px;">
-          <span style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Correo</span>
-          <input type="email" id="guia-correo" placeholder="tu@correo.com">
+          <span data-en="Email" style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Correo</span>
+          <input type="email" id="guia-correo" data-en-ph="you@email.com" placeholder="tu@correo.com">
+          <span id="guia-correo-error" class="field-error" hidden></span>
         </div>
         <div style="display: flex; flex-direction: column; gap: 8px;">
-          <span style="font-size: 13px; font-weight: 500; color: #5A5F6E;">País</span>
+          <span data-en="Country" style="font-size: 13px; font-weight: 500; color: #5A5F6E;">País</span>
           <select id="guia-pais">
             <option>Costa Rica</option><option>Panamá</option><option>México</option><option>Colombia</option>
             <option>Argentina</option><option>Chile</option><option>Perú</option><option>Ecuador</option>
@@ -218,7 +223,7 @@
           </select>
         </div>
         <div style="display: flex; flex-direction: column; gap: 8px;">
-          <span style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Rol actual</span>
+          <span data-en="Current role" style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Rol actual</span>
           <select id="guia-rol">
             <option>Ingeniero / Desarrollador</option><option>Marketing</option><option>Dueño de negocio</option>
             <option>Emprendedor</option><option>Ventas</option><option>Operaciones</option>
@@ -238,13 +243,13 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px;" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"></path></svg>
       </div>
       <div style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 4px;">
-        <h3 style="font-size: 19px; line-height: 1.3; font-weight: 700; color: #12131A;">Listo, revisá tu correo.</h3>
-        <p style="font-size: 14.5px; line-height: 1.6; color: #444C63;">Te acaban de llegar las guías que elegiste.</p>
+        <h3 data-en="Done, check your email." style="font-size: 19px; line-height: 1.3; font-weight: 700; color: #12131A;">Listo, revisá tu correo.</h3>
+        <p data-en="The guides you picked just landed in your inbox." style="font-size: 14.5px; line-height: 1.6; color: #444C63;">Te acaban de llegar las guías que elegiste.</p>
       </div>
-      <button class="btn" id="reset-guias" style="font-size: 13.5px; font-weight: 500; color: #12131A; background: #ffffff; border: 1px solid #C9D5F2; border-radius: 8px; padding: 10px 18px;">Elegir otras guías</button>
+      <button class="btn" id="reset-guias" data-en="Pick other guides" style="font-size: 13.5px; font-weight: 500; color: #12131A; background: #ffffff; border: 1px solid #C9D5F2; border-radius: 8px; padding: 10px 18px;">Elegir otras guías</button>
     </div>
 
-    <p id="guias-empty" style="font-size: 14.5px; color: #8C91A0;">Tocá las guías que quieras descargar para continuar.</p>
+    <p id="guias-empty" data-en="Tap the guides you'd like to download to continue." style="font-size: 14.5px; color: #8C91A0;">Tocá las guías que quieras descargar para continuar.</p>
 
   </div>
 </div>
@@ -252,11 +257,11 @@
 <div style="max-width: 1160px; width: 100%; margin: 0 auto; padding: clamp(60px, 7vw, 96px) clamp(20px, 4vw, 40px);">
   <div class="reveal" style="background: var(--accent); border-radius: 24px; padding: clamp(40px, 6vw, 72px) clamp(28px, 5vw, 64px); display: flex; align-items: center; justify-content: space-between; gap: clamp(28px, 4vw, 48px); flex-wrap: wrap;">
     <div style="flex: 1 1 460px; display: flex; flex-direction: column; gap: 18px;">
-      <h2 style="font-size: clamp(28px, 4vw, 38px); line-height: 1.16; font-weight: 700; color: #ffffff;">¿Querés que te ayudemos?</h2>
-      <p style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #DCE6FF; max-width: 560px;">Contame en qué proceso estás perdiendo más tiempo y vemos juntos si tiene sentido automatizarlo. Si no lo tiene, te lo digo.</p>
+      <h2 data-en="Want us to help you?" style="font-size: clamp(28px, 4vw, 38px); line-height: 1.16; font-weight: 700; color: #ffffff;">¿Querés que te ayudemos?</h2>
+      <p data-en="Tell me which process is costing you the most time and let's see together if it's worth automating. If it's not, I'll tell you." style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #DCE6FF; max-width: 560px;">Contame en qué proceso estás perdiendo más tiempo y vemos juntos si tiene sentido automatizarlo. Si no lo tiene, te lo digo.</p>
     </div>
     <div style="display: flex;">
-      <button class="btn" data-scroll="contacto" style="font-size: 15px; font-weight: 500; color: var(--accent); background: #ffffff; border-radius: 10px; padding: 16px 30px; text-align: center;">Agendar una llamada</button>
+      <button class="btn" data-scroll="contacto" data-en="Book a call" style="font-size: 15px; font-weight: 500; color: var(--accent); background: #ffffff; border-radius: 10px; padding: 16px 30px; text-align: center;">Agendar una llamada</button>
     </div>
   </div>
 </div>
@@ -264,23 +269,25 @@
 <div id="contacto" style="background: #FAFBFD; border-top: 1px solid #ECEDF1; border-bottom: 1px solid #ECEDF1;">
   <div class="reveal" style="max-width: 720px; margin: 0 auto; padding: clamp(60px, 7vw, 96px) clamp(20px, 4vw, 40px); display: flex; flex-direction: column; gap: 32px;">
     <div style="display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center;">
-      <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Contacto</span>
-      <h2 style="font-size: clamp(26px, 3.6vw, 34px); line-height: 1.18; font-weight: 700; color: #12131A;">Contame de tu negocio y veamos qué se puede automatizar.</h2>
+      <span data-en="Contact" style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Contacto</span>
+      <h2 data-en="Tell me about your business and let's see what can be automated." style="font-size: clamp(26px, 3.6vw, 34px); line-height: 1.18; font-weight: 700; color: #12131A;">Contame de tu negocio y veamos qué se puede automatizar.</h2>
     </div>
 
     <div style="background: #ffffff; border: 1px solid #E8EAEF; border-radius: 18px; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 18px;">
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
         <div style="display: flex; flex-direction: column; gap: 8px;">
-          <span style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Nombre</span>
-          <input type="text" id="c-nombre" placeholder="Tu nombre">
+          <span data-en="Name" style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Nombre</span>
+          <input type="text" id="c-nombre" data-en-ph="Your name" placeholder="Tu nombre">
+          <span id="c-nombre-error" class="field-error" hidden></span>
         </div>
         <div style="display: flex; flex-direction: column; gap: 8px;">
-          <span style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Correo</span>
-          <input type="email" id="c-correo" placeholder="tu@correo.com">
+          <span data-en="Email" style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Correo</span>
+          <input type="email" id="c-correo" data-en-ph="you@email.com" placeholder="tu@correo.com">
+          <span id="c-correo-error" class="field-error" hidden></span>
         </div>
       </div>
       <div style="display: flex; flex-direction: column; gap: 8px;">
-        <span style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Teléfono</span>
+        <span data-en="Phone" style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Teléfono</span>
         <div style="display: flex; gap: 10px;">
           <select id="c-pais-tel" style="flex: 0 0 220px;">
             <option>+93 Afganistán</option><option>+355 Albania</option><option>+49 Alemania</option><option>+376 Andorra</option>
@@ -334,43 +341,44 @@
           </select>
           <input type="tel" id="c-telefono" placeholder="8888 8888" style="flex: 1;">
         </div>
-        <span id="c-tel-error" hidden style="font-size: 13px; color: #C0392B;"></span>
+        <span id="c-tel-error" class="field-error" hidden></span>
       </div>
       <div style="display: flex; flex-direction: column; gap: 8px;">
-        <span style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Contame en qué trabajás y cómo lo hacés hoy</span>
-        <textarea rows="4" id="c-mensaje" placeholder="A qué se dedica tu negocio, cómo es tu día a día, qué tarea se repite todas las semanas..."></textarea>
+        <span data-en="Tell me what you do and how you do it today" style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Contame en qué trabajás y cómo lo hacés hoy</span>
+        <textarea rows="4" id="c-mensaje" data-en-ph="What your business does, what your day-to-day looks like, what task repeats every week..." placeholder="A qué se dedica tu negocio, cómo es tu día a día, qué tarea se repite todas las semanas..."></textarea>
       </div>
-      <button class="btn" id="c-submit" style="font-size: 15px; font-weight: 500; color: #ffffff; background: var(--accent); border-radius: 10px; padding: 15px 24px; text-align: center;">Enviar mensaje</button>
+      <button class="btn" id="c-submit" data-en="Send message" style="font-size: 15px; font-weight: 500; color: #ffffff; background: var(--accent); border-radius: 10px; padding: 15px 24px; text-align: center;">Enviar mensaje</button>
+      <span id="c-success" class="field-error" hidden style="color: #1D7A4C;"></span>
     </div>
   </div>
 </div>
 
 <div class="reveal" style="max-width: 1160px; width: 100%; margin: 0 auto; padding: clamp(60px, 7vw, 96px) clamp(20px, 4vw, 40px); display: flex; flex-direction: column; gap: 34px;">
   <div style="display: flex; flex-direction: column; gap: 14px;">
-    <span style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Información</span>
+    <span data-en="Information" style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Información</span>
     <h2 style="font-size: clamp(28px, 4vw, 38px); line-height: 1.16; font-weight: 700; color: #12131A;">Marcos Vargas</h2>
-    <p style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E; max-width: 560px;">Detrás de Neiro Agency hay una sola persona, y estos son sus datos.</p>
+    <p data-en="There's just one person behind Neiro Agency, and here are the details." style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E; max-width: 560px;">Detrás de Neiro Agency hay una sola persona, y estos son sus datos.</p>
   </div>
 
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: #E8EAEF; border: 1px solid #E8EAEF; border-radius: 18px; overflow: hidden;">
 
     <div style="background: #ffffff; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
-      <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #8C91A0;">Formación</span>
-      <span style="font-size: 17px; font-weight: 500; color: #12131A;">Ingeniero en Sistemas</span>
+      <span data-en="Background" style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #8C91A0;">Formación</span>
+      <span data-en="Systems Engineer" style="font-size: 17px; font-weight: 500; color: #12131A;">Ingeniero en Sistemas</span>
     </div>
 
     <div style="background: #ffffff; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
-      <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #8C91A0;">Especialidad</span>
-      <span style="font-size: 17px; font-weight: 500; color: #12131A;">Inteligencia Artificial y Cloud</span>
+      <span data-en="Specialty" style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #8C91A0;">Especialidad</span>
+      <span data-en="Artificial Intelligence and Cloud" style="font-size: 17px; font-weight: 500; color: #12131A;">Inteligencia Artificial y Cloud</span>
     </div>
 
     <div style="background: #ffffff; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
-      <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #8C91A0;">Certificación</span>
+      <span data-en="Certification" style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #8C91A0;">Certificación</span>
       <span style="font-size: 17px; font-weight: 500; color: #12131A;">Microsoft Certified · Azure AI Fundamentals</span>
     </div>
 
     <div style="background: #ffffff; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
-      <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #8C91A0;">Correo</span>
+      <span data-en="Email" style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #8C91A0;">Correo</span>
       <span style="font-size: 17px; font-weight: 500; color: var(--accent);">soluciones@neiro.agency</span>
     </div>
 
@@ -405,7 +413,7 @@
     <div style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 17px; letter-spacing: -0.02em; display: flex; gap: 6px;">
       <span style="color: #12131A;">Neiro</span><span style="color: var(--accent);">Agency</span>
     </div>
-    <span style="font-size: 14px; color: #8C91A0;">Automatización con IA para negocios</span>
+    <span data-en="AI automation for businesses" style="font-size: 14px; color: #8C91A0;">Automatización con IA para negocios</span>
   </div>
 </div>
 

@@ -2,17 +2,50 @@
   'use strict';
 
   var ACCENT = '#2F6BFF';
+  var lang = 'es';
 
   var GUIAS = [
-    { id: 'g1', tag: 'dinero', title: '[Título de la guía 01]', desc: '[Una línea sobre cómo generar ingresos con IA.]' },
-    { id: 'g2', tag: 'claude', title: '[Título de la guía 02]', desc: '[Un tip, tool o plugin de Claude explicado paso a paso.]' },
-    { id: 'g3', tag: 'dinero', title: '[Título de la guía 03]', desc: '[Una línea sobre el modelo de negocio que explica.]' },
-    { id: 'g4', tag: 'claude', title: '[Título de la guía 04]', desc: '[Un tip, tool o plugin de Claude explicado paso a paso.]' },
-    { id: 'g5', tag: 'dinero', title: '[Título de la guía 05]', desc: '[Una línea sobre cómo generar ingresos con IA.]' },
-    { id: 'g6', tag: 'claude', title: '[Título de la guía 06]', desc: '[Un tip, tool o plugin de Claude explicado paso a paso.]' }
+    { id: 'g1', tag: 'dinero', title: '[Título de la guía 01]', titleEn: '[Guide title 01]', desc: '[Una línea sobre cómo generar ingresos con IA.]', descEn: '[One line about how to make money with AI.]' },
+    { id: 'g2', tag: 'claude', title: '[Título de la guía 02]', titleEn: '[Guide title 02]', desc: '[Un tip, tool o plugin de Claude explicado paso a paso.]', descEn: '[A Claude tip, tool or plugin explained step by step.]' },
+    { id: 'g3', tag: 'dinero', title: '[Título de la guía 03]', titleEn: '[Guide title 03]', desc: '[Una línea sobre el modelo de negocio que explica.]', descEn: '[One line about the business model it covers.]' },
+    { id: 'g4', tag: 'claude', title: '[Título de la guía 04]', titleEn: '[Guide title 04]', desc: '[Un tip, tool o plugin de Claude explicado paso a paso.]', descEn: '[A Claude tip, tool or plugin explained step by step.]' },
+    { id: 'g5', tag: 'dinero', title: '[Título de la guía 05]', titleEn: '[Guide title 05]', desc: '[Una línea sobre cómo generar ingresos con IA.]', descEn: '[One line about how to make money with AI.]' },
+    { id: 'g6', tag: 'claude', title: '[Título de la guía 06]', titleEn: '[Guide title 06]', desc: '[Un tip, tool o plugin de Claude explicado paso a paso.]', descEn: '[A Claude tip, tool or plugin explained step by step.]' }
   ];
 
+  var STRINGS = {
+    es: {
+      pickToSelect: 'Tocá para seleccionar',
+      selected: 'Seleccionada',
+      pickedTitle: function (n) { return n === 1 ? '1 guía seleccionada' : n + ' guías seleccionadas'; },
+      downloadLabel: function (n) { return n === 1 ? 'Descargar 1 guía' : 'Descargar ' + n + ' guías'; },
+      nameRequired: 'Ingresá tu nombre.',
+      emailRequired: 'Ingresá tu correo.',
+      emailInvalid: 'Ese correo no parece válido.',
+      phoneRequired: 'Ingresá tu número de teléfono.',
+      phoneInvalid: function (code, expected, got) { return 'Para ' + code + ' se esperan ' + expected + ' (tenés ' + got + ').'; },
+      digitsWord: function (a, b) { return a === b ? a + ' dígitos' : 'entre ' + a + ' y ' + b + ' dígitos'; },
+      contactSuccess: 'Todo listo — esto se conecta al envío real cuando armemos el backend.'
+    },
+    en: {
+      pickToSelect: 'Tap to select',
+      selected: 'Selected',
+      pickedTitle: function (n) { return n === 1 ? '1 guide selected' : n + ' guides selected'; },
+      downloadLabel: function (n) { return n === 1 ? 'Download 1 guide' : 'Download ' + n + ' guides'; },
+      nameRequired: 'Enter your name.',
+      emailRequired: 'Enter your email.',
+      emailInvalid: "That email doesn't look valid.",
+      phoneRequired: 'Enter your phone number.',
+      phoneInvalid: function (code, expected, got) { return 'For ' + code + ' we expect ' + expected + ' (you entered ' + got + ').'; },
+      digitsWord: function (a, b) { return a === b ? a + ' digits' : 'between ' + a + ' and ' + b + ' digits'; },
+      contactSuccess: "All good — this connects to real sending once we build the backend."
+    }
+  };
+
+  function t() { return STRINGS[lang]; }
+
   var picked = {};
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   function el(tag, attrs, children) {
     var node = document.createElement(tag);
@@ -36,6 +69,8 @@
 
   function renderGuiaCard(g) {
     var on = !!picked[g.id];
+    var title = lang === 'en' ? g.titleEn : g.title;
+    var desc = lang === 'en' ? g.descEn : g.desc;
     var card = el('div', {
       class: 'reveal lift is-in',
       style: 'scroll-snap-align:start;flex:0 0 300px;background:#ffffff;border:1.5px solid ' + (on ? ACCENT : '#E8EAEF') + ';border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:14px;cursor:pointer;',
@@ -50,11 +85,11 @@
     }, [svgCheck('#ffffff')]);
 
     card.appendChild(el('div', { style: 'display:flex;justify-content:flex-end;' }, [dot]));
-    card.appendChild(el('h3', { style: 'font-size:18px;line-height:1.32;font-weight:700;color:#12131A;' }, [g.title]));
-    card.appendChild(el('p', { style: 'font-size:14.5px;line-height:1.62;color:#5A5F6E;flex-grow:1;' }, [g.desc]));
+    card.appendChild(el('h3', { style: 'font-size:18px;line-height:1.32;font-weight:700;color:#12131A;' }, [title]));
+    card.appendChild(el('p', { style: 'font-size:14.5px;line-height:1.62;color:#5A5F6E;flex-grow:1;' }, [desc]));
     card.appendChild(el('span', {
       style: 'font-size:13.5px;font-weight:500;color:' + (on ? ACCENT : '#8C91A0') + ';'
-    }, [on ? 'Seleccionada' : 'Tocá para seleccionar']));
+    }, [on ? t().selected : t().pickToSelect]));
 
     return card;
   }
@@ -79,12 +114,41 @@
 
     if (count > 0) {
       form.hidden = false; empty.hidden = true; sent.hidden = true;
-      document.getElementById('picked-title').textContent = count === 1 ? '1 guía seleccionada' : count + ' guías seleccionadas';
-      document.getElementById('submit-guias').textContent = count === 1 ? 'Descargar 1 guía' : 'Descargar ' + count + ' guías';
+      document.getElementById('picked-title').textContent = t().pickedTitle(count);
+      document.getElementById('submit-guias').textContent = t().downloadLabel(count);
     } else {
       form.hidden = true; empty.hidden = false; sent.hidden = true;
     }
   }
+
+  function showFieldError(inputId, errorId, message) {
+    var input = document.getElementById(inputId);
+    var errorEl = document.getElementById(errorId);
+    if (message) {
+      input.style.borderColor = '#C0392B';
+      errorEl.textContent = message;
+      errorEl.hidden = false;
+      return false;
+    }
+    input.style.borderColor = '#DDE0E7';
+    errorEl.hidden = true;
+    errorEl.textContent = '';
+    return true;
+  }
+
+  function clearFieldError(inputId, errorId) {
+    document.getElementById(inputId).style.borderColor = '#DDE0E7';
+    var errorEl = document.getElementById(errorId);
+    errorEl.hidden = true;
+    errorEl.textContent = '';
+  }
+
+  ['guia-nombre', 'c-nombre'].forEach(function (id) {
+    document.getElementById(id).addEventListener('input', function () { clearFieldError(id, id + '-error'); });
+  });
+  ['guia-correo', 'c-correo'].forEach(function (id) {
+    document.getElementById(id).addEventListener('input', function () { clearFieldError(id, id + '-error'); });
+  });
 
   document.getElementById('clear-picks').addEventListener('click', function () {
     picked = {};
@@ -92,6 +156,21 @@
   });
 
   document.getElementById('submit-guias').addEventListener('click', function () {
+    var nombre = document.getElementById('guia-nombre').value.trim();
+    var correo = document.getElementById('guia-correo').value.trim();
+
+    var nameOk = showFieldError('guia-nombre', 'guia-nombre-error', nombre ? null : t().nameRequired);
+    var emailOk;
+    if (!correo) {
+      emailOk = showFieldError('guia-correo', 'guia-correo-error', t().emailRequired);
+    } else if (!EMAIL_RE.test(correo)) {
+      emailOk = showFieldError('guia-correo', 'guia-correo-error', t().emailInvalid);
+    } else {
+      emailOk = showFieldError('guia-correo', 'guia-correo-error', null);
+    }
+
+    if (!nameOk || !emailOk) { return; }
+
     document.getElementById('guias-sent').setAttribute('data-sent', '1');
     renderGuias();
   });
@@ -99,6 +178,10 @@
   document.getElementById('reset-guias').addEventListener('click', function () {
     picked = {};
     document.getElementById('guias-sent').removeAttribute('data-sent');
+    clearFieldError('guia-nombre', 'guia-nombre-error');
+    clearFieldError('guia-correo', 'guia-correo-error');
+    document.getElementById('guia-nombre').value = '';
+    document.getElementById('guia-correo').value = '';
     renderGuias();
   });
 
@@ -134,36 +217,65 @@
     var code = (countryOption || '').split(' ')[0];
     var range = PHONE_DIGIT_LENGTHS[code] || [6, 14];
     var digits = (rawValue || '').replace(/\D/g, '');
-    if (!digits) { return 'Ingresá tu número de teléfono.'; }
+    if (!digits) { return t().phoneRequired; }
     if (digits.length < range[0] || digits.length > range[1]) {
-      var expected = range[0] === range[1] ? range[0] + ' dígitos' : 'entre ' + range[0] + ' y ' + range[1] + ' dígitos';
-      return 'Para ' + code + ' se esperan ' + expected + ' (tenés ' + digits.length + ').';
+      return t().phoneInvalid(code, t().digitsWord(range[0], range[1]), digits.length);
     }
     return null;
   }
 
   var telInput = document.getElementById('c-telefono');
   var telSelect = document.getElementById('c-pais-tel');
-  var telError = document.getElementById('c-tel-error');
 
-  function clearTelError() {
-    telError.hidden = true;
-    telError.textContent = '';
-    telInput.style.borderColor = '#DDE0E7';
-  }
-  telInput.addEventListener('input', clearTelError);
-  telSelect.addEventListener('change', clearTelError);
+  telInput.addEventListener('input', function () { clearFieldError('c-telefono', 'c-tel-error'); });
+  telSelect.addEventListener('change', function () { clearFieldError('c-telefono', 'c-tel-error'); });
 
   document.getElementById('c-submit').addEventListener('click', function () {
-    var err = validatePhone(telSelect.value, telInput.value);
-    if (err) {
-      telError.hidden = false;
-      telError.textContent = err;
-      telInput.style.borderColor = '#C0392B';
+    var nombre = document.getElementById('c-nombre').value.trim();
+    var correo = document.getElementById('c-correo').value.trim();
+    var successEl = document.getElementById('c-success');
+    successEl.hidden = true;
+
+    var nameOk = showFieldError('c-nombre', 'c-nombre-error', nombre ? null : t().nameRequired);
+    var emailOk;
+    if (!correo) {
+      emailOk = showFieldError('c-correo', 'c-correo-error', t().emailRequired);
+    } else if (!EMAIL_RE.test(correo)) {
+      emailOk = showFieldError('c-correo', 'c-correo-error', t().emailInvalid);
     } else {
-      clearTelError();
+      emailOk = showFieldError('c-correo', 'c-correo-error', null);
     }
+
+    var phoneErr = validatePhone(telSelect.value, telInput.value);
+    var phoneOk = showFieldError('c-telefono', 'c-tel-error', phoneErr);
+
+    if (!nameOk || !emailOk || !phoneOk) { return; }
+
+    successEl.textContent = t().contactSuccess;
+    successEl.hidden = false;
   });
+
+  function applyLang(newLang) {
+    lang = newLang;
+    document.getElementById('lang-es').classList.toggle('is-active', lang === 'es');
+    document.getElementById('lang-en').classList.toggle('is-active', lang === 'en');
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('[data-en]').forEach(function (node) {
+      if (!node.hasAttribute('data-es')) { node.setAttribute('data-es', node.textContent); }
+      node.textContent = lang === 'en' ? node.getAttribute('data-en') : node.getAttribute('data-es');
+    });
+
+    document.querySelectorAll('[data-en-ph]').forEach(function (node) {
+      if (!node.hasAttribute('data-es-ph')) { node.setAttribute('data-es-ph', node.getAttribute('placeholder')); }
+      node.setAttribute('placeholder', lang === 'en' ? node.getAttribute('data-en-ph') : node.getAttribute('data-es-ph'));
+    });
+
+    renderGuias();
+  }
+
+  document.getElementById('lang-es').addEventListener('click', function () { applyLang('es'); });
+  document.getElementById('lang-en').addEventListener('click', function () { applyLang('en'); });
 
   document.body.setAttribute('data-anim', 'on');
   var reveals = document.querySelectorAll('.reveal');

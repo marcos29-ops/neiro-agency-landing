@@ -38,6 +38,9 @@
   .arrow { cursor: pointer; transition: background-color .2s ease, border-color .2s ease, transform .2s ease; border: none; font: inherit; }
   .arrow:hover { background: #EDF2FF; border-color: var(--accent); transform: translateY(-2px); }
   .field-error { font-size: 13px; color: #C0392B; }
+  .info-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: #E8EAEF; border: 1px solid #E8EAEF; border-radius: 18px; overflow: hidden; }
+  @media (min-width: 640px) { .info-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 900px) { .info-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
   .lang-btn.is-active { color: #ffffff !important; background: #12131A !important; }
   .lang-btn:not(.is-active) { color: #777C8A !important; background: transparent !important; }
   [hidden] { display: none !important; }
@@ -259,7 +262,7 @@
     <div style="display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center;">
       <span data-en="Contact" style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Contacto</span>
       <h2 data-en="Want us to help you?" style="font-size: clamp(28px, 4.2vw, 40px); line-height: 1.16; font-weight: 700; color: #12131A;">¿Querés que te ayudemos?</h2>
-      <p data-en="No overselling: tell me your situation and I'll be honest about whether it's worth automating." style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E; max-width: 480px;">No vendo humo: contame tu caso y te digo con honestidad si tiene sentido automatizarlo.</p>
+      <p data-en="Tell me your situation and I'll be honest about whether it's worth automating." style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E; max-width: 480px;">Contame tu caso y te digo con honestidad si tiene sentido automatizarlo.</p>
     </div>
 
     <div style="background: #ffffff; border: 1px solid #E8EAEF; border-radius: 18px; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 18px;">
@@ -349,7 +352,7 @@
     <p data-en="There's just one person behind Neiro Agency, and here are the details." style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E; max-width: 560px;">Detrás de Neiro Agency hay una sola persona, y estos son sus datos.</p>
   </div>
 
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: #E8EAEF; border: 1px solid #E8EAEF; border-radius: 18px; overflow: hidden;">
+  <div class="info-grid">
 
     <div style="background: #ffffff; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
       <span data-en="Background" style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #8C91A0;">Formación</span>

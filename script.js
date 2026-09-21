@@ -4,6 +4,13 @@
   var ACCENT = '#2F6BFF';
   var lang = 'es';
 
+  // Webhooks publicos de n8n (no llevan secretos; la proteccion es validacion en servidor + CORS + campo trampa).
+  var WEBHOOKS = {
+    recursos: 'https://n8n.neiro.agency/webhook/web-recursos-gratuitos',
+    llamada: 'https://n8n.neiro.agency/webhook/web-solicitud-llamada'
+  };
+  var REQUEST_TIMEOUT_MS = 15000;
+
   var GUIAS = [
     { id: 'g1', tag: 'dinero', title: '[Título de la guía 01]', titleEn: '[Guide title 01]', desc: '[Una línea sobre cómo generar ingresos con IA.]', descEn: '[One line about how to make money with AI.]' },
     { id: 'g2', tag: 'claude', title: '[Título de la guía 02]', titleEn: '[Guide title 02]', desc: '[Un tip, tool o plugin de Claude explicado paso a paso.]', descEn: '[A Claude tip, tool or plugin explained step by step.]' },
@@ -27,7 +34,15 @@
       phoneRequired: 'Ingresá tu número de teléfono.',
       phoneInvalid: function (code, expected, got) { return 'Para ' + code + ' se esperan ' + expected + ' (tenés ' + got + ').'; },
       digitsWord: function (a, b) { return a === b ? a + ' dígitos' : 'entre ' + a + ' y ' + b + ' dígitos'; },
-      contactSuccess: 'Todo listo — esto se conecta al envío real cuando armemos el backend.'
+      sending: 'Enviando…',
+      modalClose: 'Cerrar',
+      modalOk: 'Entendido',
+      guiasOkTitle: 'Listo, revisá tu correo.',
+      guiasOkText: 'Te enviaremos a tu correo las guías que elegiste.',
+      contactOkTitle: 'Mensaje recibido',
+      contactOkText: 'Gracias. Te contacto pronto para coordinar la llamada.',
+      errorTitle: 'No pudimos enviarlo',
+      errorText: 'Hubo un problema de conexión. Intentá de nuevo en unos minutos.'
     },
     en: {
       pickToSelect: 'Tap to select',
@@ -40,7 +55,15 @@
       phoneRequired: 'Enter your phone number.',
       phoneInvalid: function (code, expected, got) { return 'For ' + code + ' we expect ' + expected + ' (you entered ' + got + ').'; },
       digitsWord: function (a, b) { return a === b ? a + ' digits' : 'between ' + a + ' and ' + b + ' digits'; },
-      contactSuccess: "All good — this connects to real sending once we build the backend."
+      sending: 'Sending…',
+      modalClose: 'Close',
+      modalOk: 'Got it',
+      guiasOkTitle: 'Done, check your email.',
+      guiasOkText: "We'll send the guides you picked to your email.",
+      contactOkTitle: 'Message received',
+      contactOkText: "Thanks. I'll be in touch soon to schedule the call.",
+      errorTitle: "We couldn't send it",
+      errorText: 'There was a connection problem. Please try again in a few minutes.'
     }
   };
 
@@ -109,20 +132,14 @@
 
     var count = Object.keys(picked).length;
     var form = document.getElementById('guias-form');
-    var sent = document.getElementById('guias-sent');
     var empty = document.getElementById('guias-empty');
 
-    if (sent.hasAttribute('data-sent')) {
-      form.hidden = true; empty.hidden = true; sent.hidden = false;
-      return;
-    }
-
     if (count > 0) {
-      form.hidden = false; empty.hidden = true; sent.hidden = true;
+      form.hidden = false; empty.hidden = true;
       document.getElementById('picked-title').textContent = t().pickedTitle(count);
       document.getElementById('submit-guias').textContent = t().downloadLabel(count);
     } else {
-      form.hidden = true; empty.hidden = false; sent.hidden = true;
+      form.hidden = true; empty.hidden = false;
     }
   }
 
@@ -148,6 +165,77 @@
     errorEl.textContent = '';
   }
 
+  function postJSON(url, payload) {
+    if (typeof fetch !== 'function') { return Promise.reject(new Error('fetch_unsupported')); }
+    var controller = typeof AbortController === 'function' ? new AbortController() : null;
+    var timer = controller ? setTimeout(function () { controller.abort(); }, REQUEST_TIMEOUT_MS) : null;
+    var options = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    };
+    if (controller) { options.signal = controller.signal; }
+    return fetch(url, options).then(function (res) {
+      clearTimeout(timer);
+      if (!res.ok) { throw new Error('http_' + res.status); }
+    }, function (err) {
+      clearTimeout(timer);
+      throw err;
+    });
+  }
+
+  function setSending(btn, on, restoreText) {
+    btn.disabled = on;
+    btn.style.opacity = on ? '.65' : '';
+    btn.style.cursor = on ? 'default' : '';
+    btn.setAttribute('aria-busy', on ? 'true' : 'false');
+    btn.textContent = on ? t().sending : restoreText;
+  }
+
+  var modalEl = document.getElementById('modal');
+  var modalReturnFocus = null;
+  var ICON_OK = '<svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:26px;height:26px" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"></path></svg>';
+  var ICON_ERR = '<svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:26px;height:26px" aria-hidden="true"><path d="M12 6.5v7M12 17.5h.01"></path></svg>';
+
+  function openModal(kind, returnFocusEl) {
+    var s = t();
+    var isErr = kind === 'error';
+    var title = isErr ? s.errorTitle : (kind === 'guias' ? s.guiasOkTitle : s.contactOkTitle);
+    var text = isErr ? s.errorText : (kind === 'guias' ? s.guiasOkText : s.contactOkText);
+    var icon = document.getElementById('modal-icon');
+    icon.className = 'modal-icon ' + (isErr ? 'err' : 'ok');
+    icon.innerHTML = isErr ? ICON_ERR : ICON_OK;
+    document.getElementById('modal-title').textContent = title;
+    document.getElementById('modal-text').textContent = text;
+    document.getElementById('modal-ok').textContent = s.modalOk;
+    document.getElementById('modal-x').setAttribute('aria-label', s.modalClose);
+    modalReturnFocus = returnFocusEl || null;
+    modalEl.hidden = false;
+    document.body.style.overflow = 'hidden';
+    document.getElementById('modal-ok').focus();
+  }
+
+  function closeModal() {
+    if (modalEl.hidden) { return; }
+    modalEl.hidden = true;
+    document.body.style.overflow = '';
+    if (modalReturnFocus && document.body.contains(modalReturnFocus)) { modalReturnFocus.focus(); }
+    modalReturnFocus = null;
+  }
+
+  modalEl.querySelectorAll('[data-close]').forEach(function (node) { node.addEventListener('click', closeModal); });
+  document.addEventListener('keydown', function (e) {
+    if (modalEl.hidden) { return; }
+    if (e.key === 'Escape') { closeModal(); return; }
+    if (e.key === 'Tab') {
+      var items = [document.getElementById('modal-x'), document.getElementById('modal-ok')];
+      var i = items.indexOf(document.activeElement);
+      if (i === -1) { e.preventDefault(); items[1].focus(); }
+      else if (e.shiftKey && i === 0) { e.preventDefault(); items[1].focus(); }
+      else if (!e.shiftKey && i === items.length - 1) { e.preventDefault(); items[0].focus(); }
+    }
+  });
+
   ['guia-nombre', 'c-nombre'].forEach(function (id) {
     document.getElementById(id).addEventListener('input', function () { clearFieldError(id, id + '-error'); });
   });
@@ -161,6 +249,8 @@
   });
 
   document.getElementById('submit-guias').addEventListener('click', function () {
+    var btn = this;
+    if (btn.disabled) { return; }
     var nombre = document.getElementById('guia-nombre').value.trim();
     var correo = document.getElementById('guia-correo').value.trim();
 
@@ -176,18 +266,29 @@
 
     if (!nameOk || !emailOk) { return; }
 
-    document.getElementById('guias-sent').setAttribute('data-sent', '1');
-    renderGuias();
-  });
+    var restoreText = btn.textContent;
+    var guias = GUIAS.filter(function (g) { return picked[g.id]; }).map(function (g) { return g.id + ': ' + g.title; });
 
-  document.getElementById('reset-guias').addEventListener('click', function () {
-    picked = {};
-    document.getElementById('guias-sent').removeAttribute('data-sent');
-    clearFieldError('guia-nombre', 'guia-nombre-error');
-    clearFieldError('guia-correo', 'guia-correo-error');
-    document.getElementById('guia-nombre').value = '';
-    document.getElementById('guia-correo').value = '';
-    renderGuias();
+    setSending(btn, true);
+    postJSON(WEBHOOKS.recursos, {
+      nombre: nombre,
+      correo: correo,
+      pais: document.getElementById('guia-pais').value,
+      rol: document.getElementById('guia-rol').value,
+      guias: guias,
+      idioma: lang,
+      website: document.getElementById('guia-website').value
+    }).then(function () {
+      picked = {};
+      document.getElementById('guia-nombre').value = '';
+      document.getElementById('guia-correo').value = '';
+      renderGuias();
+      openModal('guias', null);
+    }, function () {
+      openModal('error', btn);
+    }).then(function () {
+      setSending(btn, false, restoreText);
+    });
   });
 
   document.querySelectorAll('[data-rail-left]').forEach(function (btn) {
@@ -236,10 +337,10 @@
   telSelect.addEventListener('change', function () { clearFieldError('c-telefono', 'c-tel-error'); });
 
   document.getElementById('c-submit').addEventListener('click', function () {
+    var btn = this;
+    if (btn.disabled) { return; }
     var nombre = document.getElementById('c-nombre').value.trim();
     var correo = document.getElementById('c-correo').value.trim();
-    var successEl = document.getElementById('c-success');
-    successEl.hidden = true;
 
     var nameOk = showFieldError('c-nombre', 'c-nombre-error', nombre ? null : t().nameRequired);
     var emailOk;
@@ -256,8 +357,29 @@
 
     if (!nameOk || !emailOk || !phoneOk) { return; }
 
-    successEl.textContent = t().contactSuccess;
-    successEl.hidden = false;
+    var restoreText = btn.textContent;
+    var code = (telSelect.value || '').split(' ')[0];
+    var digits = telInput.value.replace(/\D/g, '');
+
+    setSending(btn, true);
+    postJSON(WEBHOOKS.llamada, {
+      nombre: nombre,
+      correo: correo,
+      telefono: code + ' ' + digits,
+      mensaje: document.getElementById('c-mensaje').value.trim(),
+      idioma: lang,
+      website: document.getElementById('c-website').value
+    }).then(function () {
+      document.getElementById('c-nombre').value = '';
+      document.getElementById('c-correo').value = '';
+      telInput.value = '';
+      document.getElementById('c-mensaje').value = '';
+      openModal('contacto', null);
+    }, function () {
+      openModal('error', btn);
+    }).then(function () {
+      setSending(btn, false, restoreText);
+    });
   });
 
   function applyLang(newLang) {

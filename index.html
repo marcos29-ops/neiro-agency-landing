@@ -44,6 +44,9 @@
   .lang-btn.is-active { color: #ffffff !important; background: #12131A !important; }
   .lang-btn:not(.is-active) { color: #777C8A !important; background: transparent !important; }
   [hidden] { display: none !important; }
+  a.contact-link { text-decoration: none; color: inherit; }
+  a.contact-link:hover .contact-text, a.contact-link.contact-mail:hover { text-decoration: underline; text-underline-offset: 3px; }
+  a.contact-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
   @keyframes dcFade { from { opacity: 0; } to { opacity: 1; } }
   @keyframes dcPopIn { from { opacity: 0; transform: translateY(14px) scale(.96); } to { opacity: 1; transform: none; } }
   .modal { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 20px; }
@@ -401,30 +404,30 @@
 
     <div style="background: #ffffff; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
       <span data-en="Email" style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #8C91A0;">Correo</span>
-      <span style="font-size: 17px; font-weight: 500; color: var(--accent);">soluciones@neiro.agency</span>
+      <a class="contact-link contact-mail" href="mailto:soluciones@neiro.agency" aria-label="Enviar un correo a soluciones@neiro.agency" style="font-size: 17px; font-weight: 500; color: var(--accent);">soluciones@neiro.agency</a>
     </div>
 
     <div style="background: #ffffff; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
       <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #8C91A0;">Instagram</span>
-      <div style="display: flex; align-items: center; gap: 9px;">
+      <a class="contact-link" href="https://www.instagram.com/marcosvarbor/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram @marcosvarbor" style="display: flex; align-items: center; gap: 9px;">
         <svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px; flex-shrink: 0;" aria-hidden="true">
           <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
           <circle cx="12" cy="12" r="4"></circle>
           <circle cx="16.9" cy="7.1" r="0.9" fill="#12131A" stroke="none"></circle>
         </svg>
-        <span style="font-size: 17px; font-weight: 500; color: #12131A;">@marcosvarbor</span>
-      </div>
+        <span class="contact-text" style="font-size: 17px; font-weight: 500; color: #12131A;">@marcosvarbor</span>
+      </a>
     </div>
 
     <div style="background: #ffffff; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
       <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #8C91A0;">TikTok</span>
-      <div style="display: flex; align-items: center; gap: 9px;">
+      <a class="contact-link" href="https://www.tiktok.com/@marcosvargas2907" target="_blank" rel="noopener noreferrer" aria-label="Abrir TikTok @marcosvargas2907" style="display: flex; align-items: center; gap: 9px;">
         <svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px; flex-shrink: 0;" aria-hidden="true">
           <circle cx="8" cy="17" r="3.2"></circle>
           <path d="M11.2 17V4.5c1 2.1 2.7 3.2 5 3.4"></path>
         </svg>
-        <span style="font-size: 17px; font-weight: 500; color: #12131A;">@marcosvargas2907</span>
-      </div>
+        <span class="contact-text" style="font-size: 17px; font-weight: 500; color: #12131A;">@marcosvargas2907</span>
+      </a>
     </div>
 
   </div>

@@ -165,7 +165,7 @@
     errorEl.textContent = '';
   }
 
-  function postJSON(url, payload) {
+  function postOnce(url, payload) {
     if (typeof fetch !== 'function') { return Promise.reject(new Error('fetch_unsupported')); }
     var controller = typeof AbortController === 'function' ? new AbortController() : null;
     var timer = controller ? setTimeout(function () { controller.abort(); }, REQUEST_TIMEOUT_MS) : null;
@@ -182,6 +182,29 @@
       clearTimeout(timer);
       throw err;
     });
+  }
+
+  // Reintenta solo si el fallo es del servidor (5xx), limite de peticiones (429) o falta de conexion.
+  // No reintenta errores de validacion (4xx) ni cortes por tiempo: en ese caso el dato pudo haberse guardado y se duplicaria.
+  var RETRY_DELAYS_MS = [3000, 10000];
+
+  function isRetryable(err) {
+    var m = String((err && err.message) || '');
+    if (/^http_(5\d\d|429)$/.test(m)) { return true; }
+    return !!err && err.name === 'TypeError';
+  }
+
+  function postJSON(url, payload) {
+    var attempt = 0;
+    function run() {
+      return postOnce(url, payload).catch(function (err) {
+        if (attempt >= RETRY_DELAYS_MS.length || !isRetryable(err)) { throw err; }
+        var wait = RETRY_DELAYS_MS[attempt] + Math.floor(Math.random() * 3000);
+        attempt += 1;
+        return new Promise(function (resolve) { setTimeout(resolve, wait); }).then(run);
+      });
+    }
+    return run();
   }
 
   function setSending(btn, on, restoreText) {

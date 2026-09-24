@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recursos gratuitos · Neiro Agency</title>
+<meta name="description" content="Guías prácticas y gratuitas sobre automatizaciones con IA para tu negocio.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+  :root { --accent: #2F6BFF; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #ffffff; color: #12131A; font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif; overflow-x: hidden; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: #1D46C7; }
+  h1, h2, h3 { font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; margin: 0; letter-spacing: -0.02em; }
+  p { margin: 0; }
+  input, select, textarea { font-family: inherit; font-size: 15px; color: #12131A; background: #ffffff; border: 1px solid #DDE0E7; border-radius: 10px; padding: 14px 16px; outline: none; width: 100%; transition: border-color .2s ease, box-shadow .2s ease; }
+  input:focus, select:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(47,107,255,.14); }
+  input::placeholder, textarea::placeholder { color: #A2A7B5; }
+  @keyframes dcFadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  .reveal { transition: opacity .8s cubic-bezier(.22,.68,.3,1), transform .8s cubic-bezier(.22,.68,.3,1); }
+  body[data-anim="on"] .reveal { opacity: 0; transform: translateY(22px); }
+  body[data-anim="on"] .reveal.is-in { opacity: 1; transform: none; }
+  .pop { animation: dcFadeUp .45s cubic-bezier(.22,.68,.3,1) both; }
+  .lift { transition: transform .28s cubic-bezier(.22,.68,.3,1), box-shadow .28s ease, border-color .28s ease; }
+  .lift:hover { transform: translateY(-5px); box-shadow: 0 14px 34px rgba(18,19,26,.09); border-color: #C9D5F2; }
+  .btn { cursor: pointer; user-select: none; transition: transform .18s cubic-bezier(.22,.68,.3,1), box-shadow .22s ease, background-color .22s ease, border-color .22s ease; border: none; font: inherit; }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(47,107,255,.26); }
+  .btn:active { transform: translateY(0); box-shadow: none; }
+  .btn-ghost:hover { box-shadow: 0 10px 24px rgba(18,19,26,.10); border-color: #B9C0CF; }
+  a.btn-ghost, a.btn-ghost:hover { color: #12131A; }
+  .rail { scrollbar-width: thin; scrollbar-color: #D2D7E3 transparent; }
+  .rail::-webkit-scrollbar { height: 8px; }
+  .rail::-webkit-scrollbar-thumb { background: #D2D7E3; border-radius: 999px; }
+  .rail::-webkit-scrollbar-track { background: transparent; }
+  .arrow { cursor: pointer; transition: background-color .2s ease, border-color .2s ease, transform .2s ease; border: none; font: inherit; }
+  .arrow:hover { background: #EDF2FF; border-color: var(--accent); transform: translateY(-2px); }
+  .field-error { font-size: 13px; color: #C0392B; }
+  .lang-btn.is-active { color: #ffffff !important; background: #12131A !important; }
+  .lang-btn:not(.is-active) { color: #777C8A !important; background: transparent !important; }
+  [hidden] { display: none !important; }
+  @keyframes dcFade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes dcPopIn { from { opacity: 0; transform: translateY(14px) scale(.96); } to { opacity: 1; transform: none; } }
+  .modal { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 20px; }
+  .modal-backdrop { position: absolute; inset: 0; background: rgba(18,19,26,.55); animation: dcFade .2s ease both; }
+  .modal-card { position: relative; width: 100%; max-width: 420px; max-height: calc(100vh - 40px); max-height: calc(100dvh - 40px); overflow-y: auto; background: #ffffff; border-radius: 20px; padding: 36px 28px 28px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px; box-shadow: 0 24px 60px rgba(18,19,26,.28); animation: dcPopIn .28s cubic-bezier(.22,.68,.3,1) both; }
+  .modal-x { position: absolute; top: 10px; right: 10px; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; border: none; background: transparent; border-radius: 10px; font-size: 26px; line-height: 1; color: #5A5F6E; cursor: pointer; transition: background-color .2s ease; }
+  .modal-x:hover { background: #F1F3F8; }
+  .modal-icon { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .modal-icon.ok { background: var(--accent); }
+  .modal-icon.err { background: #C0392B; }
+  .modal-card h3 { font-size: 21px; line-height: 1.3; font-weight: 700; color: #12131A; }
+  .modal-card p { font-size: 15px; line-height: 1.6; color: #444C63; }
+  .hp { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .pop, .lift, .btn, .arrow, .modal-card, .modal-backdrop { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div style="border-bottom: 1px solid #ECEDF1; background: rgba(255,255,255,.92); backdrop-filter: saturate(180%) blur(10px); position: sticky; top: 0; z-index: 10;">
+  <div style="max-width: 1160px; margin: 0 auto; padding: 20px clamp(20px, 4vw, 40px); display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+    <a href="index.html" style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 21px; letter-spacing: -0.02em; display: flex; gap: 7px;">
+      <span style="color: #12131A;">Neiro</span><span style="color: var(--accent);">Agency</span>
+    </a>
+    <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+      <a href="index.html" data-en="Home" style="font-size: 14.5px; font-weight: 500; color: #444C63;">Inicio</a>
+      <div style="display: flex; align-items: center; gap: 2px; border: 1px solid #E4E6EC; border-radius: 999px; padding: 4px;">
+        <button class="btn lang-btn is-active" id="lang-es" style="font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px;">ES</button>
+        <button class="btn lang-btn" id="lang-en" style="font-size: 13px; font-weight: 500; padding: 5px 13px;">EN</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="guias" style="background: #FAFBFD; border-bottom: 1px solid #ECEDF1;">
+  <div style="max-width: 1160px; margin: 0 auto; padding: clamp(60px, 7vw, 96px) clamp(20px, 4vw, 40px); display: flex; flex-direction: column; gap: 36px;">
+
+    <div class="reveal" style="display: flex; flex-direction: column; gap: 16px; max-width: 660px;">
+      <h2 data-en="Free guides." style="font-size: clamp(28px, 4vw, 38px); line-height: 1.16; font-weight: 700; color: #12131A;">Guías gratuitas.</h2>
+      <p data-en="Pick the ones you want and they'll be emailed to you." style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E;">Elegí las que te sirvan y te llegan al correo.</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+        <h3 data-en="AI automations for your business" style="font-size: 26px; line-height: 1.25; font-weight: 700; color: var(--accent);">Automatizaciones con IA para tu negocio</h3>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <button class="arrow" data-rail-left="rail-guias-dinero" style="width: 40px; height: 40px; border: 1px solid #DDE0E7; border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width: 17px; height: 17px;" aria-hidden="true"><path d="m14.5 5-7 7 7 7"></path></svg>
+          </button>
+          <button class="arrow" data-rail-right="rail-guias-dinero" style="width: 40px; height: 40px; border: 1px solid #DDE0E7; border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width: 17px; height: 17px;" aria-hidden="true"><path d="m9.5 5 7 7-7 7"></path></svg>
+          </button>
+        </div>
+      </div>
+      <div id="rail-guias-dinero" class="rail" style="display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 18px; margin: -4px -4px -18px;"></div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+        <h3 data-en="Claude at its best" style="font-size: 26px; line-height: 1.25; font-weight: 700; color: var(--accent);">Claude al máximo</h3>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <button class="arrow" data-rail-left="rail-guias-claude" style="width: 40px; height: 40px; border: 1px solid #DDE0E7; border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width: 17px; height: 17px;" aria-hidden="true"><path d="m14.5 5-7 7 7 7"></path></svg>
+          </button>
+          <button class="arrow" data-rail-right="rail-guias-claude" style="width: 40px; height: 40px; border: 1px solid #DDE0E7; border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width: 17px; height: 17px;" aria-hidden="true"><path d="m9.5 5 7 7-7 7"></path></svg>
+          </button>
+        </div>
+      </div>
+      <div id="rail-guias-claude" class="rail" style="display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 18px; margin: -4px -4px -18px;"></div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+        <h3 data-en="Learn AI automations from scratch" style="font-size: 26px; line-height: 1.25; font-weight: 700; color: var(--accent);">Aprende automatizaciones con IA desde cero</h3>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <button class="arrow" data-rail-left="rail-guias-tecnico" style="width: 40px; height: 40px; border: 1px solid #DDE0E7; border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width: 17px; height: 17px;" aria-hidden="true"><path d="m14.5 5-7 7 7 7"></path></svg>
+          </button>
+          <button class="arrow" data-rail-right="rail-guias-tecnico" style="width: 40px; height: 40px; border: 1px solid #DDE0E7; border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width: 17px; height: 17px;" aria-hidden="true"><path d="m9.5 5 7 7-7 7"></path></svg>
+          </button>
+        </div>
+      </div>
+      <div id="rail-guias-tecnico" class="rail" style="display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 18px; margin: -4px -4px -18px;"></div>
+    </div>
+
+    <div id="guias-form" class="pop" hidden style="background: #ffffff; border: 1px solid #E8EAEF; border-radius: 18px; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 22px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <h3 id="picked-title" style="font-size: 21px; line-height: 1.3; font-weight: 700; color: #12131A;"></h3>
+          <p data-en="Fill in your details and I'll email them to you right now." style="font-size: 14.5px; line-height: 1.6; color: #5A5F6E;">Completá tus datos y te las mando al correo ahora mismo.</p>
+        </div>
+        <button class="btn" id="clear-picks" data-en="Clear selection" style="font-size: 13.5px; font-weight: 500; color: #5A5F6E; background: #ffffff; border: 1px solid #DDE0E7; border-radius: 8px; padding: 9px 16px;">Limpiar selección</button>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span data-en="Name" style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Nombre</span>
+          <input type="text" id="guia-nombre" data-en-ph="Your full name" placeholder="Tu nombre completo">
+          <span id="guia-nombre-error" class="field-error" hidden></span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span data-en="Email" style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Correo</span>
+          <input type="email" id="guia-correo" data-en-ph="you@email.com" placeholder="tu@correo.com">
+          <span id="guia-correo-error" class="field-error" hidden></span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span data-en="Country" style="font-size: 13px; font-weight: 500; color: #5A5F6E;">País</span>
+          <select id="guia-pais">
+            <option>Costa Rica</option><option>Panamá</option><option>México</option><option>Colombia</option>
+            <option>Argentina</option><option>Chile</option><option>Perú</option><option>Ecuador</option>
+            <option>Guatemala</option><option>El Salvador</option><option>Honduras</option><option>Nicaragua</option>
+            <option>República Dominicana</option><option>Venezuela</option><option>Uruguay</option><option>Bolivia</option>
+            <option>Paraguay</option><option>Estados Unidos</option><option>España</option><option>Portugal</option>
+            <option>Italia</option><option>Francia</option><option>Alemania</option><option>Reino Unido</option>
+            <option>Países Bajos</option><option>Otro</option>
+          </select>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span data-en="Current role" style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Rol actual</span>
+          <select id="guia-rol">
+            <option>Ingeniero / Desarrollador</option><option>Marketing</option><option>Dueño de negocio</option>
+            <option>Emprendedor</option><option>Ventas</option><option>Operaciones</option>
+            <option>Finanzas / Contabilidad</option><option>Recursos Humanos</option><option>Consultor / Freelance</option>
+            <option>Estudiante</option><option>Otro</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="hp" aria-hidden="true"><label>Website <input type="text" id="guia-website" tabindex="-1" autocomplete="off"></label></div>
+      <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+        <button class="btn" id="submit-guias" style="font-size: 15px; font-weight: 500; color: #ffffff; background: var(--accent); border-radius: 10px; padding: 15px 28px;"></button>
+      </div>
+    </div>
+
+    <p id="guias-empty" data-en="Tap the guides you'd like to download to continue." style="font-size: 14.5px; color: #8C91A0;">Tocá las guías que quieras descargar para continuar.</p>
+
+  </div>
+</div>
+
+<div style="border-top: 1px solid #ECEDF1;">
+  <div style="max-width: 1160px; width: 100%; margin: 0 auto; padding: 32px clamp(20px, 4vw, 40px) 40px; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap;">
+    <a href="index.html" style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 17px; letter-spacing: -0.02em; display: flex; gap: 6px;">
+      <span style="color: #12131A;">Neiro</span><span style="color: var(--accent);">Agency</span>
+    </a>
+    <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
+      <span data-en="AI automation for businesses" style="font-size: 14px; color: #8C91A0;">Automatización con IA para negocios</span>
+      <span data-en="© 2026 Neiro Agency. All rights reserved." style="font-size: 12.5px; color: #B0B4C0;">© 2026 Neiro Agency. Todos los derechos reservados.</span>
+    </div>
+  </div>
+</div>
+
+<div id="modal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-text">
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-card">
+    <button type="button" class="modal-x" id="modal-x" data-close aria-label="Cerrar">&times;</button>
+    <div class="modal-icon ok" id="modal-icon"></div>
+    <h3 id="modal-title"></h3>
+    <p id="modal-text"></p>
+    <button type="button" class="btn" id="modal-ok" data-close style="margin-top: 8px; width: 100%; font-size: 15px; font-weight: 500; color: #ffffff; background: var(--accent); border-radius: 10px; padding: 14px 24px;"></button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

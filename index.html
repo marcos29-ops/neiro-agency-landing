@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Neiro Agency — Automatizaciones con IA</title>
+<title>Neiro Agency · Automatizaciones con IA</title>
 <meta name="description" content="Ayudo a negocios a implementar automatizaciones con IA personalizadas para cada cuello de botella de su operación.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap">
 <style>
@@ -12,6 +12,7 @@
   body { margin: 0; background: #ffffff; color: #12131A; font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif; overflow-x: hidden; }
   a { color: var(--accent); text-decoration: none; }
   a:hover { color: #1D46C7; }
+  a.btn-ghost, a.btn-ghost:hover { color: #12131A; }
   h1, h2, h3 { font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; margin: 0; letter-spacing: -0.02em; }
   p { margin: 0; }
   input, select, textarea { font-family: inherit; font-size: 15px; color: #12131A; background: #ffffff; border: 1px solid #DDE0E7; border-radius: 10px; padding: 14px 16px; outline: none; width: 100%; transition: border-color .2s ease, box-shadow .2s ease; }
@@ -72,9 +73,12 @@
     <div style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 21px; letter-spacing: -0.02em; display: flex; gap: 7px;">
       <span style="color: #12131A;">Neiro</span><span style="color: var(--accent);">Agency</span>
     </div>
-    <div style="display: flex; align-items: center; gap: 2px; border: 1px solid #E4E6EC; border-radius: 999px; padding: 4px;">
-      <button class="btn lang-btn is-active" id="lang-es" style="font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px;">ES</button>
-      <button class="btn lang-btn" id="lang-en" style="font-size: 13px; font-weight: 500; padding: 5px 13px;">EN</button>
+    <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+      <a href="recursos.html" data-en="Free resources" style="font-size: 14.5px; font-weight: 500; color: #444C63;">Recursos gratuitos</a>
+      <div style="display: flex; align-items: center; gap: 2px; border: 1px solid #E4E6EC; border-radius: 999px; padding: 4px;">
+        <button class="btn lang-btn is-active" id="lang-es" style="font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px;">ES</button>
+        <button class="btn lang-btn" id="lang-en" style="font-size: 13px; font-weight: 500; padding: 5px 13px;">EN</button>
+      </div>
     </div>
   </div>
 </div>
@@ -85,7 +89,6 @@
     <p data-en="I help businesses implement custom AI automations for every bottleneck in their operation." style="font-size: clamp(16px, 1.6vw, 18px); line-height: 1.65; color: #5A5F6E; max-width: 520px;">Ayudo a negocios a implementar automatizaciones con IA personalizadas para cada cuello de botella de su operación.</p>
     <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
       <button class="btn" data-scroll="contacto" data-en="Let's talk about your business" style="font-size: 15px; font-weight: 500; color: #ffffff; background: var(--accent); border-radius: 10px; padding: 15px 26px;">Hablemos de tu negocio</button>
-      <button class="btn btn-ghost" data-scroll="guias" data-en="See free resources" style="font-size: 15px; font-weight: 500; color: #12131A; background: #ffffff; border: 1px solid #DDE0E7; border-radius: 10px; padding: 15px 26px;">Ver recursos gratuitos</button>
     </div>
   </div>
   <div class="reveal" data-d="2" style="flex: 1 1 320px; display: flex; justify-content: center;">
@@ -107,18 +110,14 @@
 </div>
 
 <div style="background: #FAFBFD; border-top: 1px solid #ECEDF1; border-bottom: 1px solid #ECEDF1;">
-  <div class="reveal" style="max-width: 1160px; margin: 0 auto; padding: clamp(56px, 7vw, 92px) clamp(20px, 4vw, 40px); display: flex; align-items: center; gap: clamp(28px, 4vw, 56px); flex-wrap: wrap;">
-    <div style="flex: 0 0 132px; height: 132px; background: #EDF2FF; border-radius: 20px; display: flex; align-items: center; justify-content: center;">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#2F6BFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 62px; height: 62px;" aria-hidden="true">
-        <path d="M12 3 4 7.5v9L12 21l8-4.5v-9L12 3Z"></path>
-        <circle cx="12" cy="12" r="2.6"></circle>
-        <path d="M12 9.4V6M12 14.6V18M14.6 12H18M6 12h3.4"></path>
-      </svg>
+  <div class="reveal" style="max-width: 1160px; margin: 0 auto; padding: clamp(56px, 7vw, 92px) clamp(20px, 4vw, 40px); display: flex; align-items: center; gap: clamp(40px, 6vw, 80px); flex-wrap: wrap;">
+    <div style="flex: 0 0 clamp(250px, 30vw, 370px); width: clamp(250px, 30vw, 370px); height: clamp(250px, 30vw, 370px); border-radius: 24px; overflow: hidden; box-shadow: 0 18px 44px rgba(18,19,26,.16);">
+      <img src="img/marcos.jpg" alt="Marcos Vargas" style="width: 100%; height: 100%; object-fit: cover; display: block;">
     </div>
     <div style="flex: 1 1 420px; display: flex; flex-direction: column; align-items: flex-start; gap: 18px;">
       <span data-en="About me" style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Sobre mí</span>
       <h2 data-en="Automation with technical judgment." style="font-size: clamp(26px, 3vw, 30px); line-height: 1.22; font-weight: 700; color: #12131A;">Automatización con criterio técnico.</h2>
-      <p data-en="Marcos Vargas — Systems Engineer, with experience in AI and Cloud. Focused on building AI agents for businesses, both for internal use and customer support." style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E; max-width: 620px;">Marcos Vargas — Ingeniero en Sistemas, con experiencia en el sector de IA y Cloud. Enfocado en construir agentes de IA para negocios, tanto soluciones internas como de atención al cliente.</p>
+      <p data-en="Marcos Vargas, Systems Engineer, with experience in AI and Cloud. I design and build custom automations for businesses: AI agents that talk to customers on WhatsApp or your own website, and internal workflows that connect your calendar, your inbox and your tools to remove repetitive work. I handle everything end to end: diagnosis, development and rollout, with no middlemen." style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E; max-width: 620px;">Marcos Vargas, Ingeniero en Sistemas, con experiencia en el sector de IA y Cloud. Diseño y construyo automatizaciones a medida para negocios: agentes de IA que atienden clientes por WhatsApp o desde tu propia web, y flujos internos que conectan tu agenda, tu correo y tus herramientas de trabajo para eliminar tareas repetitivas. Trabajo de punta a punta: diagnóstico, desarrollo y puesta en marcha, sin intermediarios.</p>
       <span style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 10px 16px;">Microsoft Certified · Azure AI Fundamentals</span>
     </div>
   </div>
@@ -129,163 +128,51 @@
     <span data-en="What I do" style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Qué hago</span>
     <h2 data-en="Automation with a clear purpose." style="font-size: clamp(28px, 4vw, 38px); line-height: 1.16; font-weight: 700; color: #12131A;">Automatización con un propósito claro.</h2>
   </div>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 24px;">
 
     <div class="reveal lift" style="border: 1px solid #E8EAEF; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 18px; background: #ffffff;">
-      <div style="width: 50px; height: 50px; border-radius: 12px; background: #EDF2FF; display: flex; align-items: center; justify-content: center;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#2F6BFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;" aria-hidden="true">
-          <circle cx="10.5" cy="10.5" r="6.5"></circle>
-          <path d="m20 20-4.4-4.4"></path>
-          <path d="M7.6 10.8h1.7l1.2-2.3 1.4 4 1-1.7h1.5"></path>
-        </svg>
+      <div style="width: 88px; height: 88px; border-radius: 16px; background: #F5F6F9; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <img src="img/zoom.png" alt="Zoom" style="width: 64px; height: 64px; object-fit: contain;">
       </div>
       <h3 data-en="Automation diagnosis" style="font-size: 19px; line-height: 1.3; font-weight: 700; color: #12131A;">Diagnóstico de automatización</h3>
-      <p data-en="I identify the bottlenecks in your operation where AI can save real time." style="font-size: 15px; line-height: 1.68; color: #5A5F6E;">Identifico los cuellos de botella de tu operación donde la IA puede ahorrar tiempo real.</p>
+      <p data-en="We schedule a call to identify where your operation is losing time and money, and where AI can create real savings for your business." style="font-size: 15px; line-height: 1.68; color: #5A5F6E;">Agendamos una llamada para identificar en qué partes de tu operación estás perdiendo tiempo y dinero, y dónde la IA puede generarte un ahorro real.</p>
     </div>
 
     <div class="reveal lift" data-d="1" style="border: 1px solid #E8EAEF; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 18px; background: #ffffff;">
-      <div style="width: 50px; height: 50px; border-radius: 12px; background: #EDF2FF; display: flex; align-items: center; justify-content: center;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#2F6BFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;" aria-hidden="true">
-          <circle cx="12" cy="5" r="2.4"></circle>
-          <circle cx="5" cy="18" r="2.4"></circle>
-          <circle cx="19" cy="18" r="2.4"></circle>
-          <path d="M10.4 6.8 6.3 15.6M13.6 6.8l4.1 8.8M7.4 18h9.2"></path>
-        </svg>
+      <div style="width: 88px; height: 88px; border-radius: 16px; background: #F5F6F9; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <img src="img/n8n.png" alt="n8n" style="width: 74px; height: 74px; object-fit: contain;">
       </div>
       <h3 data-en="Custom AI agents" style="font-size: 19px; line-height: 1.3; font-weight: 700; color: #12131A;">Agentes de IA a medida</h3>
-      <p data-en="I build agents for internal use in your business, solving repetitive tasks and manual processes specific to your operation." style="font-size: 15px; line-height: 1.68; color: #5A5F6E;">Construyo agentes aplicados al uso interno de tu negocio, que resuelven tareas repetitivas y procesos manuales específicos de tu operación.</p>
+      <p data-en="I build agents for internal use in your business, solving repetitive tasks and manual processes specific to your operation. They integrate with the tools you already use and work around the clock, without needing supervision." style="font-size: 15px; line-height: 1.68; color: #5A5F6E;">Construyo agentes aplicados al uso interno de tu negocio, que resuelven tareas repetitivas y procesos manuales específicos de tu operación. Se integran con las herramientas que ya usás y trabajan las 24 horas, sin que tengas que supervisarlos.</p>
     </div>
 
     <div class="reveal lift" data-d="2" style="border: 1px solid #E8EAEF; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 18px; background: #ffffff;">
-      <div style="width: 50px; height: 50px; border-radius: 12px; background: #EDF2FF; display: flex; align-items: center; justify-content: center;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#2F6BFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;" aria-hidden="true">
-          <path d="M20 14.5a2.5 2.5 0 0 1-2.5 2.5H9l-4 3.2V6.5A2.5 2.5 0 0 1 7.5 4h10A2.5 2.5 0 0 1 20 6.5Z"></path>
-          <path d="m12.5 8.2.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9Z"></path>
-        </svg>
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <div style="width: 88px; height: 88px; border-radius: 16px; background: #F5F6F9; display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden;">
+          <img src="img/whatsapp.png" alt="WhatsApp" style="width: 64px; height: 64px; object-fit: contain;">
+        </div>
+        <span style="font-size: 22px; font-weight: 700; color: #B7BBC6;" aria-hidden="true">+</span>
+        <div style="width: 88px; height: 88px; border-radius: 16px; background: #F5F6F9; display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden;">
+          <img src="img/instagram.png" alt="Instagram" style="width: 64px; height: 64px; object-fit: contain;">
+        </div>
       </div>
       <h3 data-en="Automated customer support" style="font-size: 19px; line-height: 1.3; font-weight: 700; color: #12131A;">Atención al cliente automatizada</h3>
-      <p data-en="Agents that answer, qualify and escalate conversations with customers without you having to hire more people." style="font-size: 15px; line-height: 1.68; color: #5A5F6E;">Agentes que responden, califican y escalan conversaciones con clientes sin que tengas que contratar más gente.</p>
+      <p data-en="Agents that answer, qualify and escalate conversations with customers without you having to hire more people. They can also schedule appointments for you, without you lifting a finger." style="font-size: 15px; line-height: 1.68; color: #5A5F6E;">Agentes que responden, califican y escalan conversaciones con clientes sin que tengas que contratar más gente. También pueden agendar citas por vos, sin que tengas que mover un dedo.</p>
     </div>
 
     <div class="reveal lift" data-d="3" style="border: 1px solid #E8EAEF; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 18px; background: #ffffff;">
-      <div style="width: 50px; height: 50px; border-radius: 12px; background: #EDF2FF; display: flex; align-items: center; justify-content: center;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#2F6BFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;" aria-hidden="true">
-          <rect x="3" y="4.5" width="18" height="12.5" rx="2"></rect>
-          <path d="M9 20.5h6M12 17v3.5"></path>
-          <path d="m7 11 2.6-2.6L12 11l2.4-2.4L17 11"></path>
-        </svg>
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <div style="width: 88px; height: 88px; border-radius: 16px; background: #F5F6F9; display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden;">
+          <img src="img/n8n.png" alt="n8n" style="width: 74px; height: 74px; object-fit: contain;">
+        </div>
+        <span style="font-size: 22px; font-weight: 700; color: #B7BBC6;" aria-hidden="true">+</span>
+        <div style="width: 88px; height: 88px; border-radius: 16px; background: #F5F6F9; display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden;">
+          <img src="img/web.png" alt="Web" style="width: 64px; height: 64px; object-fit: contain;">
+        </div>
       </div>
       <h3 data-en="A website that works all day for you" style="font-size: 19px; line-height: 1.3; font-weight: 700; color: #12131A;">Una página web que trabaja todo el día por vos</h3>
       <p data-en="Your customers see your up-to-date inventory and services, book an appointment whenever they want, and ask anything to a bot built into the page that knows your business inside out. You don't answer anything, the page handles it all." style="font-size: 15px; line-height: 1.68; color: #5A5F6E;">Tus clientes ven tu inventario y servicios actualizados, agendan una cita cuando quieran y le preguntan lo que sea a un bot integrado en la página que conoce tu negocio al detalle. Vos no contestás nada, la página se encarga de todo.</p>
     </div>
-
-  </div>
-</div>
-
-<div id="guias" style="background: #FAFBFD; border-top: 1px solid #ECEDF1; border-bottom: 1px solid #ECEDF1;">
-  <div style="max-width: 1160px; margin: 0 auto; padding: clamp(60px, 7vw, 96px) clamp(20px, 4vw, 40px); display: flex; flex-direction: column; gap: 36px;">
-
-    <div class="reveal" style="display: flex; flex-direction: column; gap: 16px; max-width: 660px;">
-      <span data-en="Free content" style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Contenido gratuito</span>
-      <h2 data-en="Practical guides, at no cost." style="font-size: clamp(28px, 4vw, 38px); line-height: 1.16; font-weight: 700; color: #12131A;">Guías prácticas, sin costo.</h2>
-      <p data-en="Pick the ones you want and they'll be emailed to you." style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E;">Elegí las que te sirvan y te llegan al correo.</p>
-    </div>
-
-    <div style="display: flex; flex-direction: column; gap: 20px;">
-      <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
-        <h3 data-en="Make money with AI" style="font-size: 26px; line-height: 1.25; font-weight: 700; color: var(--accent);">Generar dinero con IA</h3>
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <button class="arrow" data-rail-left="rail-guias-dinero" style="width: 40px; height: 40px; border: 1px solid #DDE0E7; border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width: 17px; height: 17px;" aria-hidden="true"><path d="m14.5 5-7 7 7 7"></path></svg>
-          </button>
-          <button class="arrow" data-rail-right="rail-guias-dinero" style="width: 40px; height: 40px; border: 1px solid #DDE0E7; border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width: 17px; height: 17px;" aria-hidden="true"><path d="m9.5 5 7 7-7 7"></path></svg>
-          </button>
-        </div>
-      </div>
-      <div id="rail-guias-dinero" class="rail" style="display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 18px; margin: -4px -4px -18px;"></div>
-    </div>
-
-    <div style="display: flex; flex-direction: column; gap: 20px;">
-      <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
-        <h3 data-en="Claude at its best" style="font-size: 26px; line-height: 1.25; font-weight: 700; color: var(--accent);">Claude al máximo</h3>
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <button class="arrow" data-rail-left="rail-guias-claude" style="width: 40px; height: 40px; border: 1px solid #DDE0E7; border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width: 17px; height: 17px;" aria-hidden="true"><path d="m14.5 5-7 7 7 7"></path></svg>
-          </button>
-          <button class="arrow" data-rail-right="rail-guias-claude" style="width: 40px; height: 40px; border: 1px solid #DDE0E7; border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width: 17px; height: 17px;" aria-hidden="true"><path d="m9.5 5 7 7-7 7"></path></svg>
-          </button>
-        </div>
-      </div>
-      <div id="rail-guias-claude" class="rail" style="display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 18px; margin: -4px -4px -18px;"></div>
-    </div>
-
-    <div style="display: flex; flex-direction: column; gap: 20px;">
-      <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
-        <h3 data-en="AI automation from scratch" style="font-size: 26px; line-height: 1.25; font-weight: 700; color: var(--accent);">Automatizaciones con IA desde cero</h3>
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <button class="arrow" data-rail-left="rail-guias-tecnico" style="width: 40px; height: 40px; border: 1px solid #DDE0E7; border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width: 17px; height: 17px;" aria-hidden="true"><path d="m14.5 5-7 7 7 7"></path></svg>
-          </button>
-          <button class="arrow" data-rail-right="rail-guias-tecnico" style="width: 40px; height: 40px; border: 1px solid #DDE0E7; border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="width: 17px; height: 17px;" aria-hidden="true"><path d="m9.5 5 7 7-7 7"></path></svg>
-          </button>
-        </div>
-      </div>
-      <div id="rail-guias-tecnico" class="rail" style="display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 18px; margin: -4px -4px -18px;"></div>
-    </div>
-
-    <div id="guias-form" class="pop" hidden style="background: #ffffff; border: 1px solid #E8EAEF; border-radius: 18px; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 22px;">
-      <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
-        <div style="display: flex; flex-direction: column; gap: 6px;">
-          <h3 id="picked-title" style="font-size: 21px; line-height: 1.3; font-weight: 700; color: #12131A;"></h3>
-          <p data-en="Fill in your details and I'll email them to you right now." style="font-size: 14.5px; line-height: 1.6; color: #5A5F6E;">Completá tus datos y te las mando al correo ahora mismo.</p>
-        </div>
-        <button class="btn" id="clear-picks" data-en="Clear selection" style="font-size: 13.5px; font-weight: 500; color: #5A5F6E; background: #ffffff; border: 1px solid #DDE0E7; border-radius: 8px; padding: 9px 16px;">Limpiar selección</button>
-      </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-          <span data-en="Name" style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Nombre</span>
-          <input type="text" id="guia-nombre" data-en-ph="Your full name" placeholder="Tu nombre completo">
-          <span id="guia-nombre-error" class="field-error" hidden></span>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-          <span data-en="Email" style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Correo</span>
-          <input type="email" id="guia-correo" data-en-ph="you@email.com" placeholder="tu@correo.com">
-          <span id="guia-correo-error" class="field-error" hidden></span>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-          <span data-en="Country" style="font-size: 13px; font-weight: 500; color: #5A5F6E;">País</span>
-          <select id="guia-pais">
-            <option>Costa Rica</option><option>Panamá</option><option>México</option><option>Colombia</option>
-            <option>Argentina</option><option>Chile</option><option>Perú</option><option>Ecuador</option>
-            <option>Guatemala</option><option>El Salvador</option><option>Honduras</option><option>Nicaragua</option>
-            <option>República Dominicana</option><option>Venezuela</option><option>Uruguay</option><option>Bolivia</option>
-            <option>Paraguay</option><option>Estados Unidos</option><option>España</option><option>Portugal</option>
-            <option>Italia</option><option>Francia</option><option>Alemania</option><option>Reino Unido</option>
-            <option>Países Bajos</option><option>Otro</option>
-          </select>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-          <span data-en="Current role" style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Rol actual</span>
-          <select id="guia-rol">
-            <option>Ingeniero / Desarrollador</option><option>Marketing</option><option>Dueño de negocio</option>
-            <option>Emprendedor</option><option>Ventas</option><option>Operaciones</option>
-            <option>Finanzas / Contabilidad</option><option>Recursos Humanos</option><option>Consultor / Freelance</option>
-            <option>Estudiante</option><option>Otro</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="hp" aria-hidden="true"><label>Website <input type="text" id="guia-website" tabindex="-1" autocomplete="off"></label></div>
-      <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
-        <button class="btn" id="submit-guias" style="font-size: 15px; font-weight: 500; color: #ffffff; background: var(--accent); border-radius: 10px; padding: 15px 28px;"></button>
-      </div>
-    </div>
-
-    <p id="guias-empty" data-en="Tap the guides you'd like to download to continue." style="font-size: 14.5px; color: #8C91A0;">Tocá las guías que quieras descargar para continuar.</p>
 
   </div>
 </div>
@@ -438,7 +325,10 @@
     <div style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 17px; letter-spacing: -0.02em; display: flex; gap: 6px;">
       <span style="color: #12131A;">Neiro</span><span style="color: var(--accent);">Agency</span>
     </div>
-    <span data-en="AI automation for businesses" style="font-size: 14px; color: #8C91A0;">Automatización con IA para negocios</span>
+    <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
+      <span data-en="AI automation for businesses" style="font-size: 14px; color: #8C91A0;">Automatización con IA para negocios</span>
+      <span data-en="© 2026 Neiro Agency. All rights reserved." style="font-size: 12.5px; color: #B0B4C0;">© 2026 Neiro Agency. Todos los derechos reservados.</span>
+    </div>
   </div>
 </div>
 

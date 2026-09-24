@@ -123,6 +123,7 @@
     var railDinero = document.getElementById('rail-guias-dinero');
     var railClaude = document.getElementById('rail-guias-claude');
     var railTecnico = document.getElementById('rail-guias-tecnico');
+    if (!railDinero || !railClaude || !railTecnico) { return; }
     railDinero.innerHTML = '';
     railClaude.innerHTML = '';
     railTecnico.innerHTML = '';
@@ -260,18 +261,24 @@
   });
 
   ['guia-nombre', 'c-nombre'].forEach(function (id) {
-    document.getElementById(id).addEventListener('input', function () { clearFieldError(id, id + '-error'); });
+    var node = document.getElementById(id);
+    if (node) { node.addEventListener('input', function () { clearFieldError(id, id + '-error'); }); }
   });
   ['guia-correo', 'c-correo'].forEach(function (id) {
-    document.getElementById(id).addEventListener('input', function () { clearFieldError(id, id + '-error'); });
+    var node = document.getElementById(id);
+    if (node) { node.addEventListener('input', function () { clearFieldError(id, id + '-error'); }); }
   });
 
-  document.getElementById('clear-picks').addEventListener('click', function () {
-    picked = {};
-    renderGuias();
-  });
+  var clearPicksBtn = document.getElementById('clear-picks');
+  if (clearPicksBtn) {
+    clearPicksBtn.addEventListener('click', function () {
+      picked = {};
+      renderGuias();
+    });
+  }
 
-  document.getElementById('submit-guias').addEventListener('click', function () {
+  var submitGuiasBtn = document.getElementById('submit-guias');
+  if (submitGuiasBtn) { submitGuiasBtn.addEventListener('click', function () {
     var btn = this;
     if (btn.disabled) { return; }
     var nombre = document.getElementById('guia-nombre').value.trim();
@@ -312,7 +319,7 @@
     }).then(function () {
       setSending(btn, false, restoreText);
     });
-  });
+  }); }
 
   document.querySelectorAll('[data-rail-left]').forEach(function (btn) {
     btn.addEventListener('click', function () {
@@ -355,11 +362,14 @@
 
   var telInput = document.getElementById('c-telefono');
   var telSelect = document.getElementById('c-pais-tel');
+  var cSubmitBtn = document.getElementById('c-submit');
 
-  telInput.addEventListener('input', function () { clearFieldError('c-telefono', 'c-tel-error'); });
-  telSelect.addEventListener('change', function () { clearFieldError('c-telefono', 'c-tel-error'); });
+  if (telInput && telSelect) {
+    telInput.addEventListener('input', function () { clearFieldError('c-telefono', 'c-tel-error'); });
+    telSelect.addEventListener('change', function () { clearFieldError('c-telefono', 'c-tel-error'); });
+  }
 
-  document.getElementById('c-submit').addEventListener('click', function () {
+  if (cSubmitBtn) { cSubmitBtn.addEventListener('click', function () {
     var btn = this;
     if (btn.disabled) { return; }
     var nombre = document.getElementById('c-nombre').value.trim();
@@ -403,7 +413,7 @@
     }).then(function () {
       setSending(btn, false, restoreText);
     });
-  });
+  }); }
 
   function applyLang(newLang) {
     lang = newLang;

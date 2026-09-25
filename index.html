@@ -64,6 +64,12 @@
     .footer-row { flex-direction: column; justify-content: center; text-align: center; }
     .footer-row .footer-meta { align-items: center; }
   }
+  @media (max-width: 640px) {
+    .header-outer { justify-content: space-between; }
+    .header-logo { order: 1; }
+    .header-toggle { order: 2; margin-left: 0; }
+    .header-links { order: 3; flex-basis: 100%; }
+  }
   .lang-btn:not(.is-active) { color: #777C8A !important; background: transparent !important; }
   [hidden] { display: none !important; }
   a.contact-link { text-decoration: none; color: inherit; }
@@ -89,21 +95,22 @@
 </head>
 <body>
 
-<div style="border-bottom: 1px solid #ECEDF1; background: rgba(255,255,255,.85); -webkit-backdrop-filter: saturate(180%) blur(10px); backdrop-filter: saturate(180%) blur(10px); position: sticky; top: 0; z-index: 10;">
-  <div style="max-width: 1160px; margin: 0 auto; padding: 20px clamp(20px, 4vw, 40px); display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
-    <div style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 21px; letter-spacing: -0.02em; display: flex; gap: 7px;">
+<div id="site-header" style="border-bottom: 1px solid #ECEDF1; background: rgba(255,255,255,.85); -webkit-backdrop-filter: saturate(180%) blur(10px); backdrop-filter: saturate(180%) blur(10px); position: fixed; top: 0; left: 0; right: 0; width: 100%; z-index: 10;">
+  <div class="header-outer" style="max-width: 1160px; margin: 0 auto; padding: 20px clamp(20px, 4vw, 40px); display: flex; align-items: center; justify-content: flex-start; gap: 16px 20px; flex-wrap: wrap;">
+    <div class="header-logo" style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 21px; letter-spacing: -0.02em; display: flex; gap: 7px;">
       <span style="color: #12131A;">Neiro</span><span style="color: var(--accent);">Agency</span>
     </div>
-    <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+    <div class="header-links" style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
       <a href="recursos.html" class="btn nav-cta" data-en="Free resources" style="font-size: 13.5px; font-weight: 500; border-radius: 999px; padding: 8px 16px;">Recursos gratuitos</a>
       <a href="contacto.html" class="btn nav-cta" data-en="Book a call" style="font-size: 13.5px; font-weight: 500; border-radius: 999px; padding: 8px 16px;">Agenda una llamada</a>
-      <div style="display: flex; align-items: center; gap: 2px; border: 1px solid #E4E6EC; border-radius: 999px; padding: 4px;">
-        <button class="btn lang-btn is-active" id="lang-es" style="font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px;">ES</button>
-        <button class="btn lang-btn" id="lang-en" style="font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px;">EN</button>
-      </div>
+    </div>
+    <div class="header-toggle" style="display: flex; align-items: center; gap: 2px; border: 1px solid #E4E6EC; border-radius: 999px; padding: 4px; margin-left: auto;">
+      <button class="btn lang-btn is-active" id="lang-es" style="font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px;">ES</button>
+      <button class="btn lang-btn" id="lang-en" style="font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px;">EN</button>
     </div>
   </div>
 </div>
+<div id="header-spacer"></div>
 
 <div style="max-width: 1160px; width: 100%; margin: 0 auto; padding: clamp(60px, 8vw, 104px) clamp(20px, 4vw, 40px) clamp(60px, 7vw, 96px); display: flex; align-items: center; gap: clamp(32px, 5vw, 72px); flex-wrap: wrap;">
   <div class="reveal" style="flex: 1 1 460px; display: flex; flex-direction: column; align-items: flex-start; gap: 24px;">
@@ -509,7 +516,7 @@
         <span data-en="Can I request changes after it's up and running?">¿Puedo pedir cambios después de que esté funcionando?</span>
         <span class="faq-icon" aria-hidden="true">+</span>
       </summary>
-      <p data-en="Yes. Small changes or improvements can usually be made, and if you want, you can add a maintenance plan for that. Bigger changes we look at case by case." style="margin: 0; padding: 0 0 22px; font-size: 15px; line-height: 1.68; color: #5A5F6E;">Sí. Cambios pequeños o mejoras se pueden hacer normalmente, y si querés, podés incluir un plan con mantenimiento para eso. Cambios más grandes los vemos según el caso.</p>
+      <p data-en="Yes. Small changes or improvements can usually be made and are included in the maintenance plan. Bigger changes we look at case by case." style="margin: 0; padding: 0 0 22px; font-size: 15px; line-height: 1.68; color: #5A5F6E;">Sí. Cambios pequeños o mejoras se pueden hacer normalmente, que están incluidas dentro del plan de mantenimiento. Cambios más grandes los vemos según el caso.</p>
     </details>
 
     <details class="faq-item" style="border: 1px solid #E8EAEF; border-radius: 14px; background: #ffffff; padding: 0 24px;">
@@ -517,7 +524,7 @@
         <span data-en="How much does it cost?">¿Cuánto cuesta?</span>
         <span class="faq-icon" aria-hidden="true">+</span>
       </summary>
-      <p data-en="It depends on the complexity of the project. On the diagnosis call I give you a concrete number, no surprises." style="margin: 0; padding: 0 0 22px; font-size: 15px; line-height: 1.68; color: #5A5F6E;">Depende de la complejidad del proyecto. En la llamada de diagnóstico te doy un número concreto, sin sorpresas.</p>
+      <p data-en="It depends on the complexity of the project. On the diagnosis call I give you a concrete number." style="margin: 0; padding: 0 0 22px; font-size: 15px; line-height: 1.68; color: #5A5F6E;">Depende de la complejidad del proyecto. En la llamada de diagnóstico te doy un número concreto.</p>
     </details>
 
     <details class="faq-item" style="border: 1px solid #E8EAEF; border-radius: 14px; background: #ffffff; padding: 0 24px;">

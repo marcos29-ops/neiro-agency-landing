@@ -46,6 +46,12 @@
     .footer-row { flex-direction: column; justify-content: center; text-align: center; }
     .footer-row .footer-meta { align-items: center; }
   }
+  @media (max-width: 640px) {
+    .header-outer { justify-content: space-between; }
+    .header-logo { order: 1; }
+    .header-toggle { order: 2; margin-left: 0; }
+    .header-links { order: 3; flex-basis: 100%; }
+  }
   .lang-btn:not(.is-active) { color: #777C8A !important; background: transparent !important; }
   [hidden] { display: none !important; }
   a.contact-link { text-decoration: none; color: inherit; }
@@ -71,21 +77,22 @@
 </head>
 <body>
 
-<div style="border-bottom: 1px solid #ECEDF1; background: rgba(255,255,255,.85); -webkit-backdrop-filter: saturate(180%) blur(10px); backdrop-filter: saturate(180%) blur(10px); position: sticky; top: 0; z-index: 10;">
-  <div style="max-width: 1160px; margin: 0 auto; padding: 20px clamp(20px, 4vw, 40px); display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
-    <a href="index.html" style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 21px; letter-spacing: -0.02em; display: flex; gap: 7px;">
+<div id="site-header" style="border-bottom: 1px solid #ECEDF1; background: rgba(255,255,255,.85); -webkit-backdrop-filter: saturate(180%) blur(10px); backdrop-filter: saturate(180%) blur(10px); position: fixed; top: 0; left: 0; right: 0; width: 100%; z-index: 10;">
+  <div class="header-outer" style="max-width: 1160px; margin: 0 auto; padding: 20px clamp(20px, 4vw, 40px); display: flex; align-items: center; justify-content: flex-start; gap: 16px 20px; flex-wrap: wrap;">
+    <a href="index.html" class="header-logo" style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 21px; letter-spacing: -0.02em; display: flex; gap: 7px;">
       <span style="color: #12131A;">Neiro</span><span style="color: var(--accent);">Agency</span>
     </a>
-    <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+    <div class="header-links" style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
       <a href="index.html" class="btn nav-cta" data-en="Home" style="font-size: 13.5px; font-weight: 500; border-radius: 999px; padding: 8px 16px;">Inicio</a>
       <a href="recursos.html" class="btn nav-cta" data-en="Free resources" style="font-size: 13.5px; font-weight: 500; border-radius: 999px; padding: 8px 16px;">Recursos gratuitos</a>
-      <div style="display: flex; align-items: center; gap: 2px; border: 1px solid #E4E6EC; border-radius: 999px; padding: 4px;">
+    </div>
+    <div class="header-toggle" style="display: flex; align-items: center; gap: 2px; border: 1px solid #E4E6EC; border-radius: 999px; padding: 4px; margin-left: auto;">
         <button class="btn lang-btn is-active" id="lang-es" style="font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px;">ES</button>
         <button class="btn lang-btn" id="lang-en" style="font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px;">EN</button>
       </div>
-    </div>
   </div>
 </div>
+<div id="header-spacer"></div>
 
 <div id="contacto" style="background: #FAFBFD; border-bottom: 1px solid #ECEDF1;">
   <div class="reveal" style="max-width: 720px; margin: 0 auto; padding: clamp(60px, 7vw, 96px) clamp(20px, 4vw, 40px); display: flex; flex-direction: column; gap: 32px;">

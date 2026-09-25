@@ -435,10 +435,19 @@
     if (privacyLink) { privacyLink.href = lang === 'en' ? 'privacidad.html?lang=en' : 'privacidad.html'; }
 
     renderGuias();
+    if (typeof syncHeaderSpacer === 'function') { syncHeaderSpacer(); }
   }
 
   document.getElementById('lang-es').addEventListener('click', function () { applyLang('es'); });
   document.getElementById('lang-en').addEventListener('click', function () { applyLang('en'); });
+
+  var siteHeader = document.getElementById('site-header');
+  var headerSpacer = document.getElementById('header-spacer');
+  if (siteHeader && headerSpacer) {
+    var syncHeaderSpacer = function () { headerSpacer.style.height = siteHeader.offsetHeight + 'px'; };
+    syncHeaderSpacer();
+    window.addEventListener('resize', syncHeaderSpacer);
+  }
 
   document.body.setAttribute('data-anim', 'on');
   var reveals = document.querySelectorAll('.reveal');

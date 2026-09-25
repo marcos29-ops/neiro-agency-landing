@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Información · Neiro Agency</title>
+<meta name="description" content="Quién está detrás de Neiro Agency: formación, especialidad y cómo contactarme.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+  :root { --accent: #2F6BFF; }
+  * { box-sizing: border-box; }
+  html { background: #ffffff; }
+  body { margin: 0; background: #ffffff; color: #12131A; font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif; overflow-x: hidden; overscroll-behavior-x: none; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: #1D46C7; }
+  h1, h2, h3 { font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; margin: 0; letter-spacing: -0.02em; }
+  p { margin: 0; }
+  @keyframes dcFadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  .reveal { transition: opacity .8s cubic-bezier(.22,.68,.3,1), transform .8s cubic-bezier(.22,.68,.3,1); }
+  body[data-anim="on"] .reveal { opacity: 0; transform: translateY(22px); }
+  body[data-anim="on"] .reveal.is-in { opacity: 1; transform: none; }
+  .lift { transition: transform .45s cubic-bezier(.34,1.56,.64,1), box-shadow .35s ease, border-color .3s ease; }
+  .lift:hover { transform: translateY(-6px) scale(1.015); box-shadow: 0 16px 36px rgba(18,19,26,.1); border-color: #C9D5F2; }
+  .btn { cursor: pointer; user-select: none; transition: transform .4s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease, background-color .22s ease, border-color .22s ease; border: none; font: inherit; }
+  .btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 28px rgba(47,107,255,.28); }
+  .btn:active { transform: translateY(0); box-shadow: none; }
+  a.btn:not(.btn-ghost), a.btn:not(.btn-ghost):hover { color: #ffffff; }
+  a.nav-cta, a.nav-cta:hover { color: #ffffff !important; background: #FF6A3D; }
+  a.nav-cta:hover { background: #E85A2E; }
+  a.nav-link { display: inline-block; transition: transform .4s cubic-bezier(.34,1.56,.64,1); }
+  a.nav-link:hover { transform: translateY(-2px) scale(1.06); }
+  .lang-btn.is-active { color: #ffffff !important; background: #FF6A3D !important; }
+  .lang-btn:not(.is-active) { color: #777C8A !important; background: transparent !important; }
+  .lang-btn, .btn, a { touch-action: manipulation; }
+  a.contact-link { text-decoration: none; color: inherit; }
+  a.contact-link:hover .contact-text { text-decoration: underline; text-underline-offset: 3px; }
+  a.contact-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+  .wa-float { position: fixed; bottom: 24px; right: 24px; width: 60px; height: 60px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 24px rgba(37,211,102,.4); z-index: 500; }
+  .wa-float:hover { box-shadow: 0 14px 32px rgba(37,211,102,.5) !important; }
+  @keyframes dcFade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes dcPopIn { from { opacity: 0; transform: translateY(14px) scale(.96); } to { opacity: 1; transform: none; } }
+  .modal { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 20px; }
+  .modal-backdrop { position: absolute; inset: 0; background: rgba(18,19,26,.55); animation: dcFade .2s ease both; }
+  .modal-card { position: relative; width: 100%; max-width: 420px; max-height: calc(100vh - 40px); max-height: calc(100dvh - 40px); overflow-y: auto; background: #ffffff; border-radius: 20px; padding: 36px 28px 28px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px; box-shadow: 0 24px 60px rgba(18,19,26,.28); animation: dcPopIn .28s cubic-bezier(.22,.68,.3,1) both; }
+  .modal-x { position: absolute; top: 10px; right: 10px; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; border: none; background: transparent; border-radius: 10px; font-size: 26px; line-height: 1; color: #5A5F6E; cursor: pointer; transition: background-color .2s ease; }
+  .modal-x:hover { background: #F1F3F8; }
+  .modal-icon { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .modal-icon.ok { background: var(--accent); }
+  .modal-icon.err { background: #C0392B; }
+  .modal-card h3 { font-size: 21px; line-height: 1.3; font-weight: 700; color: #12131A; }
+  .modal-card p { font-size: 15px; line-height: 1.6; color: #444C63; }
+  [hidden] { display: none !important; }
+  @media (max-width: 480px) {
+    .lang-btn { padding: 9px 15px !important; font-size: 14px !important; }
+    .footer-row { flex-direction: column; justify-content: center; text-align: center; }
+    .footer-row .footer-meta { align-items: center; }
+  }
+  @media (max-width: 640px) {
+    .header-outer { justify-content: space-between; }
+    .header-logo { order: 1; }
+    .header-toggle { order: 2; margin-left: 0; }
+    .header-links { order: 3; flex-basis: 100%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .lift, .btn { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div id="site-header" style="border-bottom: 1px solid #ECEDF1; background: #ffffff; position: fixed; top: 0; left: 0; right: 0; width: 100%; z-index: 10;">
+  <div class="header-outer" style="max-width: 1160px; margin: 0 auto; padding: 20px clamp(20px, 4vw, 40px); display: flex; align-items: center; justify-content: flex-start; gap: 16px 20px; flex-wrap: wrap;">
+    <a href="index.html" class="header-logo" style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 21px; letter-spacing: -0.02em; display: flex; gap: 7px;">
+      <span style="color: #12131A;">Neiro</span><span style="color: var(--accent);">Agency</span>
+    </a>
+    <div class="header-links" style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+      <a href="index.html" class="btn nav-cta" data-en="Home" style="font-size: 13.5px; font-weight: 500; border-radius: 999px; padding: 8px 16px;">Inicio</a>
+      <a href="recursos.html" class="btn nav-cta" data-en="Free resources" style="font-size: 13.5px; font-weight: 500; border-radius: 999px; padding: 8px 16px;">Recursos gratuitos</a>
+      <a href="contacto.html" class="btn nav-cta" data-en="Book a call" style="font-size: 13.5px; font-weight: 500; border-radius: 999px; padding: 8px 16px;">Agenda una llamada</a>
+    </div>
+    <div class="header-toggle" style="display: flex; align-items: center; gap: 2px; border: 1px solid #E4E6EC; border-radius: 999px; padding: 4px; margin-left: auto;">
+      <button class="btn lang-btn is-active" id="lang-es" style="font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px;">ES</button>
+      <button class="btn lang-btn" id="lang-en" style="font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px;">EN</button>
+    </div>
+  </div>
+</div>
+<div id="header-spacer"></div>
+
+<div style="background: #FAFBFD; border-bottom: 1px solid #ECEDF1;">
+  <div class="reveal" style="max-width: 1160px; margin: 0 auto; padding: clamp(56px, 7vw, 92px) clamp(20px, 4vw, 40px); display: flex; align-items: center; gap: clamp(40px, 6vw, 80px); flex-wrap: wrap;">
+    <div style="flex: 0 0 clamp(220px, 26vw, 300px); width: clamp(220px, 26vw, 300px); height: clamp(220px, 26vw, 300px); border-radius: 24px; overflow: hidden; box-shadow: 0 18px 44px rgba(18,19,26,.16);">
+      <img src="img/marcos.jpg" alt="Marcos Vargas" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div style="flex: 1 1 380px; display: flex; flex-direction: column; align-items: flex-start; gap: 18px;">
+      <span data-en="Information" style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Información</span>
+      <h1 data-en="Marcos Vargas" style="font-size: clamp(28px, 4vw, 38px); line-height: 1.16; font-weight: 700; color: #12131A;">Marcos Vargas</h1>
+      <p data-en="There's just one person behind Neiro Agency. Systems Engineer, focused on AI and Cloud, designing and building custom automations for businesses: agents that talk to customers on WhatsApp, Instagram or your own website, and internal workflows that remove repetitive work. I handle everything end to end, with no middlemen." style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E; max-width: 560px;">Detrás de Neiro Agency hay una sola persona. Ingeniero en Sistemas, enfocado en IA y Cloud, diseño y construyo automatizaciones a medida para negocios: agentes que atienden clientes por WhatsApp, Instagram o tu propia web, y flujos internos que eliminan tareas repetitivas. Trabajo de punta a punta, sin intermediarios.</p>
+      <span style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 10px 16px;">Microsoft Certified · Azure AI Fundamentals</span>
+    </div>
+  </div>
+</div>
+
+<div class="reveal" style="max-width: 1160px; width: 100%; margin: 0 auto; padding: clamp(60px, 7vw, 96px) clamp(20px, 4vw, 40px); display: flex; flex-direction: column; gap: 34px;">
+  <div style="display: flex; flex-direction: column; gap: 14px;">
+    <span data-en="The details" style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Los datos</span>
+    <h2 data-en="Everything you need to know." style="font-size: clamp(28px, 4vw, 38px); line-height: 1.16; font-weight: 700; color: #12131A;">Todo lo que necesitás saber.</h2>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 18px;">
+
+    <div class="reveal lift" style="border: 1px solid #E8EAEF; border-radius: 16px; padding: 24px; background: #ffffff; display: flex; align-items: flex-start; gap: 14px;">
+      <div style="width: 46px; height: 46px; border-radius: 12px; background: #EDF2FF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2F6BFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px;" aria-hidden="true">
+          <path d="M12 3 2 8l10 5 10-5-10-5Z"></path>
+          <path d="M6 10.5V16c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5.5"></path>
+        </svg>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <span data-en="Background" style="font-size: 11.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #8C91A0;">Formación</span>
+        <span data-en="Systems Engineer" style="font-size: 16px; font-weight: 700; color: #12131A;">Ingeniero en Sistemas</span>
+      </div>
+    </div>
+
+    <div class="reveal lift" data-d="1" style="border: 1px solid #E8EAEF; border-radius: 16px; padding: 24px; background: #ffffff; display: flex; align-items: flex-start; gap: 14px;">
+      <div style="width: 46px; height: 46px; border-radius: 12px; background: #EDF2FF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2F6BFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px;" aria-hidden="true">
+          <rect x="7" y="7" width="10" height="10" rx="2"></rect>
+          <path d="M9 3v2M15 3v2M9 19v2M15 19v2M3 9h2M3 15h2M19 9h2M19 15h2"></path>
+        </svg>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <span data-en="Specialty" style="font-size: 11.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #8C91A0;">Especialidad</span>
+        <span data-en="Artificial Intelligence and Cloud" style="font-size: 16px; font-weight: 700; color: #12131A;">Inteligencia Artificial y Cloud</span>
+      </div>
+    </div>
+
+    <div class="reveal lift" data-d="2" style="border: 1px solid #E8EAEF; border-radius: 16px; padding: 24px; background: #ffffff; display: flex; align-items: flex-start; gap: 14px;">
+      <div style="width: 46px; height: 46px; border-radius: 12px; background: #EDF2FF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2F6BFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px;" aria-hidden="true">
+          <path d="M12 3 4 6v6c0 5 3.5 7.5 8 9 4.5-1.5 8-4 8-9V6l-8-3Z"></path>
+          <path d="m9 12 2 2 4-4"></path>
+        </svg>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <span data-en="Certification" style="font-size: 11.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #8C91A0;">Certificación</span>
+        <span style="font-size: 16px; font-weight: 700; color: #12131A;">Microsoft Certified · Azure AI Fundamentals</span>
+      </div>
+    </div>
+
+    <div class="reveal lift" data-d="3" style="border: 1px solid #E8EAEF; border-radius: 16px; padding: 24px; background: #ffffff; display: flex; align-items: flex-start; gap: 14px;">
+      <div style="width: 46px; height: 46px; border-radius: 12px; background: #EDF2FF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2F6BFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px;" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+          <path d="m4 7 8 6 8-6"></path>
+        </svg>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <span data-en="Email" style="font-size: 11.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #8C91A0;">Correo</span>
+        <a class="contact-link" href="mailto:soluciones@neiro.agency" aria-label="Enviar un correo a soluciones@neiro.agency" style="font-size: 16px; font-weight: 700; color: var(--accent);">soluciones@neiro.agency</a>
+      </div>
+    </div>
+
+    <div class="reveal lift" style="border: 1px solid #E8EAEF; border-radius: 16px; padding: 24px; background: #ffffff; display: flex; align-items: flex-start; gap: 14px;">
+      <div style="width: 46px; height: 46px; border-radius: 12px; background: #EDF2FF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2F6BFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px;" aria-hidden="true">
+          <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
+          <circle cx="12" cy="12" r="4"></circle>
+          <circle cx="16.9" cy="7.1" r="0.9" fill="#2F6BFF" stroke="none"></circle>
+        </svg>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <span style="font-size: 11.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #8C91A0;">Instagram</span>
+        <a class="contact-link" href="https://www.instagram.com/marcosvarbor/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram @marcosvarbor">
+          <span class="contact-text" style="font-size: 16px; font-weight: 700; color: #12131A;">@marcosvarbor</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="reveal lift" data-d="1" style="border: 1px solid #E8EAEF; border-radius: 16px; padding: 24px; background: #ffffff; display: flex; align-items: flex-start; gap: 14px;">
+      <div style="width: 46px; height: 46px; border-radius: 12px; background: #EDF2FF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2F6BFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px;" aria-hidden="true">
+          <circle cx="8" cy="17" r="3.2"></circle>
+          <path d="M11.2 17V4.5c1 2.1 2.7 3.2 5 3.4"></path>
+        </svg>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <span style="font-size: 11.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #8C91A0;">TikTok</span>
+        <a class="contact-link" href="https://www.tiktok.com/@marcosvargas2907" target="_blank" rel="noopener noreferrer" aria-label="Abrir TikTok @marcosvargas2907">
+          <span class="contact-text" style="font-size: 16px; font-weight: 700; color: #12131A;">@marcosvargas2907</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div style="border-top: 1px solid #ECEDF1; background: #FAFBFD;">
+  <div style="max-width: 1160px; margin: 0 auto; padding: clamp(48px, 6vw, 64px) clamp(20px, 4vw, 40px) 32px; display: flex; flex-direction: column; gap: 32px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px;">
+      <div style="display: flex; flex-direction: column; gap: 14px; max-width: 300px;">
+        <a href="index.html" style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 19px; letter-spacing: -0.02em; display: flex; gap: 6px;">
+          <span style="color: #12131A;">Neiro</span><span style="color: var(--accent);">Agency</span>
+        </a>
+        <p data-en="AI automation for businesses." style="font-size: 14px; color: #8C91A0; line-height: 1.6;">Automatización con IA para negocios.</p>
+        <a class="contact-link" href="mailto:soluciones@neiro.agency" style="display: flex; align-items: center; gap: 9px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#8C91A0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px; flex-shrink: 0;" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m4 7 8 6 8-6"></path></svg>
+          <span style="font-size: 14px; color: #5A5F6E;">soluciones@neiro.agency</span>
+        </a>
+        <a class="contact-link" href="https://wa.me/50671907855" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 9px;">
+          <svg viewBox="0 0 24 24" fill="#25D366" style="width: 16px; height: 16px; flex-shrink: 0;" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.86.5 3.6 1.38 5.1L2 22l5.05-1.35A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2Z"></path></svg>
+          <span data-en="Free consultation via WhatsApp" style="font-size: 14px; color: #5A5F6E;">Consulta gratis por WhatsApp</span>
+        </a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span data-en="Navigation" style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #12131A;">Navegación</span>
+        <a href="index.html" class="nav-link" data-en="Home" style="font-size: 14.5px; color: #5A5F6E;">Inicio</a>
+        <a href="recursos.html" class="nav-link" data-en="Free resources" style="font-size: 14.5px; color: #5A5F6E;">Recursos gratuitos</a>
+        <a href="contacto.html" class="nav-link" data-en="Book a call" style="font-size: 14.5px; color: #5A5F6E;">Agenda una llamada</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span data-en="Support" style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #12131A;">Soporte</span>
+        <a href="index.html#faq" class="nav-link" data-en="FAQ" style="font-size: 14.5px; color: #5A5F6E;">Preguntas frecuentes</a>
+        <a href="privacidad.html" class="nav-link" data-en="Privacy policy" style="font-size: 14.5px; color: #5A5F6E;">Política de privacidad</a>
+      </div>
+    </div>
+    <div class="footer-row" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 24px; border-top: 1px solid #E8EAEF;">
+      <span data-en="© 2026 Neiro Agency. All rights reserved." style="font-size: 12.5px; color: #B0B4C0;">© 2026 Neiro Agency. Todos los derechos reservados.</span>
+    </div>
+  </div>
+</div>
+
+<div id="modal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-text">
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-card">
+    <button type="button" class="modal-x" id="modal-x" data-close aria-label="Cerrar">&times;</button>
+    <div class="modal-icon ok" id="modal-icon"></div>
+    <h3 id="modal-title"></h3>
+    <p id="modal-text"></p>
+    <button type="button" class="btn" id="modal-ok" data-close style="margin-top: 8px; width: 100%; font-size: 15px; font-weight: 500; color: #ffffff; background: var(--accent); border-radius: 10px; padding: 14px 24px;"></button>
+  </div>
+</div>
+
+<a class="btn wa-float" href="https://wa.me/50671907855?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20automatizaciones%20con%20IA" target="_blank" rel="noopener noreferrer" aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#ffffff" style="width: 30px; height: 30px;" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.86.5 3.6 1.38 5.1L2 22l5.05-1.35A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2Zm5.2 14.2c-.22.62-1.28 1.18-1.77 1.24-.46.06-1.02.08-1.65-.1-.38-.11-.86-.27-1.48-.53-2.6-1.12-4.3-3.74-4.43-3.92-.13-.18-1.06-1.41-1.06-2.69 0-1.28.67-1.9.9-2.16.24-.26.52-.32.7-.32h.5c.16 0 .37-.03.58.44.22.5.74 1.74.8 1.86.06.13.1.28.02.46-.08.18-.13.28-.26.43-.13.15-.27.34-.39.46-.13.13-.26.27-.11.53.15.26.67 1.1 1.44 1.78.99.88 1.83 1.16 2.09 1.29.26.13.41.11.56-.07.15-.18.65-.75.82-1.01.17-.26.34-.22.57-.13.24.08 1.5.71 1.76.84.26.13.43.19.5.3.06.13.06.7-.16 1.32Z"></path></svg>
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>

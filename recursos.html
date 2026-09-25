@@ -14,6 +14,10 @@
   a:hover { color: #1D46C7; }
   a.nav-cta, a.nav-cta:hover { color: #ffffff !important; background: #FF6A3D; }
   a.nav-cta:hover { background: #E85A2E; }
+  .pill-tag { display: inline-block; transition: transform .4s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease; }
+  .pill-tag:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 10px 20px rgba(47,107,255,.18); }
+  .wa-float { position: fixed; bottom: 24px; right: 24px; width: 60px; height: 60px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 24px rgba(37,211,102,.4); z-index: 500; }
+  .wa-float:hover { box-shadow: 0 14px 32px rgba(37,211,102,.5) !important; }
   h1, h2, h3 { font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; margin: 0; letter-spacing: -0.02em; }
   p { margin: 0; }
   input, select, textarea { font-family: inherit; font-size: 15px; color: #12131A; background: #ffffff; border: 1px solid #DDE0E7; border-radius: 10px; padding: 14px 16px; outline: none; width: 100%; transition: border-color .2s ease, box-shadow .2s ease; }
@@ -73,11 +77,11 @@
       <span style="color: #12131A;">Neiro</span><span style="color: var(--accent);">Agency</span>
     </a>
     <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
-      <a href="index.html" class="nav-link" data-en="Home" style="font-size: 14.5px; font-weight: 500; color: #444C63;">Inicio</a>
+      <a href="index.html" class="btn nav-cta" data-en="Home" style="font-size: 13.5px; font-weight: 500; border-radius: 999px; padding: 8px 16px;">Inicio</a>
       <a href="contacto.html" class="btn nav-cta" data-en="Book a call" style="font-size: 13.5px; font-weight: 500; border-radius: 999px; padding: 8px 16px;">Agenda una llamada</a>
       <div style="display: flex; align-items: center; gap: 2px; border: 1px solid #E4E6EC; border-radius: 999px; padding: 4px;">
         <button class="btn lang-btn is-active" id="lang-es" style="font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px;">ES</button>
-        <button class="btn lang-btn" id="lang-en" style="font-size: 13px; font-weight: 500; padding: 5px 13px;">EN</button>
+        <button class="btn lang-btn" id="lang-en" style="font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px;">EN</button>
       </div>
     </div>
   </div>
@@ -212,6 +216,10 @@
     <button type="button" class="btn" id="modal-ok" data-close style="margin-top: 8px; width: 100%; font-size: 15px; font-weight: 500; color: #ffffff; background: var(--accent); border-radius: 10px; padding: 14px 24px;"></button>
   </div>
 </div>
+
+<a class="btn wa-float" href="https://wa.me/50671907855?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20automatizaciones%20con%20IA" target="_blank" rel="noopener noreferrer" aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#ffffff" style="width: 30px; height: 30px;" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.86.5 3.6 1.38 5.1L2 22l5.05-1.35A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2Zm5.2 14.2c-.22.62-1.28 1.18-1.77 1.24-.46.06-1.02.08-1.65-.1-.38-.11-.86-.27-1.48-.53-2.6-1.12-4.3-3.74-4.43-3.92-.13-.18-1.06-1.41-1.06-2.69 0-1.28.67-1.9.9-2.16.24-.26.52-.32.7-.32h.5c.16 0 .37-.03.58.44.22.5.74 1.74.8 1.86.06.13.1.28.02.46-.08.18-.13.28-.26.43-.13.15-.27.34-.39.46-.13.13-.26.27-.11.53.15.26.67 1.1 1.44 1.78.99.88 1.83 1.16 2.09 1.29.26.13.41.11.56-.07.15-.18.65-.75.82-1.01.17-.26.34-.22.57-.13.24.08 1.5.71 1.76.84.26.13.43.19.5.3.06.13.06.7-.16 1.32Z"></path></svg>
+</a>
 
 <script src="script.js"></script>
 </body>

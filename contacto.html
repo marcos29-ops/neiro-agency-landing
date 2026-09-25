@@ -26,6 +26,10 @@
   a.btn:not(.btn-ghost), a.btn:not(.btn-ghost):hover { color: #ffffff; }
   a.nav-cta, a.nav-cta:hover { color: #ffffff !important; background: #FF6A3D; }
   a.nav-cta:hover { background: #E85A2E; }
+  .pill-tag { display: inline-block; transition: transform .4s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease; }
+  .pill-tag:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 10px 20px rgba(47,107,255,.18); }
+  .wa-float { position: fixed; bottom: 24px; right: 24px; width: 60px; height: 60px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 24px rgba(37,211,102,.4); z-index: 500; }
+  .wa-float:hover { box-shadow: 0 14px 32px rgba(37,211,102,.5) !important; }
   a.nav-link { display: inline-block; transition: transform .4s cubic-bezier(.34,1.56,.64,1); }
   a.nav-link:hover { transform: translateY(-2px) scale(1.06); }
   .btn:active { transform: translateY(0); box-shadow: none; }
@@ -37,7 +41,7 @@
   .lang-btn, .btn, a { touch-action: manipulation; }
   @media (max-width: 480px) {
     .lang-btn { padding: 9px 15px !important; font-size: 14px !important; }
-    .phone-row select, .phone-row input { flex: 1 1 100% !important; min-width: 100% !important; font-size: 16px !important; }
+    .phone-row select, .phone-row input { font-size: 16px !important; }
   }
   .lang-btn:not(.is-active) { color: #777C8A !important; background: transparent !important; }
   [hidden] { display: none !important; }
@@ -70,12 +74,11 @@
       <span style="color: #12131A;">Neiro</span><span style="color: var(--accent);">Agency</span>
     </a>
     <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
-      <a href="index.html" class="nav-link" data-en="Home" style="font-size: 14.5px; font-weight: 500; color: #444C63;">Inicio</a>
-      <a href="recursos.html" class="nav-link" data-en="Free resources" style="font-size: 14.5px; font-weight: 500; color: #444C63;">Recursos gratuitos</a>
-      <a href="contacto.html" class="btn nav-cta" data-en="Book a call" style="font-size: 13.5px; font-weight: 500; border-radius: 999px; padding: 8px 16px;">Agenda una llamada</a>
+      <a href="index.html" class="btn nav-cta" data-en="Home" style="font-size: 13.5px; font-weight: 500; border-radius: 999px; padding: 8px 16px;">Inicio</a>
+      <a href="recursos.html" class="btn nav-cta" data-en="Free resources" style="font-size: 13.5px; font-weight: 500; border-radius: 999px; padding: 8px 16px;">Recursos gratuitos</a>
       <div style="display: flex; align-items: center; gap: 2px; border: 1px solid #E4E6EC; border-radius: 999px; padding: 4px;">
         <button class="btn lang-btn is-active" id="lang-es" style="font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px;">ES</button>
-        <button class="btn lang-btn" id="lang-en" style="font-size: 13px; font-weight: 500; padding: 5px 13px;">EN</button>
+        <button class="btn lang-btn" id="lang-en" style="font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px;">EN</button>
       </div>
     </div>
   </div>
@@ -86,7 +89,7 @@
     <div style="display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center;">
       <span data-en="Contact" style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Contacto</span>
       <h2 data-en="Want us to help you?" style="font-size: clamp(28px, 4.2vw, 40px); line-height: 1.16; font-weight: 700; color: #12131A;">¿Querés que te ayudemos?</h2>
-      <p data-en="Tell me your situation and I'll be honest about whether it's worth automating." style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E; max-width: 480px;">Contame tu caso y te digo con honestidad si tiene sentido automatizarlo.</p>
+      <p data-en="Tell me your situation, I'll be honest about whether it's worth automating, and I'll show you a demo of an automation in action." style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E; max-width: 480px;">Contame tu caso, te digo con honestidad si tiene sentido automatizarlo, y de paso te muestro una demo de una automatización en acción.</p>
     </div>
 
     <div style="background: #ffffff; border: 1px solid #E8EAEF; border-radius: 18px; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 18px;">
@@ -104,8 +107,8 @@
       </div>
       <div style="display: flex; flex-direction: column; gap: 8px;">
         <span data-en="Phone" style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Teléfono</span>
-        <div class="phone-row" style="display: flex; gap: 10px; flex-wrap: wrap;">
-          <select id="c-pais-tel" style="flex: 1 1 150px; min-width: 130px;">
+        <div class="phone-row" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+          <select id="c-pais-tel" style="width: 100%;">
             <option>+93 Afganistán</option><option>+355 Albania</option><option>+49 Alemania</option><option>+376 Andorra</option>
             <option>+244 Angola</option><option>+1268 Antigua y Barbuda</option><option>+966 Arabia Saudita</option><option>+213 Argelia</option>
             <option>+54 Argentina</option><option>+374 Armenia</option><option>+61 Australia</option><option>+43 Austria</option>
@@ -155,7 +158,7 @@
             <option>+678 Vanuatu</option><option>+58 Venezuela</option><option>+84 Vietnam</option><option>+967 Yemen</option>
             <option>+253 Yibuti</option><option>+260 Zambia</option><option>+263 Zimbabue</option>
           </select>
-          <input type="tel" id="c-telefono" placeholder="8888 8888" style="flex: 2 1 160px; min-width: 160px;">
+          <input type="tel" id="c-telefono" placeholder="8888 8888" style="width: 100%;">
         </div>
         <span id="c-tel-error" class="field-error" hidden></span>
       </div>
@@ -246,6 +249,10 @@
     <button type="button" class="btn" id="modal-ok" data-close style="margin-top: 8px; width: 100%; font-size: 15px; font-weight: 500; color: #ffffff; background: var(--accent); border-radius: 10px; padding: 14px 24px;"></button>
   </div>
 </div>
+
+<a class="btn wa-float" href="https://wa.me/50671907855?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20automatizaciones%20con%20IA" target="_blank" rel="noopener noreferrer" aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#ffffff" style="width: 30px; height: 30px;" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.86.5 3.6 1.38 5.1L2 22l5.05-1.35A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2Zm5.2 14.2c-.22.62-1.28 1.18-1.77 1.24-.46.06-1.02.08-1.65-.1-.38-.11-.86-.27-1.48-.53-2.6-1.12-4.3-3.74-4.43-3.92-.13-.18-1.06-1.41-1.06-2.69 0-1.28.67-1.9.9-2.16.24-.26.52-.32.7-.32h.5c.16 0 .37-.03.58.44.22.5.74 1.74.8 1.86.06.13.1.28.02.46-.08.18-.13.28-.26.43-.13.15-.27.34-.39.46-.13.13-.26.27-.11.53.15.26.67 1.1 1.44 1.78.99.88 1.83 1.16 2.09 1.29.26.13.41.11.56-.07.15-.18.65-.75.82-1.01.17-.26.34-.22.57-.13.24.08 1.5.71 1.76.84.26.13.43.19.5.3.06.13.06.7-.16 1.32Z"></path></svg>
+</a>
 
 <script src="script.js"></script>
 </body>

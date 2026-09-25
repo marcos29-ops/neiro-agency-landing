@@ -16,6 +16,10 @@
   a.btn:not(.btn-ghost), a.btn:not(.btn-ghost):hover { color: #ffffff; }
   a.nav-cta, a.nav-cta:hover { color: #ffffff !important; background: #FF6A3D; }
   a.nav-cta:hover { background: #E85A2E; }
+  .pill-tag { display: inline-block; transition: transform .4s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease; }
+  .pill-tag:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 10px 20px rgba(47,107,255,.18); }
+  .wa-float { position: fixed; bottom: 24px; right: 24px; width: 60px; height: 60px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 24px rgba(37,211,102,.4); z-index: 500; }
+  .wa-float:hover { box-shadow: 0 14px 32px rgba(37,211,102,.5) !important; }
   h1, h2, h3 { font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; margin: 0; letter-spacing: -0.02em; }
   p { margin: 0; }
   input, select, textarea { font-family: inherit; font-size: 15px; color: #12131A; background: #ffffff; border: 1px solid #DDE0E7; border-radius: 10px; padding: 14px 16px; outline: none; width: 100%; transition: border-color .2s ease, box-shadow .2s ease; }
@@ -83,11 +87,11 @@
       <span style="color: #12131A;">Neiro</span><span style="color: var(--accent);">Agency</span>
     </div>
     <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
-      <a href="recursos.html" class="nav-link" data-en="Free resources" style="font-size: 14.5px; font-weight: 500; color: #444C63;">Recursos gratuitos</a>
+      <a href="recursos.html" class="btn nav-cta" data-en="Free resources" style="font-size: 13.5px; font-weight: 500; border-radius: 999px; padding: 8px 16px;">Recursos gratuitos</a>
       <a href="contacto.html" class="btn nav-cta" data-en="Book a call" style="font-size: 13.5px; font-weight: 500; border-radius: 999px; padding: 8px 16px;">Agenda una llamada</a>
       <div style="display: flex; align-items: center; gap: 2px; border: 1px solid #E4E6EC; border-radius: 999px; padding: 4px;">
         <button class="btn lang-btn is-active" id="lang-es" style="font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px;">ES</button>
-        <button class="btn lang-btn" id="lang-en" style="font-size: 13px; font-weight: 500; padding: 5px 13px;">EN</button>
+        <button class="btn lang-btn" id="lang-en" style="font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px;">EN</button>
       </div>
     </div>
   </div>
@@ -124,7 +128,7 @@
     <div style="flex: 1 1 420px; display: flex; flex-direction: column; align-items: flex-start; gap: 18px;">
       <span data-en="About me" style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Sobre mí</span>
       <h2 data-en="Automation with technical judgment." style="font-size: clamp(26px, 3vw, 30px); line-height: 1.22; font-weight: 700; color: #12131A;">Automatización con criterio técnico.</h2>
-      <p data-en="Marcos Vargas, Systems Engineer, with experience in AI and Cloud. I design and build custom automations for businesses: AI agents that talk to customers on WhatsApp or your own website, and internal workflows that connect your calendar, your inbox and your tools to remove repetitive work. I handle everything end to end: diagnosis, development and rollout, with no middlemen." style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E; max-width: 620px;">Marcos Vargas, Ingeniero en Sistemas, con experiencia en el sector de IA y Cloud. Diseño y construyo automatizaciones a medida para negocios: agentes de IA que atienden clientes por WhatsApp o desde tu propia web, y flujos internos que conectan tu agenda, tu correo y tus herramientas de trabajo para eliminar tareas repetitivas. Trabajo de punta a punta: diagnóstico, desarrollo y puesta en marcha, sin intermediarios.</p>
+      <p data-en="Marcos Vargas, Systems Engineer, with experience in AI and Cloud. I design and build custom automations for businesses: AI agents that talk to customers on WhatsApp, Instagram or your own website, and internal workflows that connect your calendar, your inbox and your tools to remove repetitive work. I handle everything end to end: diagnosis, development and rollout, with no middlemen." style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E; max-width: 620px;">Marcos Vargas, Ingeniero en Sistemas, con experiencia en el sector de IA y Cloud. Diseño y construyo automatizaciones a medida para negocios: agentes de IA que atienden clientes por WhatsApp, Instagram o desde tu propia web, y flujos internos que conectan tu agenda, tu correo y tus herramientas de trabajo para eliminar tareas repetitivas. Trabajo de punta a punta: diagnóstico, desarrollo y puesta en marcha, sin intermediarios.</p>
       <span style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 10px 16px;">Microsoft Certified · Azure AI Fundamentals</span>
     </div>
   </div>
@@ -244,9 +248,9 @@
         </div>
 
         <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-          <span data-en="Instant replies, 24/7" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Respuestas instantáneas, 24/7</span>
-          <span data-en="Auto-booking in Google Calendar" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Reservas automáticas en Google Calendar</span>
-          <span data-en="Integrates with your CRM and tools" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Se integra a tu CRM y herramientas</span>
+          <span class="pill-tag" data-en="Instant replies, 24/7" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Respuestas instantáneas, 24/7</span>
+          <span class="pill-tag" data-en="Auto-booking in Google Calendar" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Reservas automáticas en Google Calendar</span>
+          <span class="pill-tag" data-en="Integrates with your CRM and tools" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Se integra a tu CRM y herramientas</span>
         </div>
       </div>
 
@@ -300,20 +304,20 @@
         </div>
 
         <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-          <span data-en="Summarizes your inbox" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Resume tus correos</span>
-          <span data-en="Flags interested leads" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Te avisa cuando alguien está interesado</span>
-          <span data-en="Drafts and sends for you" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Redacta y envía por vos</span>
-          <span data-en="Searches thousands of documents in seconds" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Busca entre miles de documentos en segundos</span>
+          <span class="pill-tag" data-en="Summarizes your inbox" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Resume tus correos</span>
+          <span class="pill-tag" data-en="Flags interested leads" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Te avisa cuando alguien está interesado</span>
+          <span class="pill-tag" data-en="Drafts and sends for you" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Redacta y envía por vos</span>
+          <span class="pill-tag" data-en="Searches thousands of documents in seconds" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Busca entre miles de documentos en segundos</span>
         </div>
       </div>
 
-      <div class="reveal lift" data-d="2" style="grid-column: 1 / -1; border: 1px solid #E8EAEF; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 20px; background: #ffffff;">
-        <div style="display: flex; flex-direction: column; gap: 10px; max-width: 640px;">
+      <div class="reveal lift" data-d="2" style="border: 1px solid #E8EAEF; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 20px; background: #ffffff;">
+        <div style="display: flex; flex-direction: column; gap: 10px;">
           <h3 data-en="An Instagram agent that qualifies leads and closes sales" style="font-size: 19px; line-height: 1.3; font-weight: 700; color: #12131A;">Un agente de Instagram que califica leads y cierra ventas</h3>
           <p data-en="It answers comments and DMs the moment someone shows interest, asks a couple of qualifying questions, and hands over a discount code or payment link, without you having to be glued to your phone." style="font-size: 15px; line-height: 1.68; color: #5A5F6E;">Responde comentarios y DMs apenas alguien muestra interés, hace un par de preguntas para calificarlo, y le entrega un código de descuento o link de pago, sin que vos tengas que estar pegado al teléfono.</p>
         </div>
 
-        <div style="border: 1px solid #E8EAEF; border-radius: 14px; overflow: hidden; background: #ffffff; max-width: 480px;">
+        <div style="border: 1px solid #E8EAEF; border-radius: 14px; overflow: hidden; background: #ffffff;">
           <div style="background: #F5F6F9; padding: 14px 18px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #E8EAEF;">
             <div style="display: flex; gap: 6px;" aria-hidden="true">
               <span style="width: 10px; height: 10px; border-radius: 50%; background: #FF5F57; display: inline-block;"></span>
@@ -357,9 +361,77 @@
         </div>
 
         <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-          <span data-en="Answers comments and DMs 24/7" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Responde comentarios y DMs, 24/7</span>
-          <span data-en="Qualifies leads automatically" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Califica leads automáticamente</span>
-          <span data-en="Delivers discount codes and payment links instantly" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Entrega códigos de descuento y links de pago al instante</span>
+          <span class="pill-tag" data-en="Answers comments and DMs 24/7" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Responde comentarios y DMs, 24/7</span>
+          <span class="pill-tag" data-en="Qualifies leads automatically" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Califica leads automáticamente</span>
+          <span class="pill-tag" data-en="Delivers discount codes and payment links instantly" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Entrega códigos de descuento y links de pago al instante</span>
+        </div>
+      </div>
+
+      <div class="reveal lift" data-d="3" style="border: 1px solid #E8EAEF; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 20px; background: #ffffff;">
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <h3 data-en="A website with your own AI assistant built in" style="font-size: 19px; line-height: 1.3; font-weight: 700; color: #12131A;">Una página web con tu propio asistente de IA integrado</h3>
+          <p data-en="We build your website from scratch, with your products, inventory and everything you need, and integrate an assistant that knows your business inside out: it answers your visitors' questions right there, without them having to write to you anywhere else." style="font-size: 15px; line-height: 1.68; color: #5A5F6E;">Te creamos la página web desde cero, con tus productos, inventario y todo lo que necesites, y le integramos un asistente que conoce tu negocio al detalle: responde las dudas de tus visitantes ahí mismo, sin que tengan que escribirte a ningún otro lado.</p>
+        </div>
+
+        <div style="border: 1px solid #E8EAEF; border-radius: 14px; overflow: hidden; background: #ffffff;">
+          <div style="background: #F5F6F9; padding: 12px 16px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #E8EAEF;">
+            <div style="display: flex; gap: 6px; flex-shrink: 0;" aria-hidden="true">
+              <span style="width: 10px; height: 10px; border-radius: 50%; background: #FF5F57; display: inline-block;"></span>
+              <span style="width: 10px; height: 10px; border-radius: 50%; background: #FEBC2E; display: inline-block;"></span>
+              <span style="width: 10px; height: 10px; border-radius: 50%; background: #28C840; display: inline-block;"></span>
+            </div>
+            <div style="flex: 1; background: #ffffff; border: 1px solid #E4E6EC; border-radius: 8px; padding: 5px 12px; font-size: 12px; color: #8C91A0;">tunegocio.com</div>
+          </div>
+          <div style="padding: 22px; display: flex; flex-direction: column; gap: 16px;">
+            <div style="height: 14px; width: 55%; background: #EEF0F4; border-radius: 4px;"></div>
+            <div style="height: 10px; width: 75%; background: #F2F3F6; border-radius: 4px;"></div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+              <div style="border: 1px solid #E8EAEF; border-radius: 10px; padding: 12px 8px; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center;">
+                <div style="width: 100%; height: 46px; background: #EDF2FF; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 22px;" aria-hidden="true">🪑</div>
+                <div data-en="Nordic chair" style="font-size: 11px; font-weight: 600; color: #12131A;">Silla nórdica</div>
+                <div style="font-size: 11.5px; font-weight: 700; color: var(--accent);">$2</div>
+              </div>
+              <div style="border: 1px solid #E8EAEF; border-radius: 10px; padding: 12px 8px; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center;">
+                <div style="width: 100%; height: 46px; background: #EDF2FF; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 22px;" aria-hidden="true">🏺</div>
+                <div data-en="Ceramic vase" style="font-size: 11px; font-weight: 600; color: #12131A;">Jarrón cerámico</div>
+                <div style="font-size: 11.5px; font-weight: 700; color: var(--accent);">$2</div>
+              </div>
+              <div style="border: 1px solid #E8EAEF; border-radius: 10px; padding: 12px 8px; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center;">
+                <div style="width: 100%; height: 46px; background: #EDF2FF; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 22px;" aria-hidden="true">🛋️</div>
+                <div data-en="Modular sofa" style="font-size: 11px; font-weight: 600; color: #12131A;">Sofá modular</div>
+                <div style="font-size: 11.5px; font-weight: 700; color: var(--accent);">$2</div>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end; margin-top: 4px;">
+              <div style="width: 100%; max-width: 280px; background: #ffffff; border: 1px solid #E8EAEF; border-radius: 12px; box-shadow: 0 14px 30px rgba(18,19,26,.14); overflow: hidden;">
+                <div style="background: var(--accent); padding: 9px 12px; display: flex; align-items: center; gap: 8px;">
+                  <span style="width: 8px; height: 8px; border-radius: 50%; background: #6FE58F; display: inline-block;"></span>
+                  <span data-en="Assistant" style="color: #ffffff; font-size: 12px; font-weight: 700;">Asistente</span>
+                </div>
+                <div style="padding: 12px; display: flex; flex-direction: column; gap: 8px;">
+                  <div style="align-self: flex-start; max-width: 92%;">
+                    <div data-en="Do you have this in stock?" style="background: #F1F3F8; border-radius: 10px 10px 10px 3px; padding: 7px 10px; font-size: 12.5px; line-height: 1.4; color: #12131A;">¿Tienen esto en stock?</div>
+                  </div>
+                  <div style="align-self: flex-end; max-width: 92%;">
+                    <div data-en="Yes! 12 units left, shipped in 24-48h." style="background: #EDF2FF; border-radius: 10px 10px 3px 10px; padding: 7px 10px; font-size: 12.5px; line-height: 1.4; color: #12131A;">¡Sí! Quedan 12 unidades, envío en 24-48h.</div>
+                  </div>
+                  <div style="align-self: flex-start; max-width: 92%;">
+                    <div data-en="What are your hours?" style="background: #F1F3F8; border-radius: 10px 10px 10px 3px; padding: 7px 10px; font-size: 12.5px; line-height: 1.4; color: #12131A;">¿Cuál es el horario de atención?</div>
+                  </div>
+                  <div style="align-self: flex-end; max-width: 92%;">
+                    <div data-en="Monday to Saturday, 8am-6pm. Anything else?" style="background: #EDF2FF; border-radius: 10px 10px 3px 10px; padding: 7px 10px; font-size: 12.5px; line-height: 1.4; color: #12131A;">Lunes a sábado, 8am a 6pm. ¿Te ayudo con algo más?</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <span class="pill-tag" data-en="Website built from scratch, tailored to you" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Web hecha a tu medida, desde cero</span>
+          <span class="pill-tag" data-en="Shows your up-to-date inventory and products" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Muestra tu inventario y productos actualizados</span>
+          <span class="pill-tag" data-en="Built-in assistant that knows your business inside out" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Asistente integrado que conoce tu negocio al detalle</span>
         </div>
       </div>
 
@@ -394,6 +466,10 @@
     <button type="button" class="btn" id="modal-ok" data-close style="margin-top: 8px; width: 100%; font-size: 15px; font-weight: 500; color: #ffffff; background: var(--accent); border-radius: 10px; padding: 14px 24px;"></button>
   </div>
 </div>
+
+<a class="btn wa-float" href="https://wa.me/50671907855?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20automatizaciones%20con%20IA" target="_blank" rel="noopener noreferrer" aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#ffffff" style="width: 30px; height: 30px;" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.86.5 3.6 1.38 5.1L2 22l5.05-1.35A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2Zm5.2 14.2c-.22.62-1.28 1.18-1.77 1.24-.46.06-1.02.08-1.65-.1-.38-.11-.86-.27-1.48-.53-2.6-1.12-4.3-3.74-4.43-3.92-.13-.18-1.06-1.41-1.06-2.69 0-1.28.67-1.9.9-2.16.24-.26.52-.32.7-.32h.5c.16 0 .37-.03.58.44.22.5.74 1.74.8 1.86.06.13.1.28.02.46-.08.18-.13.28-.26.43-.13.15-.27.34-.39.46-.13.13-.26.27-.11.53.15.26.67 1.1 1.44 1.78.99.88 1.83 1.16 2.09 1.29.26.13.41.11.56-.07.15-.18.65-.75.82-1.01.17-.26.34-.22.57-.13.24.08 1.5.71 1.76.84.26.13.43.19.5.3.06.13.06.7-.16 1.32Z"></path></svg>
+</a>
 
 <script src="script.js"></script>
 </body>

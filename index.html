@@ -45,7 +45,11 @@
   .info-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: #E8EAEF; border: 1px solid #E8EAEF; border-radius: 18px; overflow: hidden; }
   @media (min-width: 640px) { .info-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (min-width: 900px) { .info-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-  .lang-btn.is-active { color: #ffffff !important; background: #12131A !important; }
+  .lang-btn.is-active { color: #ffffff !important; background: #FF6A3D !important; }
+  .lang-btn, .btn, a { touch-action: manipulation; }
+  @media (max-width: 480px) {
+    .lang-btn { padding: 9px 15px !important; font-size: 14px !important; }
+  }
   .lang-btn:not(.is-active) { color: #777C8A !important; background: transparent !important; }
   [hidden] { display: none !important; }
   a.contact-link { text-decoration: none; color: inherit; }
@@ -78,7 +82,7 @@
     </div>
     <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
       <a href="recursos.html" data-en="Free resources" style="font-size: 14.5px; font-weight: 500; color: #444C63;">Recursos gratuitos</a>
-      <a href="contacto.html" class="btn nav-cta" data-en="Contact" style="font-size: 13.5px; font-weight: 500; border-radius: 999px; padding: 8px 16px;">Contacto</a>
+      <a href="contacto.html" class="btn nav-cta" data-en="Book a call" style="font-size: 13.5px; font-weight: 500; border-radius: 999px; padding: 8px 16px;">Agenda una llamada</a>
       <div style="display: flex; align-items: center; gap: 2px; border: 1px solid #E4E6EC; border-radius: 999px; padding: 4px;">
         <button class="btn lang-btn is-active" id="lang-es" style="font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px;">ES</button>
         <button class="btn lang-btn" id="lang-en" style="font-size: 13px; font-weight: 500; padding: 5px 13px;">EN</button>

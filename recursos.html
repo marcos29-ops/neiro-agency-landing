@@ -38,7 +38,11 @@
   .arrow { cursor: pointer; transition: background-color .2s ease, border-color .2s ease, transform .2s ease; border: none; font: inherit; }
   .arrow:hover { background: #EDF2FF; border-color: var(--accent); transform: translateY(-2px); }
   .field-error { font-size: 13px; color: #C0392B; }
-  .lang-btn.is-active { color: #ffffff !important; background: #12131A !important; }
+  .lang-btn.is-active { color: #ffffff !important; background: #FF6A3D !important; }
+  .lang-btn, .btn, a { touch-action: manipulation; }
+  @media (max-width: 480px) {
+    .lang-btn { padding: 9px 15px !important; font-size: 14px !important; }
+  }
   .lang-btn:not(.is-active) { color: #777C8A !important; background: transparent !important; }
   [hidden] { display: none !important; }
   @keyframes dcFade { from { opacity: 0; } to { opacity: 1; } }
@@ -68,7 +72,7 @@
     </a>
     <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
       <a href="index.html" data-en="Home" style="font-size: 14.5px; font-weight: 500; color: #444C63;">Inicio</a>
-      <a href="contacto.html" class="btn nav-cta" data-en="Contact" style="font-size: 13.5px; font-weight: 500; border-radius: 999px; padding: 8px 16px;">Contacto</a>
+      <a href="contacto.html" class="btn nav-cta" data-en="Book a call" style="font-size: 13.5px; font-weight: 500; border-radius: 999px; padding: 8px 16px;">Agenda una llamada</a>
       <div style="display: flex; align-items: center; gap: 2px; border: 1px solid #E4E6EC; border-radius: 999px; padding: 4px;">
         <button class="btn lang-btn is-active" id="lang-es" style="font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px;">ES</button>
         <button class="btn lang-btn" id="lang-en" style="font-size: 13px; font-weight: 500; padding: 5px 13px;">EN</button>

@@ -6,7 +6,7 @@
 <title>Política de privacidad — Neiro Agency</title>
 <meta name="robots" content="index, follow">
 <style>
-  :root { --ink: #12131A; --muted: #5B5F70; --line: #DDE0E7; }
+  :root { --ink: #12131A; --muted: #5B5F70; --line: #DDE0E7; --accent: #2F6BFF; }
   * { box-sizing: border-box; }
   body { margin: 0; background: #ffffff; color: var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif; line-height: 1.65; }
   main { max-width: 760px; margin: 0 auto; padding: 48px 20px 80px; }
@@ -16,73 +16,97 @@
   p, li { font-size: 16px; }
   ul { padding-left: 22px; }
   a { color: var(--ink); }
-  .meta { color: var(--muted); font-size: 14px; margin-bottom: 28px; }
-  .back { display: inline-block; margin-bottom: 28px; font-size: 14px; color: var(--muted); text-decoration: none; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
+  .top-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
+  .back { display: inline-block; font-size: 14px; color: var(--muted); text-decoration: none; }
+  .lang-toggle { display: flex; align-items: center; gap: 2px; border: 1px solid var(--line); border-radius: 999px; padding: 4px; flex-shrink: 0; }
+  .lang-btn { cursor: pointer; border: none; font: inherit; font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px; background: transparent; color: #777C8A; }
+  .lang-btn.is-active { background: var(--ink); color: #ffffff; }
   hr { border: 0; border-top: 1px solid var(--line); margin: 44px 0 0; }
 </style>
 </head>
 <body>
 <main>
-  <a class="back" href="/">&larr; Volver a neiro.agency</a>
-  <h1>Política de privacidad</h1>
-  <p class="meta">Neiro Agency · Última actualización: 18 de septiembre de 2026</p>
+  <div class="top-row">
+    <a class="back" href="index.html">&larr; <span data-en="Back to neiro.agency">Volver a neiro.agency</span></a>
+    <div class="lang-toggle">
+      <button type="button" class="lang-btn is-active" id="lang-es">ES</button>
+      <button type="button" class="lang-btn" id="lang-en">EN</button>
+    </div>
+  </div>
 
-  <p>En Neiro Agency respetamos tus datos. Esta página explica qué información recogemos en <strong>neiro.agency</strong>, para qué la usamos y cómo puedes pedirnos que la corrijamos o la eliminemos.</p>
+  <h1 data-en="Privacy Policy">Política de privacidad</h1>
+  <p class="meta"><span data-en="Neiro Agency · Last updated: September 25, 2026">Neiro Agency · Última actualización: 25 de septiembre de 2026</span></p>
 
-  <h2>1. Quiénes somos</h2>
-  <p>Neiro Agency es una agencia de automatizaciones con inteligencia artificial. Para cualquier consulta sobre tus datos escríbenos a <a href="mailto:soluciones@neiro.agency">soluciones@neiro.agency</a>.</p>
+  <p data-en="At Neiro Agency we respect your data. This page explains what information we collect on <strong>neiro.agency</strong>, what we use it for, and how you can ask us to correct or delete it.">En Neiro Agency respetamos tus datos. Esta página explica qué información recogemos en <strong>neiro.agency</strong>, para qué la usamos y cómo puedes pedirnos que la corrijamos o la eliminemos.</p>
 
-  <h2>2. Qué datos recogemos</h2>
-  <p>Solo los que tú nos das al llenar un formulario de la web:</p>
+  <h2 data-en="1. Who we are">1. Quiénes somos</h2>
+  <p data-en='Neiro Agency is an AI automation agency. For any question about your data, write to us at <a href="mailto:soluciones@neiro.agency">soluciones@neiro.agency</a>.'>Neiro Agency es una agencia de automatizaciones con inteligencia artificial. Para cualquier consulta sobre tus datos escríbenos a <a href="mailto:soluciones@neiro.agency">soluciones@neiro.agency</a>.</p>
+
+  <h2 data-en="2. What data we collect">2. Qué datos recogemos</h2>
+  <p data-en="Only what you give us by filling out a form on the website:">Solo los que tú nos das al llenar un formulario de la web:</p>
   <ul>
-    <li><strong>Formulario de guías gratuitas:</strong> nombre, correo electrónico, país, rol y las guías que elegiste.</li>
-    <li><strong>Formulario de solicitud de llamada:</strong> nombre, correo electrónico, teléfono y el mensaje que quieras dejarnos.</li>
-    <li>El idioma de la web que estabas usando (español o inglés).</li>
-    <li>La fecha y hora en que enviaste el formulario.</li>
+    <li data-en="<strong>Free guides form:</strong> name, email, country, role and the guides you chose."><strong>Formulario de guías gratuitas:</strong> nombre, correo electrónico, país, rol y las guías que elegiste.</li>
+    <li data-en="<strong>Call request form:</strong> name, email, phone number and the message you leave us."><strong>Formulario de solicitud de llamada:</strong> nombre, correo electrónico, teléfono y el mensaje que quieras dejarnos.</li>
+    <li data-en="The website language you were using (Spanish or English).">El idioma de la web que estabas usando (español o inglés).</li>
+    <li data-en="The date and time you submitted the form.">La fecha y hora en que enviaste el formulario.</li>
   </ul>
-  <p>No pedimos datos sensibles, no vendemos tus datos y no los usamos para publicidad de terceros.</p>
+  <p data-en="We don't ask for sensitive data, we don't sell your data, and we don't use it for third-party advertising.">No pedimos datos sensibles, no vendemos tus datos y no los usamos para publicidad de terceros.</p>
 
-  <h2>2.1. Datos de la llamada</h2>
-  <p>Si acordamos una llamada contigo, guardamos la fecha y la hora acordadas y creamos un evento de calendario al que te invitamos por correo electrónico.</p>
+  <h2 data-en="2.1. Call data">2.1. Datos de la llamada</h2>
+  <p data-en="If we schedule a call with you, we save the agreed date and time and create a calendar event, and send you the invitation and confirmation by email.">Si acordamos una llamada contigo, guardamos la fecha y la hora acordadas, creamos un evento de calendario, y te enviamos la invitación y la confirmación por correo.</p>
 
-  <h2>3. Para qué los usamos</h2>
+  <h2 data-en="3. What we use it for">3. Para qué los usamos</h2>
   <ul>
-    <li>Enviarte las guías que pediste.</li>
-    <li>Contactarte y agendar la llamada que solicitaste.</li>
-    <li>Enviarte la invitación y los avisos de esa llamada (confirmación, cambio de hora o cancelación).</li>
-    <li>Llevar un registro interno de solicitudes para atenderte mejor.</li>
+    <li data-en="Send you the guides you requested.">Enviarte las guías que pediste.</li>
+    <li data-en="Contact you and schedule the call you requested.">Contactarte y agendar la llamada que solicitaste.</li>
+    <li data-en="Send you the invitation and notices for that call (confirmation, rescheduling or cancellation).">Enviarte la invitación y los avisos de esa llamada (confirmación, cambio de hora o cancelación).</li>
+    <li data-en="Keep an internal record of requests so we can help you better.">Llevar un registro interno de solicitudes para atenderte mejor.</li>
   </ul>
 
-  <h2>4. Con quién los compartimos</h2>
-  <p>Usamos proveedores para poder prestar el servicio. Solo reciben los datos necesarios para su función:</p>
+  <h2 data-en="4. Who we share it with">4. Con quién los compartimos</h2>
+  <p data-en="We use providers to deliver the service. Each one only receives the data it needs for its function:">Usamos proveedores para poder prestar el servicio. Solo reciben los datos necesarios para su función:</p>
   <ul>
-    <li><strong>Google</strong> (Google Sheets y Google Calendar): almacenar el registro de solicitudes y crear los eventos de las llamadas.</li>
-    <li><strong>Telegram</strong>: avisar internamente a nuestro equipo cuando llega una solicitud.</li>
-    <li><strong>OpenAI</strong>: interpretar las instrucciones de agenda que escribe nuestro equipo, que pueden incluir el nombre de la persona.</li>
-    <li>Servidores propios donde funcionan nuestras automatizaciones.</li>
+    <li data-en="<strong>Google</strong> (Google Sheets and Google Calendar): store the request log and create the call events."><strong>Google</strong> (Google Sheets y Google Calendar): almacenar el registro de solicitudes y crear los eventos de las llamadas.</li>
+    <li data-en="<strong>Telegram</strong>: notify our team internally when a request comes in."><strong>Telegram</strong>: avisar internamente a nuestro equipo cuando llega una solicitud.</li>
+    <li data-en="<strong>OpenAI</strong>: interpret the scheduling instructions our team writes, which may include your name."><strong>OpenAI</strong>: interpretar las instrucciones de agenda que escribe nuestro equipo, que pueden incluir el nombre de la persona.</li>
+    <li data-en="<strong>Hostinger</strong> (outgoing email): send the call confirmations and invitations from soluciones@neiro.agency."><strong>Hostinger</strong> (correo saliente): enviar las confirmaciones e invitaciones de la llamada desde soluciones@neiro.agency.</li>
+    <li data-en="Our own servers, where our automations run.">Servidores propios donde funcionan nuestras automatizaciones.</li>
   </ul>
-  <p>No cedemos tus datos a otras empresas con fines comerciales.</p>
+  <p data-en="If you reply to one of our emails, that reply may be read and summarized by an internal AI assistant we use to respond faster. It's only visible to our team and is automatically deleted after 90 days.">Si respondés a uno de nuestros correos, esa respuesta puede ser leída y resumida por un asistente interno de IA que usamos para responder más rápido. Solo la ve nuestro equipo y se borra automáticamente a los 90 días.</p>
+  <p data-en="We do not share your data with other companies for commercial purposes.">No cedemos tus datos a otras empresas con fines comerciales.</p>
 
-  <h2>5. Cuánto tiempo los conservamos</h2>
-  <p>Mientras sea necesario para atender tu solicitud y la relación comercial, o hasta que nos pidas eliminarlos.</p>
+  <h2 data-en="5. How long we keep it">5. Cuánto tiempo los conservamos</h2>
+  <p data-en="As long as necessary to handle your request and our business relationship, or until you ask us to delete it. Email replies are automatically deleted after 90 days.">Mientras sea necesario para atender tu solicitud y la relación comercial, o hasta que nos pidas eliminarlos. Las respuestas de correo se borran automáticamente a los 90 días.</p>
 
-  <h2>6. Tus derechos</h2>
-  <p>Puedes pedirnos en cualquier momento acceder a tus datos, corregirlos, eliminarlos u oponerte a su uso, de acuerdo con la legislación de protección de datos personales aplicable (en Costa Rica, la Ley n.º 8968). Escríbenos a <a href="mailto:soluciones@neiro.agency">soluciones@neiro.agency</a> y responderemos lo antes posible.</p>
+  <h2 data-en="6. Your rights">6. Tus derechos</h2>
+  <p data-en='You can ask us at any time to access, correct or delete your data, or object to its use, in accordance with applicable personal data protection law (in Costa Rica, Law No. 8968). Write to us at <a href="mailto:soluciones@neiro.agency">soluciones@neiro.agency</a> and we will respond as soon as possible.'>Puedes pedirnos en cualquier momento acceder a tus datos, corregirlos, eliminarlos u oponerte a su uso, de acuerdo con la legislación de protección de datos personales aplicable (en Costa Rica, la Ley n.º 8968). Escríbenos a <a href="mailto:soluciones@neiro.agency">soluciones@neiro.agency</a> y responderemos lo antes posible.</p>
 
-  <h2>7. Seguridad</h2>
-  <p>Aplicamos medidas técnicas y organizativas razonables para proteger tu información: acceso restringido, conexiones cifradas y copias de seguridad.</p>
+  <h2 data-en="7. Security">7. Seguridad</h2>
+  <p data-en="We apply reasonable technical and organizational measures to protect your information: restricted access, encrypted connections and backups.">Aplicamos medidas técnicas y organizativas razonables para proteger tu información: acceso restringido, conexiones cifradas y copias de seguridad.</p>
 
-  <h2>8. Uso de datos de las APIs de Google</h2>
-  <p>Nuestras herramientas internas se conectan a Google Sheets, Google Drive y Google Calendar con la autorización de la cuenta de Neiro Agency, únicamente para gestionar el registro de solicitudes y los eventos de las llamadas. El uso y la transferencia de la información recibida de las APIs de Google respetan la <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener">Política de datos de usuario de los servicios de API de Google</a>, incluidos los requisitos de uso limitado. No usamos esos datos para publicidad ni los vendemos.</p>
+  <h2 data-en="8. Use of Google API data">8. Uso de datos de las APIs de Google</h2>
+  <p data-en='Our internal tools connect to Google Sheets, Google Drive and Google Calendar with the authorization of the Neiro Agency account, solely to manage the request log and call events. Our use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements. We do not use that data for advertising, and we do not sell it.'>Nuestras herramientas internas se conectan a Google Sheets, Google Drive y Google Calendar con la autorización de la cuenta de Neiro Agency, únicamente para gestionar el registro de solicitudes y los eventos de las llamadas. El uso y la transferencia de la información recibida de las APIs de Google respetan la <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener">Política de datos de usuario de los servicios de API de Google</a>, incluidos los requisitos de uso limitado. No usamos esos datos para publicidad ni los vendemos.</p>
 
-  <h2>9. Cambios en esta política</h2>
-  <p>Si actualizamos esta política, publicaremos la nueva versión en esta página con su fecha.</p>
-
-  <hr>
-
-  <h2>Privacy policy (summary in English)</h2>
-  <p>Neiro Agency collects only the information you submit through the forms on neiro.agency (name, email, country, role, selected guides, phone number and message) to send you the guides you requested and to schedule the call you asked for. Data is stored in Google Sheets and Google Calendar and processed by our own automation servers; we use Telegram for internal notifications and OpenAI to interpret internal scheduling instructions. We do not sell your data or use it for third-party advertising. You can request access, correction or deletion at any time at <a href="mailto:soluciones@neiro.agency">soluciones@neiro.agency</a>.</p>
-  <p>Neiro Agency's use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+  <h2 data-en="9. Changes to this policy">9. Cambios en esta política</h2>
+  <p data-en="If we update this policy, we'll publish the new version on this page along with its date.">Si actualizamos esta política, publicaremos la nueva versión en esta página con su fecha.</p>
 </main>
+
+<script>
+(function () {
+  'use strict';
+  function applyLang(lang) {
+    document.getElementById('lang-es').classList.toggle('is-active', lang === 'es');
+    document.getElementById('lang-en').classList.toggle('is-active', lang === 'en');
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-en]').forEach(function (node) {
+      if (!node.hasAttribute('data-es')) { node.setAttribute('data-es', node.innerHTML); }
+      node.innerHTML = lang === 'en' ? node.getAttribute('data-en') : node.getAttribute('data-es');
+    });
+  }
+  document.getElementById('lang-es').addEventListener('click', function () { applyLang('es'); });
+  document.getElementById('lang-en').addEventListener('click', function () { applyLang('en'); });
+})();
+</script>
 </body>
 </html>

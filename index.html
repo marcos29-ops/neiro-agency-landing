@@ -9,13 +9,19 @@
 <style>
   :root { --accent: #2F6BFF; }
   * { box-sizing: border-box; }
-  body { margin: 0; background: #ffffff; color: #12131A; font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif; overflow-x: hidden; }
+  html { background: #ffffff; }
+  body { margin: 0; background: #ffffff; color: #12131A; font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif; overflow-x: hidden; overscroll-behavior-x: none; }
   a { color: var(--accent); text-decoration: none; }
   a:hover { color: #1D46C7; }
   a.btn-ghost, a.btn-ghost:hover { color: #12131A; }
   a.btn:not(.btn-ghost), a.btn:not(.btn-ghost):hover { color: #ffffff; }
   a.nav-cta, a.nav-cta:hover { color: #ffffff !important; background: #FF6A3D; }
   a.nav-cta:hover { background: #E85A2E; }
+  .faq-item { transition: border-color .25s ease; }
+  .faq-item:hover { border-color: #C9D5F2; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item .faq-icon { flex-shrink: 0; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 400; color: var(--accent); transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
+  .faq-item[open] .faq-icon { transform: rotate(45deg); }
   .pill-tag { display: inline-block; transition: transform .4s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease; }
   .pill-tag:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 10px 20px rgba(47,107,255,.18); }
   .wa-float { position: fixed; bottom: 24px; right: 24px; width: 60px; height: 60px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 24px rgba(37,211,102,.4); z-index: 500; }
@@ -55,6 +61,8 @@
   .lang-btn, .btn, a { touch-action: manipulation; }
   @media (max-width: 480px) {
     .lang-btn { padding: 9px 15px !important; font-size: 14px !important; }
+    .footer-row { flex-direction: column; justify-content: center; text-align: center; }
+    .footer-row .footer-meta { align-items: center; }
   }
   .lang-btn:not(.is-active) { color: #777C8A !important; background: transparent !important; }
   [hidden] { display: none !important; }
@@ -81,7 +89,7 @@
 </head>
 <body>
 
-<div style="border-bottom: 1px solid #ECEDF1; background: rgba(255,255,255,.92); backdrop-filter: saturate(180%) blur(10px); position: sticky; top: 0; z-index: 10;">
+<div style="border-bottom: 1px solid #ECEDF1; background: rgba(255,255,255,.85); -webkit-backdrop-filter: saturate(180%) blur(10px); backdrop-filter: saturate(180%) blur(10px); position: sticky; top: 0; z-index: 10;">
   <div style="max-width: 1160px; margin: 0 auto; padding: 20px clamp(20px, 4vw, 40px); display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
     <div style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 21px; letter-spacing: -0.02em; display: flex; gap: 7px;">
       <span style="color: #12131A;">Neiro</span><span style="color: var(--accent);">Agency</span>
@@ -432,12 +440,103 @@
   </div>
 </div>
 
+<div style="max-width: 1160px; width: 100%; margin: 0 auto; padding: clamp(60px, 7vw, 96px) clamp(20px, 4vw, 40px); display: flex; flex-direction: column; gap: 34px;">
+  <div class="reveal" style="display: flex; flex-direction: column; gap: 16px; max-width: 680px;">
+    <span data-en="Frequently asked questions" style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Preguntas frecuentes</span>
+    <h2 data-en="Questions you probably already have." style="font-size: clamp(28px, 4vw, 38px); line-height: 1.16; font-weight: 700; color: #12131A;">Dudas que capaz ya tenés.</h2>
+  </div>
+
+  <div class="reveal" style="display: flex; flex-direction: column; gap: 12px;">
+
+    <details class="faq-item" style="border: 1px solid #E8EAEF; border-radius: 14px; background: #ffffff; padding: 0 24px;">
+      <summary style="cursor: pointer; padding: 20px 0; font-weight: 700; font-size: 16px; color: #12131A; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+        <span data-en="What kind of businesses can use this?">¿Qué tipo de negocios pueden usar esto?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </summary>
+      <p data-en="Any business with repetitive manual processes, or that gets a lot of messages and questions you don't have time to answer. It doesn't matter what industry you're in or how big you are." style="margin: 0; padding: 0 0 22px; font-size: 15px; line-height: 1.68; color: #5A5F6E;">Cualquier negocio con procesos manuales repetitivos, o que reciba muchos mensajes y consultas que no te da tiempo de responder. No importa el rubro ni el tamaño.</p>
+    </details>
+
+    <details class="faq-item" style="border: 1px solid #E8EAEF; border-radius: 14px; background: #ffffff; padding: 0 24px;">
+      <summary style="cursor: pointer; padding: 20px 0; font-weight: 700; font-size: 16px; color: #12131A; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+        <span data-en="Do I need to know about technology to use this?">¿Necesito saber de tecnología para usar esto?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </summary>
+      <p data-en="No. We take care of everything, from the diagnosis to the rollout. The agent does the work for you." style="margin: 0; padding: 0 0 22px; font-size: 15px; line-height: 1.68; color: #5A5F6E;">No. Nosotros nos encargamos de todo, desde el diagnóstico hasta la puesta en marcha. El agente hace el trabajo por vos.</p>
+    </details>
+
+    <details class="faq-item" style="border: 1px solid #E8EAEF; border-radius: 14px; background: #ffffff; padding: 0 24px;">
+      <summary style="cursor: pointer; padding: 20px 0; font-weight: 700; font-size: 16px; color: #12131A; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+        <span data-en="Does the agent completely replace human support?">¿El agente reemplaza completamente la atención humana?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </summary>
+      <p data-en="Not necessarily. It can handle everything repetitive and only escalate to you the cases that really need your input." style="margin: 0; padding: 0 0 22px; font-size: 15px; line-height: 1.68; color: #5A5F6E;">No necesariamente. Puede resolver todo lo repetitivo y escalarte solo los casos que realmente necesitan que vos intervengas.</p>
+    </details>
+
+    <details class="faq-item" style="border: 1px solid #E8EAEF; border-radius: 14px; background: #ffffff; padding: 0 24px;">
+      <summary style="cursor: pointer; padding: 20px 0; font-weight: 700; font-size: 16px; color: #12131A; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+        <span data-en="Is this a generic solution, or is it tailored to my business?">¿Es una solución genérica o se hace a la medida de mi negocio?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </summary>
+      <p data-en="It's built to the measure of your business, fully customized. No generic templates." style="margin: 0; padding: 0 0 22px; font-size: 15px; line-height: 1.68; color: #5A5F6E;">Se hace a la medida de tu negocio, completamente personalizada. Nada de plantillas genéricas.</p>
+    </details>
+
+    <details class="faq-item" style="border: 1px solid #E8EAEF; border-radius: 14px; background: #ffffff; padding: 0 24px;">
+      <summary style="cursor: pointer; padding: 20px 0; font-weight: 700; font-size: 16px; color: #12131A; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+        <span data-en="Does it integrate with the tools I already use (CRM, calendar, etc.)?">¿Se integra con las herramientas que ya uso (CRM, calendario, etc.)?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </summary>
+      <p data-en="Yes, of course. It integrates with the tools you already use, so you don't have to change how you work." style="margin: 0; padding: 0 0 22px; font-size: 15px; line-height: 1.68; color: #5A5F6E;">Sí, claro. Se integra con las herramientas que ya usás, para que no tengas que cambiar tu forma de trabajar.</p>
+    </details>
+
+    <details class="faq-item" style="border: 1px solid #E8EAEF; border-radius: 14px; background: #ffffff; padding: 0 24px;">
+      <summary style="cursor: pointer; padding: 20px 0; font-weight: 700; font-size: 16px; color: #12131A; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+        <span data-en="How long until my agent is ready?">¿Cuánto tarda en estar listo mi agente?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </summary>
+      <p data-en="It depends on the complexity, but it always goes through the same stages: diagnosis, development, progress calls and rollout." style="margin: 0; padding: 0 0 22px; font-size: 15px; line-height: 1.68; color: #5A5F6E;">Depende de la complejidad, pero siempre pasa por las mismas etapas: diagnóstico, construcción, avances en llamada y despliegue.</p>
+    </details>
+
+    <details class="faq-item" style="border: 1px solid #E8EAEF; border-radius: 14px; background: #ffffff; padding: 0 24px;">
+      <summary style="cursor: pointer; padding: 20px 0; font-weight: 700; font-size: 16px; color: #12131A; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+        <span data-en="What do I need to get started?">¿Qué necesito para arrancar?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </summary>
+      <p data-en="Just a call to tell me about your business and what you'd like to automate. From there, we take care of coordinating everything else." style="margin: 0; padding: 0 0 22px; font-size: 15px; line-height: 1.68; color: #5A5F6E;">Solo una llamada para contarme de tu negocio y qué te gustaría automatizar. De ahí en adelante, nosotros nos encargamos de coordinar todo lo demás.</p>
+    </details>
+
+    <details class="faq-item" style="border: 1px solid #E8EAEF; border-radius: 14px; background: #ffffff; padding: 0 24px;">
+      <summary style="cursor: pointer; padding: 20px 0; font-weight: 700; font-size: 16px; color: #12131A; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+        <span data-en="Can I request changes after it's up and running?">¿Puedo pedir cambios después de que esté funcionando?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </summary>
+      <p data-en="Yes. Small changes or improvements can usually be made, and if you want, you can add a maintenance plan for that. Bigger changes we look at case by case." style="margin: 0; padding: 0 0 22px; font-size: 15px; line-height: 1.68; color: #5A5F6E;">Sí. Cambios pequeños o mejoras se pueden hacer normalmente, y si querés, podés incluir un plan con mantenimiento para eso. Cambios más grandes los vemos según el caso.</p>
+    </details>
+
+    <details class="faq-item" style="border: 1px solid #E8EAEF; border-radius: 14px; background: #ffffff; padding: 0 24px;">
+      <summary style="cursor: pointer; padding: 20px 0; font-weight: 700; font-size: 16px; color: #12131A; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+        <span data-en="How much does it cost?">¿Cuánto cuesta?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </summary>
+      <p data-en="It depends on the complexity of the project. On the diagnosis call I give you a concrete number, no surprises." style="margin: 0; padding: 0 0 22px; font-size: 15px; line-height: 1.68; color: #5A5F6E;">Depende de la complejidad del proyecto. En la llamada de diagnóstico te doy un número concreto, sin sorpresas.</p>
+    </details>
+
+    <details class="faq-item" style="border: 1px solid #E8EAEF; border-radius: 14px; background: #ffffff; padding: 0 24px;">
+      <summary style="cursor: pointer; padding: 20px 0; font-weight: 700; font-size: 16px; color: #12131A; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+        <span data-en="Is there a contract or minimum commitment?">¿Hay contrato o permanencia mínima?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </summary>
+      <p data-en="There's no lifetime contract or forced commitment. We work out an agreement based on what you need, and if at some point you don't want to continue, that's no problem." style="margin: 0; padding: 0 0 22px; font-size: 15px; line-height: 1.68; color: #5A5F6E;">No hay contrato de por vida ni permanencia forzada. Llegamos a un acuerdo según lo que necesites, y si en algún momento ya no querés seguir, no hay problema.</p>
+    </details>
+
+  </div>
+</div>
+
 <div style="border-top: 1px solid #ECEDF1;">
-  <div style="max-width: 1160px; width: 100%; margin: 0 auto; padding: 32px clamp(20px, 4vw, 40px) 40px; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap;">
+  <div class="footer-row" style="max-width: 1160px; width: 100%; margin: 0 auto; padding: 32px clamp(20px, 4vw, 40px) 40px; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap;">
     <div style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 17px; letter-spacing: -0.02em; display: flex; gap: 6px;">
       <span style="color: #12131A;">Neiro</span><span style="color: var(--accent);">Agency</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
+    <div class="footer-meta" style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
       <span data-en="AI automation for businesses" style="font-size: 14px; color: #8C91A0;">Automatización con IA para negocios</span>
       <span data-en="© 2026 Neiro Agency. All rights reserved." style="font-size: 12.5px; color: #B0B4C0;">© 2026 Neiro Agency. Todos los derechos reservados.</span>
     </div>

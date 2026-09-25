@@ -9,7 +9,8 @@
 <style>
   :root { --accent: #2F6BFF; }
   * { box-sizing: border-box; }
-  body { margin: 0; background: #ffffff; color: #12131A; font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif; overflow-x: hidden; }
+  html { background: #ffffff; }
+  body { margin: 0; background: #ffffff; color: #12131A; font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif; overflow-x: hidden; overscroll-behavior-x: none; }
   a { color: var(--accent); text-decoration: none; }
   a:hover { color: #1D46C7; }
   h1, h2, h3 { font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; margin: 0; letter-spacing: -0.02em; }
@@ -42,6 +43,8 @@
   @media (max-width: 480px) {
     .lang-btn { padding: 9px 15px !important; font-size: 14px !important; }
     .phone-row select, .phone-row input { font-size: 16px !important; }
+    .footer-row { flex-direction: column; justify-content: center; text-align: center; }
+    .footer-row .footer-meta { align-items: center; }
   }
   .lang-btn:not(.is-active) { color: #777C8A !important; background: transparent !important; }
   [hidden] { display: none !important; }
@@ -68,7 +71,7 @@
 </head>
 <body>
 
-<div style="border-bottom: 1px solid #ECEDF1; background: rgba(255,255,255,.92); backdrop-filter: saturate(180%) blur(10px); position: sticky; top: 0; z-index: 10;">
+<div style="border-bottom: 1px solid #ECEDF1; background: rgba(255,255,255,.85); -webkit-backdrop-filter: saturate(180%) blur(10px); backdrop-filter: saturate(180%) blur(10px); position: sticky; top: 0; z-index: 10;">
   <div style="max-width: 1160px; margin: 0 auto; padding: 20px clamp(20px, 4vw, 40px); display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
     <a href="index.html" style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 21px; letter-spacing: -0.02em; display: flex; gap: 7px;">
       <span style="color: #12131A;">Neiro</span><span style="color: var(--accent);">Agency</span>
@@ -169,7 +172,7 @@
       <div class="hp" aria-hidden="true"><label>Website <input type="text" id="c-website" tabindex="-1" autocomplete="off"></label></div>
       <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
         <button class="btn" id="c-submit" data-en="Send message" style="font-size: 15px; font-weight: 500; color: #ffffff; background: var(--accent); border-radius: 10px; padding: 15px 24px; text-align: center;">Enviar mensaje</button>
-        <a href="privacidad.html" target="_blank" rel="noopener" data-en="How we use your data" style="font-size: 13.5px; color: #8C91A0; text-decoration: underline; text-underline-offset: 3px;">Cómo usamos tus datos</a>
+        <a href="privacidad.html" id="privacy-link" target="_blank" rel="noopener" data-en="How we use your data" style="font-size: 13.5px; color: #8C91A0; text-decoration: underline; text-underline-offset: 3px;">Cómo usamos tus datos</a>
       </div>
     </div>
   </div>
@@ -231,11 +234,11 @@
 </div>
 
 <div style="border-top: 1px solid #ECEDF1;">
-  <div style="max-width: 1160px; width: 100%; margin: 0 auto; padding: 32px clamp(20px, 4vw, 40px) 40px; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap;">
+  <div class="footer-row" style="max-width: 1160px; width: 100%; margin: 0 auto; padding: 32px clamp(20px, 4vw, 40px) 40px; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap;">
     <a href="index.html" style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 17px; letter-spacing: -0.02em; display: flex; gap: 6px;">
       <span style="color: #12131A;">Neiro</span><span style="color: var(--accent);">Agency</span>
     </a>
-    <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
+    <div class="footer-meta" style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
       <span data-en="AI automation for businesses" style="font-size: 14px; color: #8C91A0;">Automatización con IA para negocios</span>
       <span data-en="© 2026 Neiro Agency. All rights reserved." style="font-size: 12.5px; color: #B0B4C0;">© 2026 Neiro Agency. Todos los derechos reservados.</span>
     </div>

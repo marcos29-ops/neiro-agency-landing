@@ -431,6 +431,9 @@
       node.setAttribute('placeholder', lang === 'en' ? node.getAttribute('data-en-ph') : node.getAttribute('data-es-ph'));
     });
 
+    var privacyLink = document.getElementById('privacy-link');
+    if (privacyLink) { privacyLink.href = lang === 'en' ? 'privacidad.html?lang=en' : 'privacidad.html'; }
+
     renderGuias();
   }
 

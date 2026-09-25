@@ -106,6 +106,7 @@
   }
   document.getElementById('lang-es').addEventListener('click', function () { applyLang('es'); });
   document.getElementById('lang-en').addEventListener('click', function () { applyLang('en'); });
+  if (new URLSearchParams(location.search).get('lang') === 'en') { applyLang('en'); }
 })();
 </script>
 </body>

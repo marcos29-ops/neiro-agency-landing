@@ -12,6 +12,8 @@
   body { margin: 0; background: #ffffff; color: #12131A; font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif; overflow-x: hidden; }
   a { color: var(--accent); text-decoration: none; }
   a:hover { color: #1D46C7; }
+  a.nav-cta, a.nav-cta:hover { color: #ffffff !important; background: #FF6A3D; }
+  a.nav-cta:hover { background: #E85A2E; }
   h1, h2, h3 { font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; margin: 0; letter-spacing: -0.02em; }
   p { margin: 0; }
   input, select, textarea { font-family: inherit; font-size: 15px; color: #12131A; background: #ffffff; border: 1px solid #DDE0E7; border-radius: 10px; padding: 14px 16px; outline: none; width: 100%; transition: border-color .2s ease, box-shadow .2s ease; }
@@ -66,6 +68,7 @@
     </a>
     <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
       <a href="index.html" data-en="Home" style="font-size: 14.5px; font-weight: 500; color: #444C63;">Inicio</a>
+      <a href="contacto.html" class="btn nav-cta" data-en="Contact" style="font-size: 13.5px; font-weight: 500; border-radius: 999px; padding: 8px 16px;">Contacto</a>
       <div style="display: flex; align-items: center; gap: 2px; border: 1px solid #E4E6EC; border-radius: 999px; padding: 4px;">
         <button class="btn lang-btn is-active" id="lang-es" style="font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px;">ES</button>
         <button class="btn lang-btn" id="lang-en" style="font-size: 13px; font-weight: 500; padding: 5px 13px;">EN</button>

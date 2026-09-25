@@ -13,6 +13,9 @@
   a { color: var(--accent); text-decoration: none; }
   a:hover { color: #1D46C7; }
   a.btn-ghost, a.btn-ghost:hover { color: #12131A; }
+  a.btn:not(.btn-ghost), a.btn:not(.btn-ghost):hover { color: #ffffff; }
+  a.nav-cta, a.nav-cta:hover { color: #ffffff !important; background: #FF6A3D; }
+  a.nav-cta:hover { background: #E85A2E; }
   h1, h2, h3 { font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; margin: 0; letter-spacing: -0.02em; }
   p { margin: 0; }
   input, select, textarea { font-family: inherit; font-size: 15px; color: #12131A; background: #ffffff; border: 1px solid #DDE0E7; border-radius: 10px; padding: 14px 16px; outline: none; width: 100%; transition: border-color .2s ease, box-shadow .2s ease; }
@@ -75,6 +78,7 @@
     </div>
     <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
       <a href="recursos.html" data-en="Free resources" style="font-size: 14.5px; font-weight: 500; color: #444C63;">Recursos gratuitos</a>
+      <a href="contacto.html" class="btn nav-cta" data-en="Contact" style="font-size: 13.5px; font-weight: 500; border-radius: 999px; padding: 8px 16px;">Contacto</a>
       <div style="display: flex; align-items: center; gap: 2px; border: 1px solid #E4E6EC; border-radius: 999px; padding: 4px;">
         <button class="btn lang-btn is-active" id="lang-es" style="font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px;">ES</button>
         <button class="btn lang-btn" id="lang-en" style="font-size: 13px; font-weight: 500; padding: 5px 13px;">EN</button>
@@ -87,9 +91,6 @@
   <div class="reveal" style="flex: 1 1 460px; display: flex; flex-direction: column; align-items: flex-start; gap: 24px;">
     <h1 data-en="AI automations, tailored to your business." style="font-size: clamp(34px, 5vw, 58px); line-height: 1.06; font-weight: 700; color: #12131A; text-wrap: pretty;">Automatizaciones con IA, hechas a la medida de tu negocio.</h1>
     <p data-en="I help businesses implement custom AI automations for every bottleneck in their operation." style="font-size: clamp(16px, 1.6vw, 18px); line-height: 1.65; color: #5A5F6E; max-width: 520px;">Ayudo a negocios a implementar automatizaciones con IA personalizadas para cada cuello de botella de su operación.</p>
-    <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
-      <button class="btn" data-scroll="contacto" data-en="Let's talk about your business" style="font-size: 15px; font-weight: 500; color: #ffffff; background: var(--accent); border-radius: 10px; padding: 15px 26px;">Hablemos de tu negocio</button>
-    </div>
   </div>
   <div class="reveal" data-d="2" style="flex: 1 1 320px; display: flex; justify-content: center;">
     <svg viewBox="0 0 320 300" style="width: 100%; max-width: 360px; height: auto;" aria-hidden="true">
@@ -301,153 +302,10 @@
 
     </div>
 
-    <div class="reveal" style="background: #EDF2FF; border-radius: 18px; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center;">
+    <div class="reveal" style="background: #EDF2FF; border-radius: 18px; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; max-width: 700px; margin: 0 auto; width: fit-content;">
       <p data-en="These are just two concrete examples. This can be adapted to any need your business has, whatever your case looks like: there's practically no limit to what can be automated." style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #1D3A8A; max-width: 640px;">Estos son solo dos ejemplos concretos. Esto se puede adaptar a cualquier necesidad de tu negocio, sea cual sea tu caso: prácticamente no hay límite de lo que se puede automatizar.</p>
-      <button class="btn" data-scroll="contacto" data-en="Tell us about your business and get a demo" style="font-size: 15px; font-weight: 500; color: #ffffff; background: var(--accent); border-radius: 10px; padding: 15px 26px;">Contanos sobre tu negocio y te mostramos una demo</button>
+      <a class="btn" href="contacto.html" data-en="Tell us about your business and get a demo" style="display: inline-flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 500; color: #ffffff; background: var(--accent); border-radius: 10px; padding: 15px 26px;">Contanos sobre tu negocio y te mostramos una demo</a>
     </div>
-  </div>
-</div>
-
-<div id="contacto" style="background: #FAFBFD; border-top: 1px solid #ECEDF1; border-bottom: 1px solid #ECEDF1;">
-  <div class="reveal" style="max-width: 720px; margin: 0 auto; padding: clamp(60px, 7vw, 96px) clamp(20px, 4vw, 40px); display: flex; flex-direction: column; gap: 32px;">
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center;">
-      <span data-en="Contact" style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Contacto</span>
-      <h2 data-en="Want us to help you?" style="font-size: clamp(28px, 4.2vw, 40px); line-height: 1.16; font-weight: 700; color: #12131A;">¿Querés que te ayudemos?</h2>
-      <p data-en="Tell me your situation and I'll be honest about whether it's worth automating." style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E; max-width: 480px;">Contame tu caso y te digo con honestidad si tiene sentido automatizarlo.</p>
-    </div>
-
-    <div style="background: #ffffff; border: 1px solid #E8EAEF; border-radius: 18px; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 18px;">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-          <span data-en="Name" style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Nombre</span>
-          <input type="text" id="c-nombre" data-en-ph="Your name" placeholder="Tu nombre">
-          <span id="c-nombre-error" class="field-error" hidden></span>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-          <span data-en="Email" style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Correo</span>
-          <input type="email" id="c-correo" data-en-ph="you@email.com" placeholder="tu@correo.com">
-          <span id="c-correo-error" class="field-error" hidden></span>
-        </div>
-      </div>
-      <div style="display: flex; flex-direction: column; gap: 8px;">
-        <span data-en="Phone" style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Teléfono</span>
-        <div style="display: flex; gap: 10px;">
-          <select id="c-pais-tel" style="flex: 0 0 220px;">
-            <option>+93 Afganistán</option><option>+355 Albania</option><option>+49 Alemania</option><option>+376 Andorra</option>
-            <option>+244 Angola</option><option>+1268 Antigua y Barbuda</option><option>+966 Arabia Saudita</option><option>+213 Argelia</option>
-            <option>+54 Argentina</option><option>+374 Armenia</option><option>+61 Australia</option><option>+43 Austria</option>
-            <option>+994 Azerbaiyán</option><option>+1242 Bahamas</option><option>+880 Bangladés</option><option>+1246 Barbados</option>
-            <option>+973 Baréin</option><option>+32 Bélgica</option><option>+501 Belice</option><option>+229 Benín</option>
-            <option>+375 Bielorrusia</option><option>+591 Bolivia</option><option>+387 Bosnia y Herzegovina</option><option>+267 Botsuana</option>
-            <option>+55 Brasil</option><option>+673 Brunéi</option><option>+359 Bulgaria</option><option>+226 Burkina Faso</option>
-            <option>+257 Burundi</option><option>+975 Bután</option><option>+238 Cabo Verde</option><option>+855 Camboya</option>
-            <option>+237 Camerún</option><option>+1 Canadá</option><option>+974 Catar</option><option>+235 Chad</option>
-            <option>+56 Chile</option><option>+86 China</option><option>+357 Chipre</option><option>+57 Colombia</option>
-            <option>+269 Comoras</option><option>+850 Corea del Norte</option><option>+82 Corea del Sur</option><option>+225 Costa de Marfil</option>
-            <option selected>+506 Costa Rica</option><option>+385 Croacia</option><option>+53 Cuba</option><option>+45 Dinamarca</option>
-            <option>+1767 Dominica</option><option>+593 Ecuador</option><option>+20 Egipto</option><option>+503 El Salvador</option>
-            <option>+971 Emiratos Árabes Unidos</option><option>+291 Eritrea</option><option>+421 Eslovaquia</option><option>+386 Eslovenia</option>
-            <option>+34 España</option><option>+1 Estados Unidos</option><option>+372 Estonia</option><option>+268 Esuatini</option>
-            <option>+251 Etiopía</option><option>+679 Fiyi</option><option>+63 Filipinas</option><option>+358 Finlandia</option>
-            <option>+33 Francia</option><option>+241 Gabón</option><option>+220 Gambia</option><option>+995 Georgia</option>
-            <option>+233 Ghana</option><option>+1473 Granada</option><option>+30 Grecia</option><option>+502 Guatemala</option>
-            <option>+224 Guinea</option><option>+245 Guinea-Bisáu</option><option>+240 Guinea Ecuatorial</option><option>+592 Guyana</option>
-            <option>+509 Haití</option><option>+504 Honduras</option><option>+852 Hong Kong</option><option>+36 Hungría</option>
-            <option>+91 India</option><option>+62 Indonesia</option><option>+964 Irak</option><option>+98 Irán</option>
-            <option>+353 Irlanda</option><option>+354 Islandia</option><option>+972 Israel</option><option>+39 Italia</option>
-            <option>+1876 Jamaica</option><option>+81 Japón</option><option>+962 Jordania</option><option>+7 Kazajistán</option>
-            <option>+254 Kenia</option><option>+996 Kirguistán</option><option>+686 Kiribati</option><option>+965 Kuwait</option>
-            <option>+856 Laos</option><option>+266 Lesoto</option><option>+371 Letonia</option><option>+961 Líbano</option>
-            <option>+231 Liberia</option><option>+218 Libia</option><option>+423 Liechtenstein</option><option>+370 Lituania</option>
-            <option>+352 Luxemburgo</option><option>+853 Macao</option><option>+261 Madagascar</option><option>+60 Malasia</option>
-            <option>+265 Malaui</option><option>+960 Maldivas</option><option>+223 Malí</option><option>+356 Malta</option>
-            <option>+212 Marruecos</option><option>+230 Mauricio</option><option>+222 Mauritania</option><option>+52 México</option>
-            <option>+373 Moldavia</option><option>+377 Mónaco</option><option>+976 Mongolia</option><option>+382 Montenegro</option>
-            <option>+258 Mozambique</option><option>+264 Namibia</option><option>+674 Nauru</option><option>+977 Nepal</option>
-            <option>+505 Nicaragua</option><option>+227 Níger</option><option>+234 Nigeria</option><option>+47 Noruega</option>
-            <option>+64 Nueva Zelanda</option><option>+968 Omán</option><option>+31 Países Bajos</option><option>+92 Pakistán</option>
-            <option>+507 Panamá</option><option>+675 Papúa Nueva Guinea</option><option>+595 Paraguay</option><option>+51 Perú</option>
-            <option>+48 Polonia</option><option>+351 Portugal</option><option>+1787 Puerto Rico</option><option>+44 Reino Unido</option>
-            <option>+236 República Centroafricana</option><option>+420 República Checa</option><option>+242 República del Congo</option>
-            <option>+243 República Democrática del Congo</option><option>+1809 República Dominicana</option><option>+250 Ruanda</option>
-            <option>+40 Rumanía</option><option>+7 Rusia</option><option>+685 Samoa</option><option>+378 San Marino</option>
-            <option>+1758 Santa Lucía</option><option>+239 Santo Tomé y Príncipe</option><option>+221 Senegal</option><option>+381 Serbia</option>
-            <option>+248 Seychelles</option><option>+232 Sierra Leona</option><option>+65 Singapur</option><option>+963 Siria</option>
-            <option>+252 Somalia</option><option>+94 Sri Lanka</option><option>+27 Sudáfrica</option><option>+249 Sudán</option>
-            <option>+211 Sudán del Sur</option><option>+46 Suecia</option><option>+41 Suiza</option><option>+597 Surinam</option>
-            <option>+66 Tailandia</option><option>+886 Taiwán</option><option>+255 Tanzania</option><option>+992 Tayikistán</option>
-            <option>+670 Timor Oriental</option><option>+228 Togo</option><option>+676 Tonga</option><option>+1868 Trinidad y Tobago</option>
-            <option>+216 Túnez</option><option>+993 Turkmenistán</option><option>+90 Turquía</option><option>+688 Tuvalu</option>
-            <option>+380 Ucrania</option><option>+256 Uganda</option><option>+598 Uruguay</option><option>+998 Uzbekistán</option>
-            <option>+678 Vanuatu</option><option>+58 Venezuela</option><option>+84 Vietnam</option><option>+967 Yemen</option>
-            <option>+253 Yibuti</option><option>+260 Zambia</option><option>+263 Zimbabue</option>
-          </select>
-          <input type="tel" id="c-telefono" placeholder="8888 8888" style="flex: 1;">
-        </div>
-        <span id="c-tel-error" class="field-error" hidden></span>
-      </div>
-      <div style="display: flex; flex-direction: column; gap: 8px;">
-        <span data-en="Tell me what you do and how you do it today" style="font-size: 13px; font-weight: 500; color: #5A5F6E;">Contame en qué trabajás y cómo lo hacés hoy</span>
-        <textarea rows="4" id="c-mensaje" data-en-ph="What your business does, what your day-to-day looks like, what task repeats every week..." placeholder="A qué se dedica tu negocio, cómo es tu día a día, qué tarea se repite todas las semanas..."></textarea>
-      </div>
-      <div class="hp" aria-hidden="true"><label>Website <input type="text" id="c-website" tabindex="-1" autocomplete="off"></label></div>
-      <button class="btn" id="c-submit" data-en="Send message" style="font-size: 15px; font-weight: 500; color: #ffffff; background: var(--accent); border-radius: 10px; padding: 15px 24px; text-align: center;">Enviar mensaje</button>
-    </div>
-  </div>
-</div>
-
-<div class="reveal" style="max-width: 1160px; width: 100%; margin: 0 auto; padding: clamp(60px, 7vw, 96px) clamp(20px, 4vw, 40px); display: flex; flex-direction: column; gap: 34px;">
-  <div style="display: flex; flex-direction: column; gap: 14px;">
-    <span data-en="Information" style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Información</span>
-    <h2 style="font-size: clamp(28px, 4vw, 38px); line-height: 1.16; font-weight: 700; color: #12131A;">Marcos Vargas</h2>
-    <p data-en="There's just one person behind Neiro Agency, and here are the details." style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E; max-width: 560px;">Detrás de Neiro Agency hay una sola persona, y estos son sus datos.</p>
-  </div>
-
-  <div class="info-grid">
-
-    <div style="background: #ffffff; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
-      <span data-en="Background" style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #8C91A0;">Formación</span>
-      <span data-en="Systems Engineer" style="font-size: 17px; font-weight: 500; color: #12131A;">Ingeniero en Sistemas</span>
-    </div>
-
-    <div style="background: #ffffff; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
-      <span data-en="Specialty" style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #8C91A0;">Especialidad</span>
-      <span data-en="Artificial Intelligence and Cloud" style="font-size: 17px; font-weight: 500; color: #12131A;">Inteligencia Artificial y Cloud</span>
-    </div>
-
-    <div style="background: #ffffff; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
-      <span data-en="Certification" style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #8C91A0;">Certificación</span>
-      <span style="font-size: 17px; font-weight: 500; color: #12131A;">Microsoft Certified · Azure AI Fundamentals</span>
-    </div>
-
-    <div style="background: #ffffff; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
-      <span data-en="Email" style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #8C91A0;">Correo</span>
-      <a class="contact-link contact-mail" href="mailto:soluciones@neiro.agency" aria-label="Enviar un correo a soluciones@neiro.agency" style="font-size: 17px; font-weight: 500; color: var(--accent);">soluciones@neiro.agency</a>
-    </div>
-
-    <div style="background: #ffffff; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
-      <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #8C91A0;">Instagram</span>
-      <a class="contact-link" href="https://www.instagram.com/marcosvarbor/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram @marcosvarbor" style="display: flex; align-items: center; gap: 9px;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px; flex-shrink: 0;" aria-hidden="true">
-          <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
-          <circle cx="12" cy="12" r="4"></circle>
-          <circle cx="16.9" cy="7.1" r="0.9" fill="#12131A" stroke="none"></circle>
-        </svg>
-        <span class="contact-text" style="font-size: 17px; font-weight: 500; color: #12131A;">@marcosvarbor</span>
-      </a>
-    </div>
-
-    <div style="background: #ffffff; padding: 28px; display: flex; flex-direction: column; gap: 8px;">
-      <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #8C91A0;">TikTok</span>
-      <a class="contact-link" href="https://www.tiktok.com/@marcosvargas2907" target="_blank" rel="noopener noreferrer" aria-label="Abrir TikTok @marcosvargas2907" style="display: flex; align-items: center; gap: 9px;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#12131A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px; flex-shrink: 0;" aria-hidden="true">
-          <circle cx="8" cy="17" r="3.2"></circle>
-          <path d="M11.2 17V4.5c1 2.1 2.7 3.2 5 3.4"></path>
-        </svg>
-        <span class="contact-text" style="font-size: 17px; font-weight: 500; color: #12131A;">@marcosvargas2907</span>
-      </a>
-    </div>
-
   </div>
 </div>
 

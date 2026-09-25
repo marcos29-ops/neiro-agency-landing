@@ -24,10 +24,12 @@
   body[data-anim="on"] .reveal { opacity: 0; transform: translateY(22px); }
   body[data-anim="on"] .reveal.is-in { opacity: 1; transform: none; }
   .pop { animation: dcFadeUp .45s cubic-bezier(.22,.68,.3,1) both; }
-  .lift { transition: transform .28s cubic-bezier(.22,.68,.3,1), box-shadow .28s ease, border-color .28s ease; }
-  .lift:hover { transform: translateY(-5px); box-shadow: 0 14px 34px rgba(18,19,26,.09); border-color: #C9D5F2; }
-  .btn { cursor: pointer; user-select: none; transition: transform .18s cubic-bezier(.22,.68,.3,1), box-shadow .22s ease, background-color .22s ease, border-color .22s ease; border: none; font: inherit; }
-  .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(47,107,255,.26); }
+  .lift { transition: transform .45s cubic-bezier(.34,1.56,.64,1), box-shadow .35s ease, border-color .3s ease; }
+  .lift:hover { transform: translateY(-8px) scale(1.015); box-shadow: 0 18px 40px rgba(18,19,26,.12); border-color: #C9D5F2; }
+  .btn { cursor: pointer; user-select: none; transition: transform .4s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease, background-color .22s ease, border-color .22s ease; border: none; font: inherit; }
+  .btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 28px rgba(47,107,255,.28); }
+  a.nav-link { display: inline-block; transition: transform .4s cubic-bezier(.34,1.56,.64,1); }
+  a.nav-link:hover { transform: translateY(-2px) scale(1.06); }
   .btn:active { transform: translateY(0); box-shadow: none; }
   .btn-ghost:hover { box-shadow: 0 10px 24px rgba(18,19,26,.10); border-color: #B9C0CF; }
   a.btn-ghost, a.btn-ghost:hover { color: #12131A; }
@@ -35,8 +37,8 @@
   .rail::-webkit-scrollbar { height: 8px; }
   .rail::-webkit-scrollbar-thumb { background: #D2D7E3; border-radius: 999px; }
   .rail::-webkit-scrollbar-track { background: transparent; }
-  .arrow { cursor: pointer; transition: background-color .2s ease, border-color .2s ease, transform .2s ease; border: none; font: inherit; }
-  .arrow:hover { background: #EDF2FF; border-color: var(--accent); transform: translateY(-2px); }
+  .arrow { cursor: pointer; transition: background-color .2s ease, border-color .2s ease, transform .4s cubic-bezier(.34,1.56,.64,1); border: none; font: inherit; }
+  .arrow:hover { background: #EDF2FF; border-color: var(--accent); transform: translateY(-3px) scale(1.08); }
   .field-error { font-size: 13px; color: #C0392B; }
   .lang-btn.is-active { color: #ffffff !important; background: #FF6A3D !important; }
   .lang-btn, .btn, a { touch-action: manipulation; }
@@ -71,7 +73,7 @@
       <span style="color: #12131A;">Neiro</span><span style="color: var(--accent);">Agency</span>
     </a>
     <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
-      <a href="index.html" data-en="Home" style="font-size: 14.5px; font-weight: 500; color: #444C63;">Inicio</a>
+      <a href="index.html" class="nav-link" data-en="Home" style="font-size: 14.5px; font-weight: 500; color: #444C63;">Inicio</a>
       <a href="contacto.html" class="btn nav-cta" data-en="Book a call" style="font-size: 13.5px; font-weight: 500; border-radius: 999px; padding: 8px 16px;">Agenda una llamada</a>
       <div style="display: flex; align-items: center; gap: 2px; border: 1px solid #E4E6EC; border-radius: 999px; padding: 4px;">
         <button class="btn lang-btn is-active" id="lang-es" style="font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px;">ES</button>

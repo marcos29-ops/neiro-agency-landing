@@ -21,8 +21,13 @@
   .reveal { transition: opacity .8s cubic-bezier(.22,.68,.3,1), transform .8s cubic-bezier(.22,.68,.3,1); }
   body[data-anim="on"] .reveal { opacity: 0; transform: translateY(22px); }
   body[data-anim="on"] .reveal.is-in { opacity: 1; transform: none; }
-  .btn { cursor: pointer; user-select: none; transition: transform .18s cubic-bezier(.22,.68,.3,1), box-shadow .22s ease, background-color .22s ease, border-color .22s ease; border: none; font: inherit; }
-  .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(47,107,255,.26); }
+  .btn { cursor: pointer; user-select: none; transition: transform .4s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease, background-color .22s ease, border-color .22s ease; border: none; font: inherit; }
+  .btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 28px rgba(47,107,255,.28); }
+  a.btn:not(.btn-ghost), a.btn:not(.btn-ghost):hover { color: #ffffff; }
+  a.nav-cta, a.nav-cta:hover { color: #ffffff !important; background: #FF6A3D; }
+  a.nav-cta:hover { background: #E85A2E; }
+  a.nav-link { display: inline-block; transition: transform .4s cubic-bezier(.34,1.56,.64,1); }
+  a.nav-link:hover { transform: translateY(-2px) scale(1.06); }
   .btn:active { transform: translateY(0); box-shadow: none; }
   .field-error { font-size: 13px; color: #C0392B; }
   .info-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: #E8EAEF; border: 1px solid #E8EAEF; border-radius: 18px; overflow: hidden; }
@@ -65,8 +70,9 @@
       <span style="color: #12131A;">Neiro</span><span style="color: var(--accent);">Agency</span>
     </a>
     <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
-      <a href="index.html" data-en="Home" style="font-size: 14.5px; font-weight: 500; color: #444C63;">Inicio</a>
-      <a href="recursos.html" data-en="Free resources" style="font-size: 14.5px; font-weight: 500; color: #444C63;">Recursos gratuitos</a>
+      <a href="index.html" class="nav-link" data-en="Home" style="font-size: 14.5px; font-weight: 500; color: #444C63;">Inicio</a>
+      <a href="recursos.html" class="nav-link" data-en="Free resources" style="font-size: 14.5px; font-weight: 500; color: #444C63;">Recursos gratuitos</a>
+      <a href="contacto.html" class="btn nav-cta" data-en="Book a call" style="font-size: 13.5px; font-weight: 500; border-radius: 999px; padding: 8px 16px;">Agenda una llamada</a>
       <div style="display: flex; align-items: center; gap: 2px; border: 1px solid #E4E6EC; border-radius: 999px; padding: 4px;">
         <button class="btn lang-btn is-active" id="lang-es" style="font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px;">ES</button>
         <button class="btn lang-btn" id="lang-en" style="font-size: 13px; font-weight: 500; padding: 5px 13px;">EN</button>

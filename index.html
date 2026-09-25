@@ -29,18 +29,20 @@
   .reveal[data-d="2"] { transition-delay: .18s; }
   .reveal[data-d="3"] { transition-delay: .27s; }
   .pop { animation: dcFadeUp .45s cubic-bezier(.22,.68,.3,1) both; }
-  .lift { transition: transform .28s cubic-bezier(.22,.68,.3,1), box-shadow .28s ease, border-color .28s ease; }
-  .lift:hover { transform: translateY(-5px); box-shadow: 0 14px 34px rgba(18,19,26,.09); border-color: #C9D5F2; }
-  .btn { cursor: pointer; user-select: none; transition: transform .18s cubic-bezier(.22,.68,.3,1), box-shadow .22s ease, background-color .22s ease, border-color .22s ease; border: none; font: inherit; }
-  .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(47,107,255,.26); }
+  .lift { transition: transform .45s cubic-bezier(.34,1.56,.64,1), box-shadow .35s ease, border-color .3s ease; }
+  .lift:hover { transform: translateY(-8px) scale(1.015); box-shadow: 0 18px 40px rgba(18,19,26,.12); border-color: #C9D5F2; }
+  .btn { cursor: pointer; user-select: none; transition: transform .4s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease, background-color .22s ease, border-color .22s ease; border: none; font: inherit; }
+  .btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 28px rgba(47,107,255,.28); }
+  a.nav-link { display: inline-block; transition: transform .4s cubic-bezier(.34,1.56,.64,1); }
+  a.nav-link:hover { transform: translateY(-2px) scale(1.06); }
   .btn:active { transform: translateY(0); box-shadow: none; }
   .btn-ghost:hover { box-shadow: 0 10px 24px rgba(18,19,26,.10); border-color: #B9C0CF; }
   .rail { scrollbar-width: thin; scrollbar-color: #D2D7E3 transparent; }
   .rail::-webkit-scrollbar { height: 8px; }
   .rail::-webkit-scrollbar-thumb { background: #D2D7E3; border-radius: 999px; }
   .rail::-webkit-scrollbar-track { background: transparent; }
-  .arrow { cursor: pointer; transition: background-color .2s ease, border-color .2s ease, transform .2s ease; border: none; font: inherit; }
-  .arrow:hover { background: #EDF2FF; border-color: var(--accent); transform: translateY(-2px); }
+  .arrow { cursor: pointer; transition: background-color .2s ease, border-color .2s ease, transform .4s cubic-bezier(.34,1.56,.64,1); border: none; font: inherit; }
+  .arrow:hover { background: #EDF2FF; border-color: var(--accent); transform: translateY(-3px) scale(1.08); }
   .field-error { font-size: 13px; color: #C0392B; }
   .info-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: #E8EAEF; border: 1px solid #E8EAEF; border-radius: 18px; overflow: hidden; }
   @media (min-width: 640px) { .info-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -81,7 +83,7 @@
       <span style="color: #12131A;">Neiro</span><span style="color: var(--accent);">Agency</span>
     </div>
     <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
-      <a href="recursos.html" data-en="Free resources" style="font-size: 14.5px; font-weight: 500; color: #444C63;">Recursos gratuitos</a>
+      <a href="recursos.html" class="nav-link" data-en="Free resources" style="font-size: 14.5px; font-weight: 500; color: #444C63;">Recursos gratuitos</a>
       <a href="contacto.html" class="btn nav-cta" data-en="Book a call" style="font-size: 13.5px; font-weight: 500; border-radius: 999px; padding: 8px 16px;">Agenda una llamada</a>
       <div style="display: flex; align-items: center; gap: 2px; border: 1px solid #E4E6EC; border-radius: 999px; padding: 4px;">
         <button class="btn lang-btn is-active" id="lang-es" style="font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px;">ES</button>
@@ -187,7 +189,7 @@
     <div class="reveal" style="display: flex; flex-direction: column; gap: 16px; max-width: 680px;">
       <span data-en="Use cases" style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Casos de uso</span>
       <h2 data-en="Automations that already work." style="font-size: clamp(28px, 4vw, 38px); line-height: 1.16; font-weight: 700; color: #12131A;">Automatizaciones que ya funcionan.</h2>
-      <p data-en="Two real examples of what these agents can do for your business." style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E;">Dos ejemplos reales de lo que estos agentes pueden hacer por tu negocio.</p>
+      <p data-en="Some real examples of what these agents can do for your business." style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E;">Algunos ejemplos reales de lo que estos agentes pueden hacer por tu negocio.</p>
     </div>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(460px, 1fr)); gap: 32px;">
@@ -235,7 +237,7 @@
               <div style="font-size: 11px; color: #A2A7B5; margin-top: 4px;">09:14</div>
             </div>
             <div style="align-self: flex-end; max-width: 82%;">
-              <div data-en="✅ Done! Your appointment is set for Thursday at 3:00pm. I've added it to Google Calendar and sent you a confirmation by email." style="background: #DCF8C6; border-radius: 14px 14px 4px 14px; padding: 10px 14px; font-size: 14px; line-height: 1.5; color: #12131A;">✅ ¡Listo! Tu cita quedó para el jueves a las 3:00pm. Ya la agregué a tu Google Calendar y te mandé la confirmación por correo.</div>
+              <div data-en="✅ Done! Your appointment is set for Thursday at 3:00pm. I just sent you an email with the confirmation so you can save it." style="background: #DCF8C6; border-radius: 14px 14px 4px 14px; padding: 10px 14px; font-size: 14px; line-height: 1.5; color: #12131A;">✅ ¡Listo! Tu cita quedó para el jueves a las 3:00pm. Ahí te envié un correo con la confirmación para que la guardes.</div>
               <div style="font-size: 11px; color: #A2A7B5; margin-top: 4px; text-align: right;">09:14</div>
             </div>
           </div>
@@ -251,7 +253,7 @@
       <div class="reveal lift" data-d="1" style="border: 1px solid #E8EAEF; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 20px; background: #ffffff;">
         <div style="display: flex; flex-direction: column; gap: 10px;">
           <h3 data-en="An internal assistant on Telegram" style="font-size: 19px; line-height: 1.3; font-weight: 700; color: #12131A;">Un asistente interno por Telegram</h3>
-          <p data-en="Your own private assistant: it summarizes the emails coming into your inbox, flags you when someone shows real interest, answers questions using your business's own information, and drafts messages for suppliers or clients for you to approve." style="font-size: 15px; line-height: 1.68; color: #5A5F6E;">Tu propio asistente privado: te resume los correos que te van llegando, te avisa cuando alguien muestra interés real, responde preguntas con la información de tu propio negocio, y te redacta mensajes para proveedores o clientes listos para aprobar.</p>
+          <p data-en="Your own private assistant: it summarizes the emails coming into your inbox, flags you when someone shows real interest, and drafts messages for suppliers or clients ready for you to approve. On top of that, it can be connected to a database with all your business's documents and information, so you have everything within reach: ask it anything and it'll dig through thousands of documents to find the answer in seconds." style="font-size: 15px; line-height: 1.68; color: #5A5F6E;">Tu propio asistente privado: te resume los correos que te van llegando, te avisa cuando alguien muestra interés real, y te redacta mensajes para proveedores o clientes listos para aprobar. Además, se le puede conectar una base de datos con todos los documentos e información de tu negocio, para que tengas todo al alcance de la mano: le preguntás lo que sea y él va a buscar la respuesta entre miles de documentos en segundos.</p>
         </div>
 
         <div style="border: 1px solid #E8EAEF; border-radius: 14px; overflow: hidden; background: #ffffff;">
@@ -301,13 +303,70 @@
           <span data-en="Summarizes your inbox" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Resume tus correos</span>
           <span data-en="Flags interested leads" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Te avisa cuando alguien está interesado</span>
           <span data-en="Drafts and sends for you" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Redacta y envía por vos</span>
+          <span data-en="Searches thousands of documents in seconds" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Busca entre miles de documentos en segundos</span>
+        </div>
+      </div>
+
+      <div class="reveal lift" data-d="2" style="grid-column: 1 / -1; border: 1px solid #E8EAEF; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 20px; background: #ffffff;">
+        <div style="display: flex; flex-direction: column; gap: 10px; max-width: 640px;">
+          <h3 data-en="An Instagram agent that qualifies leads and closes sales" style="font-size: 19px; line-height: 1.3; font-weight: 700; color: #12131A;">Un agente de Instagram que califica leads y cierra ventas</h3>
+          <p data-en="It answers comments and DMs the moment someone shows interest, asks a couple of qualifying questions, and hands over a discount code or payment link, without you having to be glued to your phone." style="font-size: 15px; line-height: 1.68; color: #5A5F6E;">Responde comentarios y DMs apenas alguien muestra interés, hace un par de preguntas para calificarlo, y le entrega un código de descuento o link de pago, sin que vos tengas que estar pegado al teléfono.</p>
+        </div>
+
+        <div style="border: 1px solid #E8EAEF; border-radius: 14px; overflow: hidden; background: #ffffff; max-width: 480px;">
+          <div style="background: #F5F6F9; padding: 14px 18px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #E8EAEF;">
+            <div style="display: flex; gap: 6px;" aria-hidden="true">
+              <span style="width: 10px; height: 10px; border-radius: 50%; background: #FF5F57; display: inline-block;"></span>
+              <span style="width: 10px; height: 10px; border-radius: 50%; background: #FEBC2E; display: inline-block;"></span>
+              <span style="width: 10px; height: 10px; border-radius: 50%; background: #28C840; display: inline-block;"></span>
+            </div>
+            <div style="width: 34px; height: 34px; border-radius: 50%; overflow: hidden; flex-shrink: 0;">
+              <img src="img/instagram.png" alt="Instagram" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div>
+              <div data-en="Instagram Agent" style="font-weight: 700; font-size: 14px; color: #12131A;">Agente Instagram</div>
+              <div data-en="Online" style="font-size: 12px; color: #C0197B;">En línea</div>
+            </div>
+          </div>
+          <div style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+            <div style="align-self: flex-start; max-width: 82%;">
+              <div data-en="Hi! I saw your post, how much is the course?" style="background: #F1F3F8; border-radius: 14px 14px 14px 4px; padding: 10px 14px; font-size: 14px; line-height: 1.5; color: #12131A;">Hola! Vi tu post, ¿cuánto cuesta el curso?</div>
+              <div style="font-size: 11px; color: #A2A7B5; margin-top: 4px;">18:20</div>
+            </div>
+            <div style="align-self: flex-end; max-width: 82%;">
+              <div data-en="Hi! 👋 It's $97. Quick question: are you already selling something, or just starting out?" style="background: #FDE7F3; border-radius: 14px 14px 4px 14px; padding: 10px 14px; font-size: 14px; line-height: 1.5; color: #12131A;">¡Hola! 👋 Cuesta $97. Una pregunta rápida: ¿ya vendés algo o estás arrancando de cero?</div>
+              <div style="font-size: 11px; color: #A2A7B5; margin-top: 4px; text-align: right;">18:20</div>
+            </div>
+            <div style="align-self: flex-start; max-width: 82%;">
+              <div data-en="Starting from scratch" style="background: #F1F3F8; border-radius: 14px 14px 14px 4px; padding: 10px 14px; font-size: 14px; line-height: 1.5; color: #12131A;">Estoy arrancando de cero</div>
+              <div style="font-size: 11px; color: #A2A7B5; margin-top: 4px;">18:21</div>
+            </div>
+            <div style="align-self: flex-end; max-width: 82%;">
+              <div data-en="Perfect, for people just starting we have a bundle with mentoring included 🎁. Sending you a link with a discount code, just for today" style="background: #FDE7F3; border-radius: 14px 14px 4px 14px; padding: 10px 14px; font-size: 14px; line-height: 1.5; color: #12131A;">Perfecto, para quienes arrancan tenemos un combo con mentoría incluida 🎁. Te mando el link con un código de descuento solo por hoy</div>
+              <div style="font-size: 11px; color: #A2A7B5; margin-top: 4px; text-align: right;">18:21</div>
+            </div>
+            <div style="align-self: flex-start; max-width: 82%;">
+              <div data-en="Send it over" style="background: #F1F3F8; border-radius: 14px 14px 14px 4px; padding: 10px 14px; font-size: 14px; line-height: 1.5; color: #12131A;">Dale, mandámelo</div>
+              <div style="font-size: 11px; color: #A2A7B5; margin-top: 4px;">18:22</div>
+            </div>
+            <div style="align-self: flex-end; max-width: 82%;">
+              <div data-en="✅ Here's your link with the code EMPIEZA10. Any questions, I'm right here." style="background: #FDE7F3; border-radius: 14px 14px 4px 14px; padding: 10px 14px; font-size: 14px; line-height: 1.5; color: #12131A;">✅ Acá tenés el link con el código EMPIEZA10. Cualquier duda, seguimos por acá.</div>
+              <div style="font-size: 11px; color: #A2A7B5; margin-top: 4px; text-align: right;">18:22</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <span data-en="Answers comments and DMs 24/7" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Responde comentarios y DMs, 24/7</span>
+          <span data-en="Qualifies leads automatically" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Califica leads automáticamente</span>
+          <span data-en="Delivers discount codes and payment links instantly" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Entrega códigos de descuento y links de pago al instante</span>
         </div>
       </div>
 
     </div>
 
     <div class="reveal" style="background: #EDF2FF; border-radius: 18px; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; max-width: 700px; margin: 0 auto; width: fit-content;">
-      <p data-en="These are just two concrete examples. This can be adapted to any need your business has, whatever your case looks like: there's practically no limit to what can be automated." style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #1D3A8A; max-width: 640px;">Estos son solo dos ejemplos concretos. Esto se puede adaptar a cualquier necesidad de tu negocio, sea cual sea tu caso: prácticamente no hay límite de lo que se puede automatizar.</p>
+      <p data-en="These are just some of the examples that can be built. This can be adapted to any need your business has, any manual process or tedious task you deal with: there's practically no limit to what can be automated." style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #1D3A8A; max-width: 640px;">Estos son solo algunos de los ejemplos que se pueden implementar. Esto se puede adaptar a cualquier necesidad de tu negocio, cualquier proceso manual o tarea tediosa que tengas: prácticamente no hay límite de lo que se puede automatizar.</p>
       <a class="btn" href="contacto.html" data-en="Tell us about your business and get a demo" style="display: inline-flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 500; color: #ffffff; background: var(--accent); border-radius: 10px; padding: 15px 26px;">Contanos sobre tu negocio y te mostramos una demo</a>
     </div>
   </div>

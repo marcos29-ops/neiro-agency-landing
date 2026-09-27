@@ -3,5 +3,4 @@
 .claude
 .DS_Store
 Dockerfile
-nginx.conf
 README.md

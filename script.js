@@ -18,8 +18,6 @@
     { id: 'g4', tag: 'claude', title: '[Título de la guía 04]', titleEn: '[Guide title 04]', desc: '[Un tip, tool o plugin de Claude explicado paso a paso.]', descEn: '[A Claude tip, tool or plugin explained step by step.]' },
     { id: 'g5', tag: 'dinero', title: '[Título de la guía 05]', titleEn: '[Guide title 05]', desc: '[Una línea sobre cómo generar ingresos con IA.]', descEn: '[One line about how to make money with AI.]' },
     { id: 'g6', tag: 'claude', title: '[Título de la guía 06]', titleEn: '[Guide title 06]', desc: '[Un tip, tool o plugin de Claude explicado paso a paso.]', descEn: '[A Claude tip, tool or plugin explained step by step.]' },
-    { id: 'g7', tag: 'tecnico', title: '[Título de la guía 07]', titleEn: '[Guide title 07]', desc: '[Un concepto técnico de automatización con IA explicado en simple.]', descEn: '[A technical AI automation concept explained simply.]' },
-    { id: 'g8', tag: 'tecnico', title: '[Título de la guía 08]', titleEn: '[Guide title 08]', desc: '[Un concepto técnico de automatización con IA explicado en simple.]', descEn: '[A technical AI automation concept explained simply.]' }
   ];
 
   var STRINGS = {
@@ -122,14 +120,11 @@
   function renderGuias() {
     var railDinero = document.getElementById('rail-guias-dinero');
     var railClaude = document.getElementById('rail-guias-claude');
-    var railTecnico = document.getElementById('rail-guias-tecnico');
-    if (!railDinero || !railClaude || !railTecnico) { return; }
+    if (!railDinero || !railClaude) { return; }
     railDinero.innerHTML = '';
     railClaude.innerHTML = '';
-    railTecnico.innerHTML = '';
     GUIAS.filter(function (g) { return g.tag === 'dinero'; }).forEach(function (g) { railDinero.appendChild(renderGuiaCard(g)); });
     GUIAS.filter(function (g) { return g.tag === 'claude'; }).forEach(function (g) { railClaude.appendChild(renderGuiaCard(g)); });
-    GUIAS.filter(function (g) { return g.tag === 'tecnico'; }).forEach(function (g) { railTecnico.appendChild(renderGuiaCard(g)); });
 
     var count = Object.keys(picked).length;
     var form = document.getElementById('guias-form');
@@ -456,7 +451,10 @@
   } else {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+        if (e.isIntersecting) {
+          e.target.classList.add('is-in'); io.unobserve(e.target);
+          (function (n) { setTimeout(function () { n.style.transitionDelay = '0s'; }, 1400); })(e.target);
+        }
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
     reveals.forEach(function (r) { io.observe(r); });

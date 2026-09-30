@@ -43,6 +43,10 @@
   a.nav-cta:hover { background: #E85A2E; }
   a.nav-link { display: inline-block; transition: transform .4s cubic-bezier(.34,1.56,.64,1); }
   a.nav-link:hover { transform: translateY(-2px) scale(1.06); }
+  a.nav-link:active { transform: translateY(0) scale(.97); }
+  .pill-tag { display: inline-block; transition: transform .4s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease; }
+  .pill-tag:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 10px 20px rgba(47,107,255,.18); }
+  .pill-tag:active { transform: translateY(-1px) scale(.97); box-shadow: 0 4px 10px rgba(47,107,255,.16); }
   .lang-btn.is-active { color: #ffffff !important; background: #FF6A3D !important; }
   .lang-btn:not(.is-active) { color: #777C8A !important; background: transparent !important; }
   .lang-btn, .btn, a { touch-action: manipulation; }
@@ -113,8 +117,8 @@
       <p data-en="There's just one person behind Neiro Agency. Systems Engineer, focused on AI and Cloud, designing and building custom automations for businesses: agents that talk to customers on WhatsApp, Instagram or your own website, and internal workflows that remove repetitive work. I handle everything end to end, with no middlemen." style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E; max-width: 560px;">Detrás de Neiro Agency hay una sola persona. Ingeniero en Sistemas, enfocado en IA y Cloud, diseño y construyo automatizaciones a medida para negocios: agentes que atienden clientes por WhatsApp, Instagram o tu propia web, y flujos internos que eliminan tareas repetitivas. Trabajo de punta a punta, sin intermediarios.</p>
       <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 6px;">
         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-          <a href="https://learn.microsoft.com/api/credentials/share/en-us/MarcosVargas-8392/3A2CA150854E9B7E?sharingId=3E9BD1F639E4439" target="_blank" rel="noopener" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 10px 16px; text-decoration: underline; text-underline-offset: 3px;">Microsoft Certified · Azure AI Fundamentals</a>
-          <a href="https://learn.microsoft.com/api/credentials/share/en-us/MarcosVargas-8392/8D9307924DBA666E?sharingId=3E9BD1F639E4439" target="_blank" rel="noopener" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 10px 16px; text-decoration: underline; text-underline-offset: 3px;">Microsoft Certified · Azure Fundamentals</a>
+          <a class="pill-tag" href="https://learn.microsoft.com/api/credentials/share/en-us/MarcosVargas-8392/3A2CA150854E9B7E?sharingId=3E9BD1F639E4439" target="_blank" rel="noopener" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 10px 16px; text-decoration: underline; text-underline-offset: 3px;">Microsoft Certified · Azure AI Fundamentals</a>
+          <a class="pill-tag" href="https://learn.microsoft.com/api/credentials/share/en-us/MarcosVargas-8392/8D9307924DBA666E?sharingId=3E9BD1F639E4439" target="_blank" rel="noopener" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 10px 16px; text-decoration: underline; text-underline-offset: 3px;">Microsoft Certified · Azure Fundamentals</a>
         </div>
         <span data-en="Tap to verify" style="font-size: 12px; color: #8C91A0;">Toca para verla</span>
       </div>
@@ -165,8 +169,8 @@
       </div>
       <div style="display: flex; flex-direction: column; gap: 4px;">
         <span data-en="Certification" style="font-size: 11.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #8C91A0;">Certificación</span>
-        <a href="https://learn.microsoft.com/api/credentials/share/en-us/MarcosVargas-8392/3A2CA150854E9B7E?sharingId=3E9BD1F639E4439" target="_blank" rel="noopener" style="font-size: 16px; font-weight: 700; color: #12131A; text-decoration: underline; text-underline-offset: 3px;">Microsoft Certified · Azure AI Fundamentals</a>
-        <a href="https://learn.microsoft.com/api/credentials/share/en-us/MarcosVargas-8392/8D9307924DBA666E?sharingId=3E9BD1F639E4439" target="_blank" rel="noopener" style="font-size: 16px; font-weight: 700; color: #12131A; text-decoration: underline; text-underline-offset: 3px;">Microsoft Certified · Azure Fundamentals</a>
+        <a class="nav-link" href="https://learn.microsoft.com/api/credentials/share/en-us/MarcosVargas-8392/3A2CA150854E9B7E?sharingId=3E9BD1F639E4439" target="_blank" rel="noopener" style="align-self: flex-start; font-size: 16px; font-weight: 700; color: #12131A; text-decoration: underline; text-underline-offset: 3px;">Microsoft Certified · Azure AI Fundamentals</a>
+        <a class="nav-link" href="https://learn.microsoft.com/api/credentials/share/en-us/MarcosVargas-8392/8D9307924DBA666E?sharingId=3E9BD1F639E4439" target="_blank" rel="noopener" style="align-self: flex-start; font-size: 16px; font-weight: 700; color: #12131A; text-decoration: underline; text-underline-offset: 3px;">Microsoft Certified · Azure Fundamentals</a>
         <span data-en="Tap to verify" style="font-size: 12px; font-weight: 400; color: #8C91A0; margin-top: 2px;">Toca para verla</span>
       </div>
     </div>

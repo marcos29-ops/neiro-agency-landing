@@ -54,8 +54,8 @@
       guiasOkText: 'Te enviaremos a tu correo las guías que elegiste. Si no lo ves en la bandeja principal, revisá la carpeta de spam.',
       contactOkTitle: 'Mensaje recibido',
       contactOkText: 'Gracias. Te contacto pronto para coordinar la llamada.',
-      errorTitle: 'No pudimos enviarlo',
-      errorText: 'Hubo un problema de conexión. Intentá de nuevo en unos minutos.'
+      errorTitle: 'Ha ocurrido un problema',
+      errorText: 'En breve lo solucionaremos.'
     },
     en: {
       pickToSelect: 'Tap to select',
@@ -75,8 +75,8 @@
       guiasOkText: "We'll send the guides you picked to your email. If you don't see it in your main inbox, check your spam folder.",
       contactOkTitle: 'Message received',
       contactOkText: "Thanks. I'll be in touch soon to schedule the call.",
-      errorTitle: "We couldn't send it",
-      errorText: 'There was a connection problem. Please try again in a few minutes.'
+      errorTitle: 'A problem occurred',
+      errorText: "We'll fix it shortly."
     }
   };
 

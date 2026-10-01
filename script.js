@@ -12,12 +12,27 @@
   var REQUEST_TIMEOUT_MS = 15000;
 
   var GUIAS = [
-    { id: 'g1', tag: 'dinero', title: '[Título de la guía 01]', titleEn: '[Guide title 01]', desc: '[Una línea sobre cómo generar ingresos con IA.]', descEn: '[One line about how to make money with AI.]' },
-    { id: 'g2', tag: 'claude', title: '[Título de la guía 02]', titleEn: '[Guide title 02]', desc: '[Un tip, tool o plugin de Claude explicado paso a paso.]', descEn: '[A Claude tip, tool or plugin explained step by step.]' },
-    { id: 'g3', tag: 'dinero', title: '[Título de la guía 03]', titleEn: '[Guide title 03]', desc: '[Una línea sobre el modelo de negocio que explica.]', descEn: '[One line about the business model it covers.]' },
-    { id: 'g4', tag: 'claude', title: '[Título de la guía 04]', titleEn: '[Guide title 04]', desc: '[Un tip, tool o plugin de Claude explicado paso a paso.]', descEn: '[A Claude tip, tool or plugin explained step by step.]' },
-    { id: 'g5', tag: 'dinero', title: '[Título de la guía 05]', titleEn: '[Guide title 05]', desc: '[Una línea sobre cómo generar ingresos con IA.]', descEn: '[One line about how to make money with AI.]' },
-    { id: 'g6', tag: 'claude', title: '[Título de la guía 06]', titleEn: '[Guide title 06]', desc: '[Un tip, tool o plugin de Claude explicado paso a paso.]', descEn: '[A Claude tip, tool or plugin explained step by step.]' },
+    { id: 'c01', tag: 'claude', title: 'Prompt estructurado: cómo le hablo a Claude', titleEn: 'Structured prompting: how I talk to Claude', desc: 'Los tres bloques (rol, objetivo y resultado) para que Claude rinda de verdad.', descEn: 'The three blocks (role, goal and result) to get real performance out of Claude.' },
+    { id: 'c02', tag: 'claude', title: 'CLAUDE.md: el contexto ya masticado', titleEn: 'CLAUDE.md: ready-made context', desc: 'Explicale tu trabajo una sola vez y Claude lo recuerda en cada sesión.', descEn: 'Explain your work once and Claude remembers it in every session.' },
+    { id: 'c03', tag: 'claude', title: 'Proyectos: por qué dejé los chats sueltos', titleEn: 'Projects: why I stopped using loose chats', desc: 'Un espacio con instrucciones, archivos y memoria propios para cada trabajo.', descEn: 'A space with its own instructions, files and memory for each job.' },
+    { id: 'c04', tag: 'claude', title: 'Skills: las que vienen y las que armás vos', titleEn: 'Skills: built-in ones and the ones you build', desc: 'Manuales de buenas prácticas para que Claude no improvise.', descEn: 'Best-practice manuals so Claude doesn\'t improvise.' },
+    { id: 'c05', tag: 'claude', title: 'Comandos de Claude Code que sí valen la pena', titleEn: 'Claude Code commands worth mastering', desc: 'Los comandos con / importantes, agrupados por momento de trabajo.', descEn: 'The commands that matter, grouped by when you use them.' },
+    { id: 'c06', tag: 'claude', title: 'Artefactos: de una conversación a una app', titleEn: 'Artifacts: from a conversation to an app', desc: 'Diseños, documentos y mini-apps que Claude arma para que los uses.', descEn: 'Designs, documents and mini-apps that Claude builds for you to use.' },
+    { id: 'c07', tag: 'claude', title: 'MarkItDown: que Claude lea cualquier documento', titleEn: 'MarkItDown: let Claude read any document', desc: 'Convertí PDF, Word, Excel o PowerPoint para que Claude los lea bien.', descEn: 'Convert PDF, Word, Excel or PowerPoint so Claude reads them properly.' },
+    { id: 'c08', tag: 'claude', title: 'Perplexity y Tavily: información real y con fuentes', titleEn: 'Perplexity and Tavily: real, sourced information', desc: 'Búsqueda web en vivo, con datos actuales y fuentes citadas.', descEn: 'Live web search with current data and cited sources.' },
+    { id: 'c09', tag: 'claude', title: 'Controlar Claude desde el celular', titleEn: 'Control Claude from your phone', desc: 'Tres formas de dejar a Claude trabajando y seguirlo desde el celular.', descEn: 'Three ways to leave Claude working and follow along from your phone.' },
+    { id: 'c10', tag: 'claude', title: 'Codex Plugin: revisión de código dentro de Claude Code', titleEn: 'Codex Plugin: code review inside Claude Code', desc: 'Un segundo modelo revisa el trabajo del primero, sin gastar de más.', descEn: 'A second model reviews the first one\'s work without burning your quota.' },
+    { id: 'c11', tag: 'claude', title: 'El plugin Small Business de Claude', titleEn: 'Claude\'s Small Business plugin', desc: '44 skills para dueños de pyme: finanzas, ventas, marketing y más.', descEn: '44 skills for small-business owners: finance, sales, marketing and more.' },
+    { id: 'c12', tag: 'claude', title: 'Certificaciones de Microsoft con Claude', titleEn: 'Microsoft certifications with Claude', desc: 'Estudiá con la documentación de Microsoft Learn siempre al día.', descEn: 'Study with always up-to-date Microsoft Learn documentation.' },
+    { id: 'c13', tag: 'claude', title: 'WhatsApp Business Tools MCP', titleEn: 'WhatsApp Business Tools MCP', desc: 'El servidor oficial de Meta para configurar WhatsApp Business en lenguaje natural.', descEn: 'Meta\'s official server to set up WhatsApp Business in plain language.' },
+    { id: 'c14', tag: 'claude', title: 'Apify: leads cualificados con Claude', titleEn: 'Apify: qualified leads with Claude', desc: 'Miles de scrapers listos para armar listas de prospectos por perfil.', descEn: 'Thousands of ready-made scrapers to build prospect lists by profile.' },
+    { id: 'c15', tag: 'claude', title: 'Scrapling + Claude: tus propios leads', titleEn: 'Scrapling + Claude: your own leads', desc: 'Generá leads calificados a demanda, sin comprar bases viejas.', descEn: 'Generate qualified leads on demand, without buying stale lists.' },
+    { id: 'c16', tag: 'claude', title: 'Edito mis videos con IA: Remotion + Claude Code', titleEn: 'I edit my videos with AI: Remotion + Claude Code', desc: 'Editá el video que ya grabaste, hablándole a Claude.', descEn: 'Edit the video you already recorded just by talking to Claude.' },
+    { id: 'n01', tag: 'negocio', title: 'Contenido en video para tu negocio, sin cámara', titleEn: 'Video content for your business, no camera', desc: 'Guion, voz y video para Shorts y Reels sin que nadie grabe.', descEn: 'Script, voice and video for Shorts and Reels without anyone filming.' },
+    { id: 'n02', tag: 'negocio', title: 'Anuncios con avatares de IA', titleEn: 'Ads with AI avatars', desc: 'Tu avatar en HeyGen y anuncios testimoniales, sin actores ni grabación.', descEn: 'Your HeyGen avatar and testimonial ads, no actors or shoot needed.' },
+    { id: 'n03', tag: 'negocio', title: 'Tu propio MCP, conectado a tu negocio', titleEn: 'Your own MCP, connected to your business', desc: 'La ruta técnica para que Claude trabaje con tus sistemas, con permisos mínimos.', descEn: 'The technical route for Claude to work with your systems, with minimal permissions.' },
+    { id: 'n04', tag: 'negocio', title: 'Video con IA: Higgsfield y similares', titleEn: 'AI video: Higgsfield and similar tools', desc: 'Video para anuncios y demos con Higgsfield, Runway o Kling, sin equipo.', descEn: 'Video for ads and demos with Higgsfield, Runway or Kling, no crew needed.' },
+    { id: 'n05', tag: 'negocio', title: 'El plugin Small Business: instalalo con cuidado', titleEn: 'The Small Business plugin: install it with care', desc: 'Cómo instalarlo, qué cubre y cómo usarlo de forma segura.', descEn: 'How to install it, what it covers and how to use it safely.' },
   ];
 
   var STRINGS = {
@@ -118,12 +133,12 @@
   }
 
   function renderGuias() {
-    var railDinero = document.getElementById('rail-guias-dinero');
+    var railNegocio = document.getElementById('rail-guias-negocio');
     var railClaude = document.getElementById('rail-guias-claude');
-    if (!railDinero || !railClaude) { return; }
-    railDinero.innerHTML = '';
+    if (!railNegocio || !railClaude) { return; }
+    railNegocio.innerHTML = '';
     railClaude.innerHTML = '';
-    GUIAS.filter(function (g) { return g.tag === 'dinero'; }).forEach(function (g) { railDinero.appendChild(renderGuiaCard(g)); });
+    GUIAS.filter(function (g) { return g.tag === 'negocio'; }).forEach(function (g) { railNegocio.appendChild(renderGuiaCard(g)); });
     GUIAS.filter(function (g) { return g.tag === 'claude'; }).forEach(function (g) { railClaude.appendChild(renderGuiaCard(g)); });
 
     var count = Object.keys(picked).length;

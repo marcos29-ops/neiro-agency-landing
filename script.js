@@ -475,5 +475,40 @@
     reveals.forEach(function (r) { io.observe(r); });
   }
 
+
+  // Preguntas frecuentes: apertura y cierre con animación fluida (altura + desvanecido).
+  (function () {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll('details.faq-item').forEach(function (d) {
+      var sum = d.querySelector('summary');
+      var body = d.querySelector('summary ~ *');
+      if (!sum || !body || !d.animate) return;
+      var anim = null;
+      function done(open) {
+        anim = null;
+        d.open = open;
+        d.removeAttribute('data-open');
+        d.style.overflow = '';
+        d.style.height = '';
+      }
+      sum.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (anim) anim.cancel();
+        var abrir = !d.open || d.getAttribute('data-open') === 'false';
+        if (reduce) { d.open = abrir; return; }
+        var start = d.offsetHeight;
+        d.style.overflow = 'hidden';
+        d.setAttribute('data-open', abrir ? 'true' : 'false');
+        d.open = true;
+        var end = abrir ? d.scrollHeight + (d.offsetHeight - d.clientHeight) : sum.offsetHeight + (d.offsetHeight - d.clientHeight);
+        if (abrir) { d.style.height = start + 'px'; end = d.scrollHeight + (d.offsetHeight - d.clientHeight); }
+        anim = d.animate({ height: [start + 'px', end + 'px'] }, { duration: 360, easing: 'cubic-bezier(.22,.8,.3,1)' });
+        body.animate({ opacity: abrir ? [0, 1] : [1, 0] }, { duration: abrir ? 320 : 200, easing: 'ease', fill: 'both' });
+        anim.onfinish = function () { done(abrir); };
+        anim.oncancel = function () { anim = null; };
+      });
+    });
+  })();
+
   renderGuias();
 })();

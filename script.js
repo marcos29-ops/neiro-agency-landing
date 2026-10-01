@@ -44,6 +44,7 @@
       nameRequired: 'Ingresá tu nombre.',
       emailRequired: 'Ingresá tu correo.',
       emailInvalid: 'Ese correo no parece válido.',
+      companyRequired: 'Elige una opción.',
       phoneRequired: 'Ingresá tu número de teléfono.',
       phoneInvalid: function (code, expected, got) { return 'Para ' + code + ' se esperan ' + expected + ' (tenés ' + got + ').'; },
       digitsWord: function (a, b) { return a === b ? a + ' dígitos' : 'entre ' + a + ' y ' + b + ' dígitos'; },
@@ -65,6 +66,7 @@
       nameRequired: 'Enter your name.',
       emailRequired: 'Enter your email.',
       emailInvalid: "That email doesn't look valid.",
+      companyRequired: 'Choose an option.',
       phoneRequired: 'Enter your phone number.',
       phoneInvalid: function (code, expected, got) { return 'For ' + code + ' we expect ' + expected + ' (you entered ' + got + ').'; },
       digitsWord: function (a, b) { return a === b ? a + ' digits' : 'between ' + a + ' and ' + b + ' digits'; },
@@ -304,7 +306,29 @@
       emailOk = showFieldError('guia-correo', 'guia-correo-error', null);
     }
 
-    if (!nameOk || !emailOk) { return; }
+    var empresaSel = document.querySelector('input[name="guia-empresa"]:checked');
+    var empresaBox = document.getElementById('guia-empresa');
+    var empresaErr = document.getElementById('guia-empresa-error');
+    if (!empresaSel) {
+      empresaBox.classList.add('err');
+      empresaErr.textContent = t().companyRequired;
+      empresaErr.hidden = false;
+    } else {
+      empresaBox.classList.remove('err');
+      empresaErr.hidden = true;
+      empresaErr.textContent = '';
+    }
+
+    var telOk = true;
+    if (empresaSel && empresaSel.value === 'si') {
+      telOk = showFieldError('guia-telefono', 'guia-tel-error', validatePhone(document.getElementById('guia-pais-tel').value, document.getElementById('guia-telefono').value));
+    }
+
+    if (!nameOk || !emailOk || !empresaSel || !telOk) { return; }
+    var telefonoEmpresa = '';
+    if (empresaSel.value === 'si') {
+      telefonoEmpresa = (document.getElementById('guia-pais-tel').value || '').split(' ')[0] + ' ' + document.getElementById('guia-telefono').value.replace(/\D/g, '');
+    }
 
     var restoreText = btn.textContent;
     var guias = GUIAS.filter(function (g) { return picked[g.id]; }).map(function (g) { return g.id + ': ' + g.title; });
@@ -315,6 +339,8 @@
       correo: correo,
       pais: document.getElementById('guia-pais').value,
       rol: document.getElementById('guia-rol').value,
+      empresa: empresaSel.value,
+      telefono: telefonoEmpresa,
       guias: guias,
       idioma: lang,
       website: document.getElementById('guia-website').value
@@ -322,6 +348,9 @@
       picked = {};
       document.getElementById('guia-nombre').value = '';
       document.getElementById('guia-correo').value = '';
+      empresaSel.checked = false;
+      document.getElementById('guia-tel-wrap').hidden = true;
+      document.getElementById('guia-telefono').value = '';
       renderGuias();
       openModal('guias', null);
     }, function () {
@@ -508,6 +537,35 @@
         anim.oncancel = function () { anim = null; };
       });
     });
+  })();
+
+
+  // "¿Tienes una empresa?": si responde Sí se despliega el teléfono.
+  (function () {
+    var wrap = document.getElementById('guia-tel-wrap');
+    var radios = document.querySelectorAll('input[name="guia-empresa"]');
+    if (!wrap || !radios.length) { return; }
+    radios.forEach(function (r) {
+      r.addEventListener('change', function () {
+        var box = document.getElementById('guia-empresa');
+        var err = document.getElementById('guia-empresa-error');
+        box.classList.remove('err');
+        err.hidden = true;
+        err.textContent = '';
+        var mostrar = r.value === 'si';
+        if (mostrar && wrap.hidden) {
+          wrap.hidden = false;
+          if (wrap.animate) { wrap.animate({ opacity: [0, 1], transform: ['translateY(-8px)', 'translateY(0)'] }, { duration: 280, easing: 'cubic-bezier(.22,.8,.3,1)' }); }
+        } else if (!mostrar) {
+          wrap.hidden = true;
+          clearFieldError('guia-telefono', 'guia-tel-error');
+        }
+      });
+    });
+    var gt = document.getElementById('guia-telefono');
+    var gs = document.getElementById('guia-pais-tel');
+    if (gt) { gt.addEventListener('input', function () { clearFieldError('guia-telefono', 'guia-tel-error'); }); }
+    if (gs) { gs.addEventListener('change', function () { clearFieldError('guia-telefono', 'guia-tel-error'); }); }
   })();
 
   renderGuias();

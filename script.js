@@ -22,7 +22,7 @@
     { id: 'c08', tag: 'claude', title: 'Perplexity y Tavily: información real y con fuentes', titleEn: 'Perplexity and Tavily: real, sourced information', desc: 'Búsqueda web en vivo, con datos actuales y fuentes citadas.', descEn: 'Live web search with current data and cited sources.' },
     { id: 'c09', tag: 'claude', title: 'Controlar Claude desde el celular', titleEn: 'Control Claude from your phone', desc: 'Tres formas de dejar a Claude trabajando y seguirlo desde el celular.', descEn: 'Three ways to leave Claude working and follow along from your phone.' },
     { id: 'c10', tag: 'claude', title: 'Codex Plugin: revisión de código dentro de Claude Code', titleEn: 'Codex Plugin: code review inside Claude Code', desc: 'Un segundo modelo revisa el trabajo del primero, sin gastar de más.', descEn: 'A second model reviews the first one\'s work without burning your quota.' },
-    { id: 'c11', tag: 'claude', title: 'El plugin Small Business de Claude', titleEn: 'Claude\'s Small Business plugin', desc: '44 skills para dueños de pyme: finanzas, ventas, marketing y más.', descEn: '44 skills for small-business owners: finance, sales, marketing and more.' },
+    { id: 'c11', tag: 'claude', title: 'Plugin Small Business: instalalo y usá sus 44 skills', titleEn: 'Small Business plugin: install it and use its 44 skills', desc: '44 skills para dueños de pyme: finanzas, ventas, marketing y más.', descEn: '44 skills for small-business owners: finance, sales, marketing and more.' },
     { id: 'c12', tag: 'claude', title: 'Certificaciones de Microsoft con Claude', titleEn: 'Microsoft certifications with Claude', desc: 'Estudiá con la documentación de Microsoft Learn siempre al día.', descEn: 'Study with always up-to-date Microsoft Learn documentation.' },
     { id: 'c13', tag: 'claude', title: 'WhatsApp Business Tools MCP', titleEn: 'WhatsApp Business Tools MCP', desc: 'El servidor oficial de Meta para configurar WhatsApp Business en lenguaje natural.', descEn: 'Meta\'s official server to set up WhatsApp Business in plain language.' },
     { id: 'c14', tag: 'claude', title: 'Apify: leads cualificados con Claude', titleEn: 'Apify: qualified leads with Claude', desc: 'Miles de scrapers listos para armar listas de prospectos por perfil.', descEn: 'Thousands of ready-made scrapers to build prospect lists by profile.' },
@@ -32,7 +32,7 @@
     { id: 'n02', tag: 'negocio', title: 'Anuncios con avatares de IA', titleEn: 'Ads with AI avatars', desc: 'Tu avatar en HeyGen y anuncios testimoniales, sin actores ni grabación.', descEn: 'Your HeyGen avatar and testimonial ads, no actors or shoot needed.' },
     { id: 'n03', tag: 'negocio', title: 'Tu propio MCP, conectado a tu negocio', titleEn: 'Your own MCP, connected to your business', desc: 'La ruta técnica para que Claude trabaje con tus sistemas, con permisos mínimos.', descEn: 'The technical route for Claude to work with your systems, with minimal permissions.' },
     { id: 'n04', tag: 'negocio', title: 'Video con IA: Higgsfield y similares', titleEn: 'AI video: Higgsfield and similar tools', desc: 'Video para anuncios y demos con Higgsfield, Runway o Kling, sin equipo.', descEn: 'Video for ads and demos with Higgsfield, Runway or Kling, no crew needed.' },
-    { id: 'n05', tag: 'negocio', title: 'El plugin Small Business: instalalo con cuidado', titleEn: 'The Small Business plugin: install it with care', desc: 'Cómo instalarlo, qué cubre y cómo usarlo de forma segura.', descEn: 'How to install it, what it covers and how to use it safely.' },
+    { id: 'n05', tag: 'negocio', title: 'Small Business: instalación y uso seguro', titleEn: 'Small Business: installation and safe use', desc: 'Cómo instalarlo, qué cubre y cómo usarlo de forma segura.', descEn: 'How to install it, what it covers and how to use it safely.' },
   ];
 
   var STRINGS = {
@@ -51,7 +51,7 @@
       modalClose: 'Cerrar',
       modalOk: 'Entendido',
       guiasOkTitle: 'Listo, revisá tu correo.',
-      guiasOkText: 'Te enviaremos a tu correo las guías que elegiste.',
+      guiasOkText: 'Te enviaremos a tu correo las guías que elegiste. Si no lo ves en la bandeja principal, revisá la carpeta de spam.',
       contactOkTitle: 'Mensaje recibido',
       contactOkText: 'Gracias. Te contacto pronto para coordinar la llamada.',
       errorTitle: 'No pudimos enviarlo',
@@ -72,7 +72,7 @@
       modalClose: 'Close',
       modalOk: 'Got it',
       guiasOkTitle: 'Done, check your email.',
-      guiasOkText: "We'll send the guides you picked to your email.",
+      guiasOkText: "We'll send the guides you picked to your email. If you don't see it in your main inbox, check your spam folder.",
       contactOkTitle: 'Message received',
       contactOkText: "Thanks. I'll be in touch soon to schedule the call.",
       errorTitle: "We couldn't send it",

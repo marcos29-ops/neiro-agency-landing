@@ -55,10 +55,8 @@
   .btn:active { transform: translateY(0); box-shadow: none; }
   .btn-ghost:hover { box-shadow: 0 10px 24px rgba(18,19,26,.10); border-color: #B9C0CF; }
   a.btn-ghost, a.btn-ghost:hover { color: #12131A; }
-  .rail { scrollbar-width: thin; scrollbar-color: #D2D7E3 transparent; }
-  .rail::-webkit-scrollbar { height: 8px; }
-  .rail::-webkit-scrollbar-thumb { background: #D2D7E3; border-radius: 999px; }
-  .rail::-webkit-scrollbar-track { background: transparent; }
+  .rail { scrollbar-width: none; -ms-overflow-style: none; }
+  .rail::-webkit-scrollbar { display: none; width: 0; height: 0; }
   .arrow { cursor: pointer; transition: background-color .2s ease, border-color .2s ease, transform .4s cubic-bezier(.34,1.56,.64,1); border: none; font: inherit; }
   .arrow:hover { background: #EDF2FF; border-color: var(--accent); transform: translateY(-3px) scale(1.08); }
   .field-error { font-size: 13px; color: #C0392B; }

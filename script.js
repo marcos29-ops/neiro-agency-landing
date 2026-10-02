@@ -141,8 +141,9 @@
     if (!railNegocio || !railClaude) { return; }
     railNegocio.innerHTML = '';
     railClaude.innerHTML = '';
-    GUIAS.filter(function (g) { return g.tag === 'negocio'; }).forEach(function (g) { railNegocio.appendChild(renderGuiaCard(g)); });
-    GUIAS.filter(function (g) { return g.tag === 'claude'; }).forEach(function (g) { railClaude.appendChild(renderGuiaCard(g)); });
+    // Las guías nuevas se agregan al final de GUIAS y se muestran primero (a la izquierda) en cada fila.
+    GUIAS.filter(function (g) { return g.tag === 'negocio'; }).reverse().forEach(function (g) { railNegocio.appendChild(renderGuiaCard(g)); });
+    GUIAS.filter(function (g) { return g.tag === 'claude'; }).reverse().forEach(function (g) { railClaude.appendChild(renderGuiaCard(g)); });
 
     var count = Object.keys(picked).length;
     var form = document.getElementById('guias-form');

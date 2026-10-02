@@ -64,6 +64,10 @@
   a.btn:not(.btn-ghost), a.btn:not(.btn-ghost):hover { color: #ffffff; }
   a.nav-cta, a.nav-cta:hover { color: #ffffff !important; background: #FF6A3D; }
   a.nav-cta:hover { background: #E85A2E; }
+  .live-dot { position: relative; width: 9px; height: 9px; border-radius: 50%; background: #4ADE80; flex-shrink: 0; }
+  .live-dot::after { content: ''; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid #4ADE80; opacity: 0; animation: liveRing 1.8s ease-out infinite; }
+  @keyframes liveRing { 0% { transform: scale(.6); opacity: .8; } 100% { transform: scale(1.6); opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .live-dot::after { animation: none; } }
   .faq-item { transition: border-color .25s ease; box-sizing: border-box; }
   .faq-item:hover { border-color: #C9D5F2; }
   .faq-item summary, a.contact-link, a.nav-link { -webkit-tap-highlight-color: transparent; }
@@ -479,6 +483,7 @@
           <span class="pill-tag" data-en="Shows your up-to-date inventory and products" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Muestra tu inventario y productos actualizados</span>
           <span class="pill-tag" data-en="Built-in assistant that knows your business inside out" style="font-size: 13px; font-weight: 500; color: #1D46C7; background: #EDF2FF; border-radius: 8px; padding: 8px 14px;">Asistente integrado que conoce tu negocio al detalle</span>
         </div>
+        <button type="button" class="btn" data-open-chat style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 500; color: #ffffff; background: var(--accent); border-radius: 10px; padding: 14px 24px;"><span class="live-dot" aria-hidden="true"></span><span data-en="Try it here">Pruébalo aquí</span></button>
       </div>
 
     </div>

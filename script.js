@@ -473,6 +473,7 @@
     var privacyLink = document.getElementById('privacy-link');
     if (privacyLink) { privacyLink.href = lang === 'en' ? 'privacidad.html?lang=en' : 'privacidad.html'; }
 
+    if (window.$chatwoot && typeof window.$chatwoot.setLocale === 'function') { window.$chatwoot.setLocale(lang); }
     renderGuias();
     if (typeof syncHeaderSpacer === 'function') { syncHeaderSpacer(); }
   }
@@ -566,6 +567,33 @@
     var gs = document.getElementById('guia-pais-tel');
     if (gt) { gt.addEventListener('input', function () { clearFieldError('guia-telefono', 'guia-tel-error'); }); }
     if (gs) { gs.addEventListener('change', function () { clearFieldError('guia-telefono', 'guia-tel-error'); }); }
+  })();
+
+
+  // Chat de la web (Chatwoot en servidor propio): burbuja a la izquierda; el botón "Pruébalo aquí" lo abre.
+  (function () {
+    var BASE_URL = 'https://chatwoot.neiro.agency';
+    var abrirAlCargar = false;
+    window.chatwootSettings = { position: 'left', type: 'standard', locale: lang === 'en' ? 'en' : 'es', launcherTitle: lang === 'en' ? 'Chat with us' : 'Chatea con nosotros' };
+    window.addEventListener('chatwoot:ready', function () {
+      if (window.$chatwoot && lang === 'en') { window.$chatwoot.setLocale('en'); }
+      if (abrirAlCargar && window.$chatwoot) { window.$chatwoot.toggle('open'); abrirAlCargar = false; }
+    });
+    document.addEventListener('click', function (e) {
+      var trigger = e.target.closest ? e.target.closest('[data-open-chat]') : null;
+      if (!trigger) { return; }
+      e.preventDefault();
+      if (window.$chatwoot && typeof window.$chatwoot.toggle === 'function') { window.$chatwoot.toggle('open'); }
+      else { abrirAlCargar = true; }
+    });
+    function cargar() {
+      var g = document.createElement('script');
+      g.src = BASE_URL + '/packs/js/sdk.js';
+      g.async = true;
+      g.onload = function () { window.chatwootSDK.run({ websiteToken: 'Np7ycQNH9ZPVTgWfWijWkXtg', baseUrl: BASE_URL }); };
+      document.head.appendChild(g);
+    }
+    if (document.readyState === 'complete') { cargar(); } else { window.addEventListener('load', cargar); }
   })();
 
   renderGuias();

@@ -587,6 +587,12 @@
       if (window.$chatwoot && typeof window.$chatwoot.toggle === 'function') { window.$chatwoot.toggle('open'); }
       else { abrirAlCargar = true; }
     });
+    // Misma animación al pasar el mouse que el botón de WhatsApp (sube y crece un poco, con sombra).
+    var estilo = document.createElement('style');
+    estilo.textContent = '.woot-widget-bubble { transition: transform .4s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease !important; }'
+      + '.woot-widget-bubble:hover { transform: translateY(-3px) scale(1.06) !important; box-shadow: 0 14px 32px rgba(255,114,12,.5) !important; }'
+      + '.woot-widget-bubble:active { transform: translateY(0) scale(1) !important; box-shadow: none !important; }';
+    document.head.appendChild(estilo);
     function cargar() {
       var g = document.createElement('script');
       g.src = BASE_URL + '/packs/js/sdk.js';

@@ -574,7 +574,7 @@
   (function () {
     var BASE_URL = 'https://chatwoot.neiro.agency';
     var abrirAlCargar = false;
-    window.chatwootSettings = { position: 'left', type: 'standard', locale: lang === 'en' ? 'en' : 'es', launcherTitle: lang === 'en' ? 'Chat with us' : 'Chatea con nosotros' };
+    window.chatwootSettings = { position: 'left', locale: lang === 'en' ? 'en' : 'es', launcherTitle: lang === 'en' ? 'Chat with us' : 'Chatea con nosotros' };
     window.addEventListener('chatwoot:ready', function () {
       if (window.$chatwoot && lang === 'en') { window.$chatwoot.setLocale('en'); }
       if (abrirAlCargar && window.$chatwoot) { window.$chatwoot.toggle('open'); abrirAlCargar = false; }

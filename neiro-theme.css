@@ -459,3 +459,13 @@ a.nav-cta:hover::before,
 .note-sec { background: #ffffff; padding: clamp(48px, 6vw, 80px) clamp(20px, 4vw, 40px); border-bottom: 1px solid var(--line); }
 .note-in { max-width: 1160px; margin: 0 auto; }
 .note-sec .uc-note { background: var(--tint) !important; box-shadow: none !important; margin: 0 auto; }
+
+/* Sección del cuadro de ejemplos: sin raya inferior; cuadro negro con texto claro */
+.note-sec { border-bottom: 0 !important; }
+.note-sec .uc-note { background: var(--ink) !important; border-color: #1C2542 !important; }
+.note-sec .uc-note p { color: #D6DDF2 !important; }
+.note-sec .uc-note .btn:not(.lang-btn):not(.wa-float) { border-color: #ffffff !important; }
+.note-sec .uc-note .btn:not(.lang-btn):not(.wa-float):hover { border-color: var(--blue) !important; }
+
+/* Cuadro negro centrado entre la sección azul de arriba y el título "Cálculo rápido" de abajo (misma distancia) */
+.note-sec { padding-top: clamp(60px, 7vw, 96px) !important; padding-bottom: 0 !important; }

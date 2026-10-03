@@ -562,12 +562,20 @@
         <label><span data-en="What one hour of your time is worth (USD)">Lo que vale una hora de tu tiempo (USD)</span><output id="calc-c-out">$15</output>
           <input type="range" id="calc-c" min="5" max="100" value="15" step="1" aria-label="Valor de una hora"></label>
       </div>
-      <div class="calc-results" aria-live="polite">
-        <div><b id="calc-r-h">28 h</b><span id="calc-r-h-sub">que podrías recuperar cada mes (de 40 h que dedicas hoy)</span></div>
-        <div><b id="calc-r-m">$420</b><span data-en="per month in time">al mes en tiempo</span></div>
-        <div><b id="calc-r-y">$5,040</b><span data-en="per year">al año</span></div>
+      <div class="calc-steps" aria-live="polite">
+        <div class="cs"><em id="calc-l-now">HOY</em><b id="calc-r-now">40 h</b><span id="calc-s-now">10 h por semana × 4 semanas, cada mes</span></div>
+        <i class="cs-op" aria-hidden="true">→</i>
+        <div class="cs"><em id="calc-l-with">CON EL AGENTE</em><b id="calc-r-with">12 h</b><span id="calc-s-with">lo que seguirías haciendo tú</span></div>
+        <i class="cs-op" aria-hidden="true">=</i>
+        <div class="cs is-key"><em id="calc-l-save">TE AHORRAS</em><b id="calc-r-h">28 h</b><span id="calc-s-save">40 h − 12 h, cada mes</span></div>
       </div>
-      <p class="calc-note" data-en="Rough estimate: I count 4 weeks per month and assume about 70% of that time can be automated. Every business is different; on the call we go over your real numbers.">Estimación referencial: cuento 4 semanas por mes y asumo que cerca del 70% de ese tiempo se puede automatizar. Cada negocio es distinto; en la llamada vemos tus números reales.</p>
+      <div class="calc-money">
+        <span id="calc-m-pre">Esas 28 h valen</span>
+        <b id="calc-r-m">$420</b><span id="calc-m-mo">al mes</span>
+        <span class="dot" aria-hidden="true">·</span>
+        <b id="calc-r-y">$5,040</b><span id="calc-m-yr">al año</span>
+      </div>
+      <p class="calc-note" data-en="How it is calculated: hours per week × 4 weeks = what you spend each month today. I assume the agent takes over about 70% of that work, so you would still spend the other 30%. What you save is the difference, and its value is those hours × what your hour is worth. Rough estimate: every business is different; on the call we go over your real numbers.">Cómo se calcula: horas por semana × 4 semanas = lo que dedicas hoy cada mes. Asumo que el agente se encarga de cerca del 70% de ese trabajo, así que tú seguirías dedicando el otro 30%. Lo que te ahorras es la diferencia, y su valor son esas horas × lo que vale tu hora. Es una estimación referencial: cada negocio es distinto; en la llamada vemos tus números reales.</p>
       <a class="btn" href="contacto.html" id="calc-cta" data-en="I want to see my case" style="display:inline-flex;align-self:flex-start;font-size: 15px; font-weight: 500; border-radius: 10px; padding: 15px 24px;">Quiero ver mi caso</a>
     </div>
   </div>

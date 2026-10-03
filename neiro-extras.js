@@ -67,18 +67,22 @@
     var fmt = function (n) { return '$' + Math.round(n).toLocaleString('en-US'); };
     function paint(inp) { inp.style.setProperty('--fill', ((inp.value - inp.min) / (inp.max - inp.min) * 100) + '%'); }
     function calc() {
-      var hrs = +h.value, cost = +c.value;
-      // 4 semanas por mes (conservador y fácil de verificar) y ~70% del tiempo automatizable.
-      // Las horas se redondean primero para que el dinero cuadre con lo que se ve (horas × valor de la hora).
-      var today = hrs * 4, back = Math.round(today * 0.7), month = back * cost;
-      $('#calc-h-out').textContent = hrs + ' h';
-      $('#calc-c-out').textContent = '$' + cost;
-      $('#calc-r-h').textContent = back + ' h';
-      $('#calc-r-h-sub').textContent = isEn()
-        ? 'you could get back each month (out of ' + today + ' h you spend today)'
-        : 'que podrías recuperar cada mes (de ' + today + ' h que dedicas hoy)';
-      $('#calc-r-m').textContent = fmt(month);
-      $('#calc-r-y').textContent = fmt(month * 12);
+      var hrs = +h.value, cost = +c.value, en = isEn();
+      // 4 semanas por mes; el agente se encarga de ~70% del trabajo y el otro 30% sigue siendo tuyo.
+      // Todo en horas enteras para que se vea la cuenta: hoy = con agente + ahorro.
+      var now = hrs * 4, saved = Math.round(now * 0.7), withAgent = now - saved, month = saved * cost;
+      var set = function (id, t) { $(id).textContent = t; };
+      set('#calc-h-out', hrs + ' h'); set('#calc-c-out', '$' + cost);
+      set('#calc-r-now', now + ' h'); set('#calc-r-with', withAgent + ' h'); set('#calc-r-h', saved + ' h');
+      set('#calc-r-m', fmt(month)); set('#calc-r-y', fmt(month * 12));
+      set('#calc-l-now', en ? 'TODAY' : 'HOY');
+      set('#calc-l-with', en ? 'WITH THE AGENT' : 'CON EL AGENTE');
+      set('#calc-l-save', en ? 'YOU SAVE' : 'TE AHORRAS');
+      set('#calc-s-now', en ? hrs + ' h per week × 4 weeks, each month' : hrs + ' h por semana × 4 semanas, cada mes');
+      set('#calc-s-with', en ? 'what you would still do yourself' : 'lo que seguirías haciendo tú');
+      set('#calc-s-save', en ? now + ' h − ' + withAgent + ' h, each month' : now + ' h − ' + withAgent + ' h, cada mes');
+      set('#calc-m-pre', en ? 'Those ' + saved + ' h are worth' : 'Esas ' + saved + ' h valen');
+      set('#calc-m-mo', en ? 'per month' : 'al mes'); set('#calc-m-yr', en ? 'per year' : 'al año');
       paint(h); paint(c);
     }
     ['lang-es', 'lang-en'].forEach(function (id) { var b = document.getElementById(id); if (b) b.addEventListener('click', function () { setTimeout(calc, 30); }); });
@@ -143,7 +147,7 @@
     fio.observe(first);
   }
 
-  if (!fine || reduce) return;
+  if (reduce) return; // las partículas también corren en celular (con el dedo hacen de mouse)
 
   /* ---- Hero: red de partículas que reacciona al mouse ---- */
   var sticky = $('.hero-sticky');

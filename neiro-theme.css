@@ -387,3 +387,70 @@ html.lenis { scroll-behavior: auto !important; }
 /* Etiquetas sobre fondos azul claro: blancas (si no, se pierden) */
 .sec-light .pill-tag, #casos-de-uso .uc-note .pill-tag, [style*="background: #EDF2FF"] .pill-tag, [style*="background: rgb(237, 242, 255)"] .pill-tag { background: #ffffff !important; }
 .sec-light .pill-tag:hover, [style*="background: #EDF2FF"] .pill-tag:hover, [style*="background: rgb(237, 242, 255)"] .pill-tag:hover { background: var(--blue) !important; }
+
+/* Calculadora: tres pasos con la cuenta a la vista */
+.calc-results { display: none !important; }
+.calc-steps { display: flex; align-items: stretch; gap: 14px; padding-top: 24px; border-top: 1px solid #222B47; }
+.cs { flex: 1 1 0; display: flex; flex-direction: column; gap: 8px; padding: 20px 22px; border-radius: 16px; background: rgba(255,255,255,.05); border: 1px solid #2A3350; }
+.cs em { font: 700 12px 'Space Grotesk', system-ui, sans-serif; font-style: normal; letter-spacing: .16em; color: #8FA8FF; }
+.cs b { font: 700 clamp(36px, 4.6vw, 54px)/1 'Space Grotesk', system-ui, sans-serif; letter-spacing: -0.04em; color: #ffffff; }
+.cs span { font-size: 14.5px; line-height: 1.45; color: #B4BCD3; }
+.cs.is-key { background: linear-gradient(135deg, rgba(26,77,255,.45), rgba(79,209,255,.22)); border-color: #4C73FF; }
+.cs.is-key em { color: #D6E2FF; }
+.cs-op { align-self: center; font: 700 26px 'Space Grotesk', system-ui, sans-serif; font-style: normal; color: #6C7AA6; }
+.calc-money { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 12px; font-size: 17px; color: #D6DDF2; }
+.calc-money b { font: 700 clamp(30px, 3.8vw, 44px)/1 'Space Grotesk', system-ui, sans-serif; letter-spacing: -0.03em; background: linear-gradient(90deg, #7C9BFF, var(--cyan)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.calc-money .dot { color: #6C7AA6; }
+@media (max-width: 760px) {
+  .calc-steps { flex-direction: column; }
+  .cs-op { transform: rotate(90deg); align-self: center; line-height: 1; }
+  .cs span { font-size: 15px; }
+  .calc-money { font-size: 18px; }
+}
+
+/* Mientras corre la pantalla de carga, el botón naranja del chat espera: así WhatsApp y chat aparecen juntos */
+body.is-loading .woot-widget-bubble, body.is-loading .woot-widget-holder, body.is-loading .chat-preview { opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
+.woot-widget-bubble, .chat-preview { transition: opacity .5s ease, visibility .5s ease, transform .4s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease; }
+
+/* =====================================================================
+   Botones: el relleno es un azul claro y la letra NO cambia de color (en celular, al tocar, la
+   letra blanca sobre fondo blanco hacía que el texto "desapareciera"). Aplica a todos los botones.
+   ===================================================================== */
+.btn:not(.lang-btn):not(.wa-float)::before,
+.sec-dark .btn:not(.lang-btn):not(.wa-float)::before,
+.sec-dark:not(.sec-footer) .btn:not(.lang-btn):not(.wa-float)::before,
+.calc-box .btn:not(.lang-btn):not(.wa-float)::before,
+.sec-blue .btn:not(.btn-ghost)::before,
+a.nav-cta:hover::before,
+.btn-ghost::before { background: #D3E1FF !important; }
+
+.btn:not(.lang-btn):not(.wa-float):hover, a.btn:not(.lang-btn):not(.wa-float):hover,
+.btn:not(.lang-btn):not(.wa-float):active, a.btn:not(.lang-btn):not(.wa-float):active,
+.sec-dark .btn:not(.lang-btn):not(.wa-float):hover, .sec-dark .btn:not(.lang-btn):not(.wa-float):active,
+.calc-box .btn:not(.lang-btn):not(.wa-float):hover, .calc-box .btn:not(.lang-btn):not(.wa-float):active,
+.sec-blue .btn:not(.btn-ghost):hover, .btn-ghost:hover, a.btn-ghost:hover, a.nav-cta:hover, a.btn:not(.btn-ghost):hover {
+  color: var(--ink) !important; border-color: var(--blue) !important;
+}
+/* Etiquetas: al pasar el mouse se rellenan de azul claro y el texto se mantiene legible */
+.pill-tag:hover, .sec-light .pill-tag:hover, [style*="background: #EDF2FF"] .pill-tag:hover, [style*="background: rgb(237, 242, 255)"] .pill-tag:hover { background: #D3E1FF !important; color: #1D46C7 !important; box-shadow: none; }
+.arrow:hover { background: #D3E1FF !important; border-color: var(--blue) !important; color: var(--ink) !important; }
+
+/* Preguntas frecuentes: en pantallas táctiles el :hover se queda pegado; solo cuenta si está abierta */
+@media (hover: none) {
+  .faq-item:not([open]):not([data-open="true"])::before { transform: translateY(101%) !important; }
+  .faq-item:not([open]):not([data-open="true"]) { border-color: var(--line) !important; }
+}
+
+/* Celular: encabezado más compacto y hero más pequeño que se achica al bajar */
+@media (max-width: 640px) {
+  .header-outer { padding: 10px 16px !important; gap: 8px 12px !important; }
+  .header-logo { font-size: 18px !important; }
+  a.nav-cta { font-size: 13px !important; padding: 7px 12px !important; }
+  .header-links { gap: 6px !important; }
+  .header-toggle { padding: 3px !important; }
+  .header-toggle .lang-btn { font-size: 13px !important; padding: 5px 11px !important; }
+  .hero-sticky { padding-top: 90px; }
+  .hero-logo { width: min(78vw, 360px); transform: scale(calc(1 - var(--hp, 0) * .2)); }
+  .hero-copy h1 { font-size: clamp(26px, 7.4vw, 34px) !important; }
+  .hero-copy p { font-size: 16px !important; }
+}

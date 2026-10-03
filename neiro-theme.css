@@ -525,3 +525,12 @@ html body button.woot-widget-bubble.woot-elements--left:active, html body button
 /* Intensidad baja en la luz de toda la sección (mismo color azul-cian) y en la tarjeta del formulario */
 .mglow.wide::before { background: radial-gradient(560px circle at var(--gx, 50%) var(--gy, 40%), rgba(79,209,255,.065), transparent 62%); }
 .form-card.mglow { --glow-c: rgba(79,209,255,.09); }
+
+/* Contacto (y la sección de llamada del inicio): la luz de toda la sección con menos radio; "Qué hago" se queda como estaba */
+#contacto.mglow.wide::before, #agenda.mglow.wide::before { background: radial-gradient(340px circle at var(--gx, 50%) var(--gy, 40%), rgba(79,209,255,.065), transparent 62%); }
+
+/* Luces con menos circunferencia en todas las tarjetas y secciones (el hero se queda como estaba) */
+.mglow::before { background: radial-gradient(300px circle at var(--gx, 50%) var(--gy, 50%), var(--glow-c, rgba(26,77,255,.16)), transparent 58%); }
+.calc-box.mglow::before { background: radial-gradient(240px circle at var(--gx, 50%) var(--gy, 50%), var(--glow-c), transparent 60%); }
+.lift.tilt::after { background: radial-gradient(300px circle at var(--gx, 50%) var(--gy, 50%), rgba(26,77,255,.14), transparent 55%); }
+.mglow.wide::before, #contacto.mglow.wide::before, #agenda.mglow.wide::before { background: radial-gradient(340px circle at var(--gx, 50%) var(--gy, 40%), rgba(79,209,255,.065), transparent 62%); }

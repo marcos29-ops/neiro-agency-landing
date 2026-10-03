@@ -155,14 +155,24 @@
     var cv = document.createElement('canvas'); cv.className = 'hero-net'; sticky.insertBefore(cv, sticky.firstChild);
     var ctx = cv.getContext('2d'), W = 0, H = 0, dpr = Math.min(2, window.devicePixelRatio || 1), pts = [], mouse = { x: -999, y: -999 }, vis = true, act = 0;
     function size() {
-      W = sticky.clientWidth; H = sticky.clientHeight;
+      var nw = sticky.clientWidth, nh = sticky.clientHeight;
+      // En celular, al hacer scroll la barra del navegador aparece/desaparece y cambia la altura (~50-100 px): se ignora
+      // (si el ancho es el mismo y la altura cambia poco, no se toca nada, así los puntos no se mueven ni saltan).
+      if (pts.length && Math.abs(nw - W) < 2 && Math.abs(nh - H) < 150) return;
+      var ow = W, oh = H;
+      W = nw; H = nh;
       cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       var n = Math.round(Math.min(110, Math.max(36, W * H / 14000)));
-      pts = []; for (var k = 0; k < n; k++) pts.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35 });
+      if (pts.length && ow && oh && Math.abs(pts.length - n) < 14) {
+        // mismo grupo de puntos: se reescala su posición (sin reiniciar, para que nada "salte")
+        pts.forEach(function (p) { p.x *= W / ow; p.y *= H / oh; });
+      } else {
+        pts = []; for (var k = 0; k < n; k++) pts.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35 });
+      }
     }
     size(); window.addEventListener('resize', size);
     sticky.addEventListener('pointermove', function (e) { var r = sticky.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
-    sticky.addEventListener('pointerleave', function () { mouse.x = mouse.y = -999; });
+    ['pointerleave', 'pointerup', 'pointercancel'].forEach(function (t) { sticky.addEventListener(t, function () { mouse.x = mouse.y = -999; }); });
     if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { vis = es[0].isIntersecting; }, { threshold: 0 }).observe(sticky);
     (function draw() {
       requestAnimationFrame(draw);

@@ -480,3 +480,15 @@ a.nav-cta:hover::before,
 html body button.woot-widget-bubble.woot-elements--left, html body button.woot-widget-bubble { box-shadow: 0 10px 26px rgba(255,114,12,.5), 0 0 0 7px rgba(255,114,12,.14) !important; }
 html body button.woot-widget-bubble.woot-elements--left:hover, html body button.woot-widget-bubble:hover { box-shadow: 0 14px 34px rgba(255,114,12,.6), 0 0 0 9px rgba(255,114,12,.18) !important; }
 html body button.woot-widget-bubble.woot-elements--left:active, html body button.woot-widget-bubble:active { box-shadow: 0 6px 16px rgba(255,114,12,.45), 0 0 0 5px rgba(255,114,12,.14) !important; }
+
+/* Cifras: ahora son 3 */
+.stats { grid-template-columns: repeat(3, 1fr) !important; }
+@media (max-width: 760px) { .stats { grid-template-columns: repeat(2, 1fr) !important; } .stat:last-child:nth-child(odd) { grid-column: 1 / -1; } }
+
+/* Cómo funciona: conectores más anchos y con el pulso más visible */
+.flow-link { flex: 0 0 96px !important; height: 5px !important; border-radius: 99px; background: #BCCBF2 !important; }
+.flow-link::after { width: 55% !important; background: linear-gradient(90deg, transparent, var(--blue), var(--cyan), transparent) !important; }
+@media (max-width: 860px) {
+  .flow-link { flex: 0 0 64px !important; width: 5px !important; height: 64px !important; }
+  .flow-link::after { top: -55% !important; left: 0 !important; width: 100% !important; height: 55% !important; background: linear-gradient(180deg, transparent, var(--blue), var(--cyan), transparent) !important; }
+}

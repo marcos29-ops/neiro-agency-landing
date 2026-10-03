@@ -492,3 +492,14 @@ html body button.woot-widget-bubble.woot-elements--left:active, html body button
   .flow-link { flex: 0 0 64px !important; width: 5px !important; height: 64px !important; }
   .flow-link::after { top: -55% !important; left: 0 !important; width: 100% !important; height: 55% !important; background: linear-gradient(180deg, transparent, var(--blue), var(--cyan), transparent) !important; }
 }
+
+/* Cómo funciona en celular: el pulso vertical se anima con transform (antes, el !important en "top" anulaba la animación y la barra no se movía) */
+@keyframes pulseY { from { transform: translateY(-100%); } to { transform: translateY(190%); } }
+@media (max-width: 860px) {
+  .flow-link { flex: 0 0 72px !important; width: 6px !important; height: 72px !important; }
+  .flow-link::after { top: 0 !important; left: 0 !important; width: 100% !important; height: 55% !important; transform: translateY(-100%);
+    background: linear-gradient(180deg, transparent, var(--blue), var(--cyan), transparent) !important;
+    animation: pulseY 1.8s ease-in-out infinite !important; }
+  .flow-link:nth-of-type(2)::after { animation-delay: .6s !important; }
+  .flow-link:nth-of-type(3)::after { animation-delay: 1.2s !important; }
+}

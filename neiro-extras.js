@@ -118,9 +118,10 @@
     });
   });
 
-  /* ---- Luz que sigue al mouse por TODA la sección de contacto (también a los lados del formulario) ---- */
-  ['#contacto', '#agenda'].forEach(function (sel) {
-    var sec = $(sel);
+  /* ---- Luz suave que sigue al mouse por TODA la sección (contacto, llamada y Qué hago), también a los lados ---- */
+  var queHago = $('.stack-grid') && $('.stack-grid').closest('.sec-dark');
+  ['#contacto', '#agenda', queHago].forEach(function (sel) {
+    var sec = typeof sel === 'string' ? $(sel) : sel;
     if (!sec || !sec.classList.contains('sec-dark')) return;
     sec.classList.add('mglow', 'dark', 'wide');
     sec.addEventListener('pointermove', function (e) {

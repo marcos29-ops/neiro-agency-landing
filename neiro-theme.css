@@ -469,3 +469,14 @@ a.nav-cta:hover::before,
 
 /* Cuadro negro centrado entre la sección azul de arriba y el título "Cálculo rápido" de abajo (misma distancia) */
 .note-sec { padding-top: clamp(60px, 7vw, 96px) !important; padding-bottom: 0 !important; }
+
+/* Sombras de los botones flotantes: naranja (chat) y verde (WhatsApp), igual de marcadas */
+.woot-widget-bubble, .chat-preview { box-shadow: 0 10px 26px rgba(255,114,12,.5), 0 0 0 7px rgba(255,114,12,.14) !important; }
+.woot-widget-bubble:hover, .chat-preview:hover { box-shadow: 0 14px 34px rgba(255,114,12,.6), 0 0 0 9px rgba(255,114,12,.18) !important; }
+.wa-float, a.btn.wa-float { box-shadow: 0 10px 26px rgba(37,211,102,.5), 0 0 0 7px rgba(37,211,102,.14) !important; }
+.wa-float:hover, a.btn.wa-float:hover { box-shadow: 0 14px 34px rgba(37,211,102,.6), 0 0 0 9px rgba(37,211,102,.18) !important; }
+
+/* Chatwoot inyecta su propia sombra gris con !important después de este archivo: se sube la prioridad */
+html body button.woot-widget-bubble.woot-elements--left, html body button.woot-widget-bubble { box-shadow: 0 10px 26px rgba(255,114,12,.5), 0 0 0 7px rgba(255,114,12,.14) !important; }
+html body button.woot-widget-bubble.woot-elements--left:hover, html body button.woot-widget-bubble:hover { box-shadow: 0 14px 34px rgba(255,114,12,.6), 0 0 0 9px rgba(255,114,12,.18) !important; }
+html body button.woot-widget-bubble.woot-elements--left:active, html body button.woot-widget-bubble:active { box-shadow: 0 6px 16px rgba(255,114,12,.45), 0 0 0 5px rgba(255,114,12,.14) !important; }

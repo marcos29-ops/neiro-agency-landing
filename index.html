@@ -149,8 +149,13 @@
     .reveal, .pop, .lift, .btn, .arrow, .modal-card, .modal-backdrop { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; }
   }
 </style>
+<link rel="stylesheet" href="neiro-theme.css">
+<link rel="preconnect" href="https://chatwoot.neiro.agency" crossorigin>
+<link rel="preload" as="script" href="https://chatwoot.neiro.agency/packs/js/sdk.js">
+<noscript><style>#preloader{display:none!important}</style></noscript>
 </head>
-<body>
+<body class="is-loading">
+<div id="preloader" aria-hidden="true"><div class="pl-logo"><img src="img/neiro-agency-logo.svg" alt=""><span class="pl-fill"></span></div><div class="pl-count">0</div><i class="pl-bar"></i></div>
 
 <div id="site-header" style="border-bottom: 1px solid #ECEDF1; background: #ffffff; position: fixed; top: 0; left: 0; right: 0; width: 100%; z-index: 10;">
   <div class="header-outer" style="max-width: 1160px; margin: 0 auto; padding: 20px clamp(20px, 4vw, 40px); display: flex; align-items: center; justify-content: flex-start; gap: 16px 20px; flex-wrap: wrap;">
@@ -159,7 +164,7 @@
     </div>
     <div class="header-links" style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
       <a href="#casos-de-uso" class="btn nav-cta" data-en="What we offer" style="font-size: 13.5px; font-weight: 500; border-radius: 999px; padding: 8px 16px;">Sistemas que ofrecemos</a>
-      <a href="#agenda" class="btn nav-cta" data-en="Book a call" style="font-size: 13.5px; font-weight: 500; border-radius: 999px; padding: 8px 16px;">Agenda una llamada</a>
+      <a href="contacto.html" class="btn nav-cta" data-en="Book a call" style="font-size: 13.5px; font-weight: 500; border-radius: 999px; padding: 8px 16px;">Agenda una llamada</a>
     </div>
     <div class="header-toggle" style="display: flex; align-items: center; gap: 2px; border: 1px solid #E4E6EC; border-radius: 999px; padding: 4px; margin-left: auto;">
       <button class="btn lang-btn is-active" id="lang-es" style="font-size: 13px; font-weight: 500; border-radius: 999px; padding: 5px 13px;">ES</button>
@@ -169,14 +174,35 @@
 </div>
 <div id="header-spacer"></div>
 
-<div style="max-width: 800px; width: 100%; margin: 0 auto; padding: clamp(60px, 8vw, 104px) clamp(20px, 4vw, 40px) clamp(60px, 7vw, 96px); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px;">
-  <div class="reveal" style="display: flex; flex-direction: column; align-items: center; gap: 24px;">
+<section class="hero-track" id="inicio">
+  <div class="hero-sticky">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-logo" role="img" aria-label="NEIRO Agency">
+      <img class="hero-logo-base" src="img/neiro-agency-logo.svg" alt="" aria-hidden="true">
+      <span class="hero-logo-fill" aria-hidden="true"></span>
+    </div>
+    <span class="hero-tag">AGENCY · AUTOMATIZACIÓN CON IA</span>
+    <div class="hero-copy">
     <h1 data-en="AI automations, tailored to your business." style="font-size: clamp(34px, 5vw, 58px); line-height: 1.06; font-weight: 700; color: #12131A; text-wrap: pretty;">Automatizaciones con IA, hechas a la medida de tu negocio.</h1>
     <p data-en="I help businesses implement custom AI automations for every bottleneck in their operation." style="font-size: clamp(16px, 1.6vw, 18px); line-height: 1.65; color: #5A5F6E; max-width: 520px;">Ayudo a negocios a implementar automatizaciones con IA personalizadas para cada cuello de botella de su operación.</p>
+    </div>
+    <span class="hero-scroll" aria-hidden="true"><i></i></span>
   </div>
+</section>
+
+<div class="marquee" role="region" aria-label="Herramientas">
+  <div class="marquee-track"><span><i></i>n8n</span><span><i></i>WhatsApp</span><span><i></i>Instagram</span><span><i></i>Google Calendar</span><span><i></i>Zoom</span><span><i></i>Chatwoot</span><span><i></i>OpenAI</span><span><i></i>Telegram</span><span><i></i>Google Sheets</span><span><i></i>Gmail</span></div>
 </div>
 
-<div style="background: #FAFBFD; border-top: 1px solid #ECEDF1; border-bottom: 1px solid #ECEDF1;">
+<section class="stats">
+  <div class="stat reveal"><b data-count="22">22</b><span data-en="free guides">guías gratuitas</span></div>
+  <div class="stat reveal" data-d="1"><b>24/7</b><span data-en="agents working for you">agentes trabajando por ti</span></div>
+  <div class="stat reveal" data-d="2"><b data-count="2">2</b><span data-en="Microsoft Azure certifications">certificaciones Microsoft Azure</span></div>
+  <div class="stat reveal" data-d="3"><b data-count="0">0</b><span data-en="middlemen, end to end">intermediarios, de punta a punta</span></div>
+</section>
+
+
+<div class="sec-light" style="background: #FAFBFD; border-top: 1px solid #ECEDF1; border-bottom: 1px solid #ECEDF1;">
   <div class="reveal" style="max-width: 1160px; margin: 0 auto; padding: clamp(56px, 7vw, 92px) clamp(20px, 4vw, 40px); display: flex; align-items: center; gap: clamp(40px, 6vw, 80px); flex-wrap: wrap;">
     <div style="flex: 0 0 clamp(250px, 30vw, 370px); width: clamp(250px, 30vw, 370px); height: clamp(250px, 30vw, 370px); border-radius: 24px; overflow: hidden; box-shadow: 0 18px 44px rgba(18,19,26,.16);">
       <img src="img/marcos.jpg" alt="Marcos Vargas" style="width: 100%; height: 100%; object-fit: cover; display: block;">
@@ -196,12 +222,12 @@
   </div>
 </div>
 
-<div style="max-width: 1160px; width: 100%; margin: 0 auto; padding: clamp(60px, 7vw, 96px) clamp(20px, 4vw, 40px); display: flex; flex-direction: column; gap: 44px;">
+<div class="sec-dark"><div style="max-width: 1160px; width: 100%; margin: 0 auto; padding: clamp(60px, 7vw, 96px) clamp(20px, 4vw, 40px); display: flex; flex-direction: column; gap: 44px;">
   <div class="reveal" style="display: flex; flex-direction: column; gap: 16px; max-width: 680px;">
     <span data-en="What I do" style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Qué hago</span>
     <h2 data-en="Automation with a clear purpose and follow-through." style="font-size: clamp(28px, 4vw, 38px); line-height: 1.16; font-weight: 700; color: #12131A;">Automatización con un propósito y seguimiento claro.</h2>
   </div>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 24px;">
+  <div class="stack-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 24px;">
 
     <div class="reveal lift" style="border: 1px solid #E8EAEF; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 18px; background: #ffffff;">
       <div style="width: 88px; height: 88px; border-radius: 16px; background: #F5F6F9; display: flex; align-items: center; justify-content: center; overflow: hidden;">
@@ -238,6 +264,26 @@
   </div>
 </div>
 
+</div>
+
+<div class="how" id="como-funciona">
+  <div class="how-in">
+    <div class="reveal" style="display:flex;flex-direction:column;gap:16px;max-width:680px;">
+      <span data-en="How it works" style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Cómo funciona</span>
+      <h2 data-en="From a message to a done task, on its own." style="font-size: clamp(28px, 4vw, 38px); line-height: 1.16; font-weight: 700; color: #12131A;">De un mensaje a una tarea resuelta, sin que muevas un dedo.</h2>
+    </div>
+    <div class="flow">
+      <div class="flow-node reveal"><span class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg></span><b data-en="Your customer writes">Tu cliente escribe</b><p data-en="On WhatsApp, Instagram or your website.">Por WhatsApp, Instagram o tu página web.</p></div>
+      <i class="flow-link" aria-hidden="true"></i>
+      <div class="flow-node reveal" data-d="1"><span class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h.01M15 9h.01M9 15c1.5 1.2 4.5 1.2 6 0"/></svg></span><b data-en="The agent understands">El agente entiende</b><p data-en="AI that knows your business: prices, hours, services.">IA que conoce tu negocio: precios, horarios y servicios.</p></div>
+      <i class="flow-link" aria-hidden="true"></i>
+      <div class="flow-node reveal" data-d="2"><span class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M9 15l2 2 4-4"/></svg></span><b data-en="It acts for you">Actúa por ti</b><p data-en="Books on your calendar and updates your tools.">Agenda en tu calendario y actualiza tus herramientas.</p></div>
+      <i class="flow-link" aria-hidden="true"></i>
+      <div class="flow-node reveal" data-d="3"><span class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><b data-en="Everything is confirmed">Todo queda confirmado</b><p data-en="Confirmation email and a heads-up for your team.">Correo de confirmación y aviso a tu equipo.</p></div>
+    </div>
+  </div>
+</div>
+
 <div id="casos-de-uso" style="background: #FAFBFD; border-top: 1px solid #ECEDF1; border-bottom: 1px solid #ECEDF1;">
   <div style="max-width: 1160px; width: 100%; margin: 0 auto; padding: clamp(60px, 7vw, 96px) clamp(20px, 4vw, 40px); display: flex; flex-direction: column; gap: 44px;">
     <div class="reveal" style="display: flex; flex-direction: column; gap: 16px; max-width: 680px;">
@@ -246,7 +292,15 @@
       <p data-en="Some real examples of what these agents can do for your business." style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #5A5F6E;">Algunos ejemplos reales de lo que estos agentes pueden hacer por tu negocio.</p>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(460px, 100%), 1fr)); gap: 32px;">
+    <div class="uc-tabs reveal" role="tablist" aria-label="Casos de uso">
+      <i class="uc-ind" aria-hidden="true"></i>
+      <button type="button" class="uc-tab is-active" role="tab" aria-selected="true" data-uc="0"><b>01</b><span data-en="WhatsApp">WhatsApp</span></button>
+      <button type="button" class="uc-tab" role="tab" aria-selected="false" data-uc="1"><b>02</b><span data-en="Internal assistant">Asistente interno</span></button>
+      <button type="button" class="uc-tab" role="tab" aria-selected="false" data-uc="2"><b>03</b><span data-en="Instagram">Instagram</span></button>
+      <button type="button" class="uc-tab" role="tab" aria-selected="false" data-uc="3"><b>04</b><span data-en="Your website">Tu página web</span></button>
+    </div>
+
+    <div class="uc-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(460px, 100%), 1fr)); gap: 32px;">
 
       <div class="reveal lift" style="border: 1px solid #E8EAEF; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 20px; background: #ffffff;">
         <div style="display: flex; flex-direction: column; gap: 10px;">
@@ -488,14 +542,38 @@
 
     </div>
 
-    <div class="reveal" style="background: #EDF2FF; border-radius: 18px; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; max-width: 700px; margin: 0 auto; width: fit-content;">
+    <div class="reveal uc-note" style="background: #EDF2FF; border-radius: 18px; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; max-width: 700px; margin: 0 auto; width: fit-content;">
       <p data-en="These are just some of the examples that can be built. This can be adapted to any need your business has, any manual process or tedious task you deal with: there's practically no limit to what can be automated." style="font-size: clamp(15px, 1.6vw, 17px); line-height: 1.7; color: #1D3A8A; max-width: 640px;">Estos son solo algunos de los ejemplos que se pueden implementar. Esto se puede adaptar a cualquier necesidad de tu negocio, cualquier proceso manual o tarea tediosa que tengas: prácticamente no hay límite de lo que se puede automatizar.</p>
-      <a class="btn" href="#agenda" data-en="Tell us about your business and get a demo" style="display: inline-flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 500; color: #ffffff; background: var(--accent); border-radius: 10px; padding: 15px 26px;">Contanos sobre tu negocio y te mostramos una demo</a>
+      <a class="btn" href="contacto.html" data-en="Tell us about your business and get a demo" style="display: inline-flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 500; color: #ffffff; background: var(--accent); border-radius: 10px; padding: 15px 26px;">Contanos sobre tu negocio y te mostramos una demo</a>
     </div>
   </div>
 </div>
 
-<div id="agenda" style="background: #FAFBFD; border-top: 1px solid #ECEDF1; border-bottom: 1px solid #ECEDF1;">
+<div class="calc" id="calculadora">
+  <div class="calc-in reveal">
+    <div style="display:flex;flex-direction:column;gap:16px;max-width:680px;">
+      <span data-en="Quick estimate" style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Cálculo rápido</span>
+      <h2 data-en="How much time are repetitive tasks costing you?" style="font-size: clamp(28px, 4vw, 38px); line-height: 1.16; font-weight: 700; color: #12131A;">¿Cuánto te cuestan las tareas repetitivas?</h2>
+    </div>
+    <div class="calc-box">
+      <div class="calc-inputs">
+        <label><span data-en="Hours per week on repetitive tasks">Horas por semana en tareas repetitivas</span><output id="calc-h-out">10 h</output>
+          <input type="range" id="calc-h" min="1" max="40" value="10" step="1" aria-label="Horas por semana"></label>
+        <label><span data-en="What one hour of your time is worth (USD)">Lo que vale una hora de tu tiempo (USD)</span><output id="calc-c-out">$15</output>
+          <input type="range" id="calc-c" min="5" max="100" value="15" step="1" aria-label="Valor de una hora"></label>
+      </div>
+      <div class="calc-results" aria-live="polite">
+        <div><b id="calc-r-h">28 h</b><span id="calc-r-h-sub">que podrías recuperar cada mes (de 40 h que dedicas hoy)</span></div>
+        <div><b id="calc-r-m">$420</b><span data-en="per month in time">al mes en tiempo</span></div>
+        <div><b id="calc-r-y">$5,040</b><span data-en="per year">al año</span></div>
+      </div>
+      <p class="calc-note" data-en="Rough estimate: I count 4 weeks per month and assume about 70% of that time can be automated. Every business is different; on the call we go over your real numbers.">Estimación referencial: cuento 4 semanas por mes y asumo que cerca del 70% de ese tiempo se puede automatizar. Cada negocio es distinto; en la llamada vemos tus números reales.</p>
+      <a class="btn" href="contacto.html" id="calc-cta" data-en="I want to see my case" style="display:inline-flex;align-self:flex-start;font-size: 15px; font-weight: 500; border-radius: 10px; padding: 15px 24px;">Quiero ver mi caso</a>
+    </div>
+  </div>
+</div>
+
+<div id="agenda" class="sec-dark" style="background: #FAFBFD; border-top: 1px solid #ECEDF1; border-bottom: 1px solid #ECEDF1;">
   <div class="reveal" style="max-width: 720px; margin: 0 auto; padding: clamp(60px, 7vw, 96px) clamp(20px, 4vw, 40px); display: flex; flex-direction: column; gap: 32px;">
     <div style="display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center;">
       <span data-en="Contact" style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Contacto</span>
@@ -677,7 +755,7 @@
   </div>
 </div>
 
-<div style="max-width: 1160px; width: 100%; margin: 0 auto; padding: clamp(48px, 6vw, 72px) clamp(20px, 4vw, 40px);">
+<div style="max-width: 1160px; width: 100%; margin: 0 auto; padding: 0 clamp(20px, 4vw, 40px) clamp(60px, 7vw, 96px);">
   <div class="reveal lift" style="background: #EDF2FF; border-radius: 20px; padding: clamp(28px, 4vw, 44px); display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between;">
     <div style="flex: 1; min-width: 280px; display: flex; flex-direction: column; gap: 14px;">
       <span data-en="Free resources" style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Recursos gratuitos</span>
@@ -693,11 +771,11 @@
   </div>
 </div>
 
-<div style="border-top: 1px solid #ECEDF1; background: #FAFBFD;">
+<div class="sec-dark sec-footer" style="border-top: 1px solid #ECEDF1; background: #FAFBFD;">
   <div style="max-width: 1160px; margin: 0 auto; padding: clamp(48px, 6vw, 64px) clamp(20px, 4vw, 40px) 32px; display: flex; flex-direction: column; gap: 32px;">
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px;">
       <div style="display: flex; flex-direction: column; gap: 14px; max-width: 300px;">
-        <div style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 19px; letter-spacing: -0.02em; display: flex; gap: 6px;">
+        <div class="brand-up" style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 19px; letter-spacing: -0.02em; display: flex; gap: 6px;">
           <span style="color: #12131A;">Neiro</span><span style="color: var(--accent);">Agency</span>
         </div>
         <p data-en="AI automation for businesses." style="font-size: 14px; color: #8C91A0; line-height: 1.6;">Automatización con IA para negocios.</p>
@@ -713,7 +791,7 @@
       <div style="display: flex; flex-direction: column; gap: 10px;">
         <span data-en="Navigation" style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #12131A;">Navegación</span>
         <a href="recursos.html" class="nav-link" data-en="Free resources" style="font-size: 14.5px; color: #5A5F6E;">Recursos gratuitos</a>
-        <a href="#agenda" class="nav-link" data-en="Book a call to see the system in action" style="font-size: 14.5px; color: #5A5F6E;">Agenda una llamada para ver el sistema en acción</a>
+        <a href="contacto.html" class="nav-link" data-en="Book a call to see the system in action" style="font-size: 14.5px; color: #5A5F6E;">Agenda una llamada para ver el sistema en acción</a>
         <a href="informacion.html" class="nav-link" data-en="Contact information" style="font-size: 14.5px; color: #5A5F6E;">Información de contacto</a>
       </div>
       <div style="display: flex; flex-direction: column; gap: 10px;">
@@ -744,5 +822,7 @@
 </a>
 
 <script src="script.js"></script>
+<script src="neiro-fx.js"></script>
+<script src="neiro-extras.js"></script>
 </body>
 </html>

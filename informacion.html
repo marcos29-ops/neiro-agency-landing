@@ -86,6 +86,9 @@
     .reveal, .lift, .btn { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; }
   }
 </style>
+<link rel="stylesheet" href="neiro-theme.css">
+<link rel="preconnect" href="https://chatwoot.neiro.agency" crossorigin>
+<link rel="preload" as="script" href="https://chatwoot.neiro.agency/packs/js/sdk.js">
 </head>
 <body>
 
@@ -107,7 +110,7 @@
 </div>
 <div id="header-spacer"></div>
 
-<div style="background: #FAFBFD; border-bottom: 1px solid #ECEDF1;">
+<div class="sec-light" style="background: #FAFBFD; border-bottom: 1px solid #ECEDF1;">
   <div class="reveal" style="max-width: 1160px; margin: 0 auto; padding: clamp(56px, 7vw, 92px) clamp(20px, 4vw, 40px); display: flex; align-items: center; gap: clamp(40px, 6vw, 80px); flex-wrap: wrap;">
     <div style="flex: 0 0 clamp(220px, 26vw, 300px); width: clamp(220px, 26vw, 300px); height: clamp(220px, 26vw, 300px); border-radius: 24px; overflow: hidden; box-shadow: 0 18px 44px rgba(18,19,26,.16);">
       <img src="img/marcos.jpg" alt="Marcos Vargas" style="width: 100%; height: 100%; object-fit: cover; display: block;">
@@ -127,6 +130,7 @@
   </div>
 </div>
 
+<div class="sec-dark">
 <div class="reveal" style="max-width: 1160px; width: 100%; margin: 0 auto; padding: clamp(60px, 7vw, 96px) clamp(20px, 4vw, 40px); display: flex; flex-direction: column; gap: 34px;">
   <div style="display: flex; flex-direction: column; gap: 14px;">
     <span data-en="The details" style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Los datos</span>
@@ -223,7 +227,9 @@
   </div>
 </div>
 
-<div style="border-top: 1px solid #ECEDF1; background: #FAFBFD;">
+</div>
+
+<div class="sec-dark sec-footer" style="border-top: 1px solid #ECEDF1; background: #FAFBFD;">
   <div style="max-width: 1160px; margin: 0 auto; padding: clamp(48px, 6vw, 64px) clamp(20px, 4vw, 40px) 32px; display: flex; flex-direction: column; gap: 32px;">
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px;">
       <div style="display: flex; flex-direction: column; gap: 14px; max-width: 300px;">
@@ -274,5 +280,7 @@
 </a>
 
 <script src="script.js"></script>
+<script src="neiro-fx.js"></script>
+<script src="neiro-extras.js"></script>
 </body>
 </html>

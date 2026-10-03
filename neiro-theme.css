@@ -503,3 +503,21 @@ html body button.woot-widget-bubble.woot-elements--left:active, html body button
   .flow-link:nth-of-type(2)::after { animation-delay: .6s !important; }
   .flow-link:nth-of-type(3)::after { animation-delay: 1.2s !important; }
 }
+
+/* Luz que sigue al mouse (igual que en las tarjetas de "Qué hago"): Cómo funciona, cuadro de ejemplos y calculadora */
+.mglow { position: relative; isolation: isolate; }
+.mglow::before { content: ''; position: absolute; inset: 0; border-radius: inherit; z-index: -1; pointer-events: none; opacity: 0; transition: opacity .4s ease;
+  background: radial-gradient(420px circle at var(--gx, 50%) var(--gy, 50%), var(--glow-c, rgba(26,77,255,.16)), transparent 58%); }
+.mglow:hover::before { opacity: 1; }
+.mglow.dark { --glow-c: rgba(79,209,255,.24); }
+
+/* Calculadora: luz mucho más suave para que no estorbe al leer */
+.calc-box.mglow { --glow-c: rgba(79,209,255,.06); }
+.calc-box.mglow::before { background: radial-gradient(340px circle at var(--gx, 50%) var(--gy, 50%), var(--glow-c), transparent 60%); }
+
+/* Tarjeta del formulario en secciones oscuras: por clase (el estilo inline se reescribe al mover el mouse) */
+.sec-dark:not(.sec-footer) .form-card { background: #252F4B !important; border-color: #34416A !important; }
+
+/* Sección de contacto completa: luz amplia que sigue al mouse (coordenadas en px, cubre también los lados) */
+.mglow.wide::before { background: radial-gradient(560px circle at var(--gx, 50%) var(--gy, 40%), rgba(79,209,255,.20), transparent 62%); }
+.mglow.wide:hover::before { opacity: 1; }

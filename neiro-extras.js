@@ -105,6 +105,31 @@
     if (m && saved && !m.value.trim()) { m.value = saved; try { sessionStorage.removeItem('neiro-prefill'); } catch (e) {} }
   })();
 
+  /* ---- Luz que sigue al mouse en tarjetas de Cómo funciona, cuadro de ejemplos y calculadora ---- */
+  var formCard = $('#c-nombre') && $('#c-nombre').closest('[style*="border-radius: 18px"]');
+  var glowEls = $$('.flow-node, .uc-note, .calc-box'); if (formCard) { formCard.classList.add('form-card'); glowEls.push(formCard); }
+  glowEls.forEach(function (el) {
+    el.classList.add('mglow');
+    if (el.matches('.uc-note, .calc-box') || el === formCard) el.classList.add('dark');
+    el.addEventListener('pointermove', function (e) {
+      var r = el.getBoundingClientRect();
+      el.style.setProperty('--gx', (((e.clientX - r.left) / r.width) * 100).toFixed(1) + '%');
+      el.style.setProperty('--gy', (((e.clientY - r.top) / r.height) * 100).toFixed(1) + '%');
+    });
+  });
+
+  /* ---- Luz que sigue al mouse por TODA la sección de contacto (también a los lados del formulario) ---- */
+  ['#contacto', '#agenda'].forEach(function (sel) {
+    var sec = $(sel);
+    if (!sec || !sec.classList.contains('sec-dark')) return;
+    sec.classList.add('mglow', 'dark', 'wide');
+    sec.addEventListener('pointermove', function (e) {
+      var r = sec.getBoundingClientRect();
+      sec.style.setProperty('--gx', (e.clientX - r.left).toFixed(0) + 'px');
+      sec.style.setProperty('--gy', (e.clientY - r.top).toFixed(0) + 'px');
+    });
+  });
+
   /* ---- Chats animados (escriben mensaje por mensaje) ---- */
   var MSG = '[style*="align-self: flex-start; max-width"], [style*="align-self: flex-end; max-width"]';
   function runChat(card) {

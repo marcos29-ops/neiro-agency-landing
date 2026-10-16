@@ -384,16 +384,11 @@
       empresaErr.textContent = '';
     }
 
-    var telOk = true;
-    if (empresaSel && empresaSel.value === 'si') {
-      telOk = showFieldError('guia-telefono', 'guia-tel-error', validatePhone(document.getElementById('guia-pais-tel').value, document.getElementById('guia-telefono').value));
-    }
+    // El teléfono es obligatorio siempre (tenga o no empresa): sin él no se envía la guía.
+    var telOk = showFieldError('guia-telefono', 'guia-tel-error', validatePhone(document.getElementById('guia-pais-tel').value, document.getElementById('guia-telefono').value));
 
     if (!nameOk || !emailOk || !empresaSel || !telOk) { return; }
-    var telefonoEmpresa = '';
-    if (empresaSel.value === 'si') {
-      telefonoEmpresa = (document.getElementById('guia-pais-tel').value || '').split(' ')[0] + ' ' + document.getElementById('guia-telefono').value.replace(/\D/g, '');
-    }
+    var telefonoContacto = (document.getElementById('guia-pais-tel').value || '').split(' ')[0] + ' ' + document.getElementById('guia-telefono').value.replace(/\D/g, '');
 
     var restoreText = btn.textContent;
     var guias = GUIAS.filter(function (g) { return picked[g.id]; }).map(function (g) { return g.id + ': ' + g.title; });
@@ -405,7 +400,7 @@
       pais: document.getElementById('guia-pais').value,
       rol: document.getElementById('guia-rol').value,
       empresa: empresaSel.value,
-      telefono: telefonoEmpresa,
+      telefono: telefonoContacto,
       guias: guias,
       idioma: lang,
       website: document.getElementById('guia-website').value
@@ -414,7 +409,6 @@
       document.getElementById('guia-nombre').value = '';
       document.getElementById('guia-correo').value = '';
       empresaSel.checked = false;
-      document.getElementById('guia-tel-wrap').hidden = true;
       document.getElementById('guia-telefono').value = '';
       renderGuias();
       openModal('guias', null);
@@ -606,11 +600,9 @@
   })();
 
 
-  // "¿Tienes una empresa?": si responde Sí se despliega el teléfono.
+  // "¿Tienes una empresa?": el teléfono ya es obligatorio siempre; aquí solo se limpian los errores al corregir.
   (function () {
-    var wrap = document.getElementById('guia-tel-wrap');
     var radios = document.querySelectorAll('input[name="guia-empresa"]');
-    if (!wrap || !radios.length) { return; }
     radios.forEach(function (r) {
       r.addEventListener('change', function () {
         var box = document.getElementById('guia-empresa');
@@ -618,14 +610,6 @@
         box.classList.remove('err');
         err.hidden = true;
         err.textContent = '';
-        var mostrar = r.value === 'si';
-        if (mostrar && wrap.hidden) {
-          wrap.hidden = false;
-          if (wrap.animate) { wrap.animate({ opacity: [0, 1], transform: ['translateY(-8px)', 'translateY(0)'] }, { duration: 280, easing: 'cubic-bezier(.22,.8,.3,1)' }); }
-        } else if (!mostrar) {
-          wrap.hidden = true;
-          clearFieldError('guia-telefono', 'guia-tel-error');
-        }
       });
     });
     var gt = document.getElementById('guia-telefono');

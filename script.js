@@ -37,6 +37,9 @@
     { id: 'c23', tag: 'claude', title: 'Word, Excel, PowerPoint y PDF: que Claude los cree por vos', titleEn: 'Word, Excel, PowerPoint and PDF: let Claude create them for you', desc: 'Pedile archivos listos para abrir, analizá tus datos y armá presentaciones, con sus límites y cuidados.', descEn: 'Ask for files ready to open, analyze your data and build presentations, including the limits and precautions.' },
     { id: 'c24', tag: 'claude', title: 'Opus, Sonnet o Haiku 5.5: elegí el modelo correcto', titleEn: 'Opus, Sonnet or Haiku 5.5: pick the right Claude model', desc: 'Los tres modelos lado a lado y cómo elegir según la tarea, para no gastar de más tu límite de uso.', descEn: 'The three models side by side and how to choose by task, so you do not burn through your usage limit.' },
     { id: 'c25', tag: 'claude', title: 'Tareas programadas: que Claude trabaje por vos en la nube', titleEn: 'Scheduled tasks: let Claude handle the repetitive work in the cloud', desc: 'Describí una tarea una sola vez y Claude la ejecuta solo: cada hora, a diario o cada semana.', descEn: 'Describe a task once and Claude runs it on its own: hourly, daily or weekly.' },
+    { id: 'c26', tag: 'claude', title: 'ECC: un equipo de revisión y seguridad dentro de Claude Code', titleEn: 'ECC: a review and security team inside Claude Code', desc: 'Un paquete gratuito con agentes, skills y hooks para planear, probar y auditar lo que construís, con sus costos y riesgos.', descEn: 'A free package of agents, skills and hooks to plan, test and audit what you build, including its costs and risks.' },
+    { id: 'c27', tag: 'claude', title: 'Videos animados con Claude Code: motion graphics desde código', titleEn: 'Animated videos with Claude Code: motion graphics from code', desc: 'Claude escribe el código del video y otra herramienta lo vuelve MP4: Brag, Hyperframes y Remotion, paso a paso.', descEn: 'Claude writes the video code and another tool turns it into MP4: Brag, Hyperframes and Remotion, step by step.' },
+    { id: 'c28', tag: 'claude', title: 'Skills para diseñar páginas web con Claude: las más usadas', titleEn: 'Skills to design web pages with Claude: the most used ones', desc: 'Las skills de diseño web más instaladas, cómo instalarlas, el orden de uso y los cuidados de seguridad.', descEn: 'The most installed web design skills, how to install them, the order to use them and the security precautions.' },
     { id: 'n01', tag: 'negocio', title: 'Contenido en video para tu negocio, sin cámara', titleEn: 'Video content for your business, no camera', desc: 'Guion, voz y video para Shorts y Reels sin que nadie grabe.', descEn: 'Script, voice and video for Shorts and Reels without anyone filming.' },
     { id: 'n02', tag: 'negocio', title: 'Anuncios con avatares de IA', titleEn: 'Ads with AI avatars', desc: 'Tu avatar en HeyGen y anuncios testimoniales, sin actores ni grabación.', descEn: 'Your HeyGen avatar and testimonial ads, no actors or shoot needed.' },
     { id: 'n03', tag: 'negocio', title: 'Tu propio MCP, conectado a tu negocio', titleEn: 'Your own MCP, connected to your business', desc: 'La ruta técnica para que Claude trabaje con tus sistemas, con permisos mínimos.', descEn: 'The technical route for Claude to work with your systems, with minimal permissions.' },
@@ -116,6 +119,58 @@
     return wrap.firstChild;
   }
 
+  // Icono animado de cada guia: [dibujo SVG (viewBox 24), animacion]. Solo constantes propias, nunca datos externos.
+  var IC = {
+    doc: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/>',
+    lines: '<path d="M4 6h16M4 12h10M4 18h13"/>',
+    folder: '<path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
+    puzzle: '<path d="M10 4a2 2 0 1 1 4 0v2h3a1 1 0 0 1 1 1v3h-2a2 2 0 1 0 0 4h2v3a1 1 0 0 1-1 1h-3v-2a2 2 0 1 0-4 0v2H7a1 1 0 0 1-1-1v-3h2a2 2 0 1 0 0-4H6V7a1 1 0 0 1 1-1h3z"/>',
+    terminal: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 3 3-3 3M12 15h5"/>',
+    layers: '<path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/>',
+    filedown: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 11v6m-3-3 3 3 3-3"/>',
+    search: '<circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>',
+    phone: '<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>',
+    code: '<path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/>',
+    briefcase: '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/>',
+    award: '<circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-3 5 3-1.5-7"/>',
+    chat: '<path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>',
+    target: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/>',
+    globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/>',
+    video: '<rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3z"/>',
+    compass: '<circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/>',
+    pen: '<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>',
+    table: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/>',
+    network: '<circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="m8.2 10.8 7.6-3.6M8.2 13.2l7.6 3.6"/>',
+    lock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+    fileplus: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 11v6M9 14h6"/>',
+    bars: '<path d="M5 20V12M12 20V5M19 20v-9"/>',
+    clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    shield: '<path d="M12 3 4 6v6c0 5 3.5 7.5 8 9 4.5-1.5 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/>',
+    play: '<circle cx="12" cy="12" r="9"/><path d="m10 8 6 4-6 4z"/>',
+    user: '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
+    plug: '<path d="M9 2v6M15 2v6M7 8h10v4a5 5 0 0 1-10 0z"/><path d="M12 17v5"/>',
+    sparkles: '<path d="M12 3l1.8 4.6L18.5 9l-4.7 1.4L12 15l-1.8-4.6L5.5 9l4.7-1.4z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/>',
+    window: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/>'
+  };
+  var GUIA_ICON = {
+    c01: ['lines', 'wiggle'], c02: ['doc', 'float'], c03: ['folder', 'float'], c04: ['puzzle', 'wiggle'], c05: ['terminal', 'pulse'],
+    c06: ['layers', 'float'], c07: ['filedown', 'bob'], c08: ['search', 'pulse'], c09: ['phone', 'wiggle'], c10: ['code', 'pulse'],
+    c11: ['briefcase', 'float'], c12: ['award', 'float'], c13: ['chat', 'pulse'], c14: ['target', 'pulse'], c15: ['globe', 'spin'],
+    c16: ['video', 'pulse'], c17: ['compass', 'spin'], c18: ['pen', 'wiggle'], c19: ['table', 'float'], c20: ['network', 'pulse'],
+    c21: ['search', 'wiggle'], c22: ['lock', 'pulse'], c23: ['fileplus', 'bob'], c24: ['bars', 'pulse'], c25: ['clock', 'pulse'],
+    c26: ['shield', 'pulse'], c27: ['play', 'pulse'], c28: ['window', 'float'],
+    n01: ['video', 'pulse'], n02: ['user', 'float'], n03: ['plug', 'bob'], n04: ['sparkles', 'spin'], n05: ['shield', 'pulse']
+  };
+
+  function guiaIcon(id, on) {
+    var d = GUIA_ICON[id] || ['sparkles', 'pulse'];
+    var wrap = document.createElement('div');
+    wrap.className = 'guide-ic ic-' + d[1] + (on ? ' is-on' : '');
+    wrap.setAttribute('aria-hidden', 'true');
+    wrap.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + IC[d[0]] + '</svg>';
+    return wrap;
+  }
+
   function renderGuiaCard(g) {
     var on = !!picked[g.id];
     var title = lang === 'en' ? g.titleEn : g.title;
@@ -133,7 +188,7 @@
       style: 'width:24px;height:24px;border-radius:50%;border:1.5px solid ' + (on ? ACCENT : '#DDE0E7') + ';background:' + (on ? ACCENT : '#ffffff') + ';display:flex;align-items:center;justify-content:center;'
     }, [svgCheck('#ffffff')]);
 
-    card.appendChild(el('div', { style: 'display:flex;justify-content:flex-end;' }, [dot]));
+    card.appendChild(el('div', { style: 'display:flex;justify-content:space-between;align-items:center;' }, [guiaIcon(g.id, on), dot]));
     card.appendChild(el('h3', { style: 'font-size:18px;line-height:1.32;font-weight:700;color:#12131A;' }, [title]));
     card.appendChild(el('p', { style: 'font-size:14.5px;line-height:1.62;color:#5A5F6E;flex-grow:1;' }, [desc]));
     card.appendChild(el('span', {

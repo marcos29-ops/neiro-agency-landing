@@ -534,3 +534,21 @@ html body button.woot-widget-bubble.woot-elements--left:active, html body button
 .calc-box.mglow::before { background: radial-gradient(240px circle at var(--gx, 50%) var(--gy, 50%), var(--glow-c), transparent 60%); }
 .lift.tilt::after { background: radial-gradient(300px circle at var(--gx, 50%) var(--gy, 50%), rgba(26,77,255,.14), transparent 55%); }
 .mglow.wide::before, #contacto.mglow.wide::before, #agenda.mglow.wide::before { background: radial-gradient(340px circle at var(--gx, 50%) var(--gy, 40%), rgba(79,209,255,.065), transparent 62%); }
+
+/* ---- Iconos animados de las guias (recursos.html) ---- */
+.guide-ic { width: 46px; height: 46px; border-radius: 13px; background: #EDF2FF; color: #1A4DFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background .25s ease, color .25s ease; }
+.guide-ic svg { width: 24px; height: 24px; transform-origin: 50% 50%; }
+.guide-ic.is-on { background: #1A4DFF; color: #fff; }
+.lift:hover .guide-ic { background: #D3E1FF; }
+.lift:hover .guide-ic.is-on { background: #1A4DFF; }
+@keyframes ic-float { 0%, 100% { transform: translateY(1.5px); } 50% { transform: translateY(-2.5px); } }
+@keyframes ic-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.14); } }
+@keyframes ic-spin { to { transform: rotate(360deg); } }
+@keyframes ic-wiggle { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-9deg); } 75% { transform: rotate(9deg); } }
+@keyframes ic-bob { 0%, 100% { transform: translateY(-2px); } 50% { transform: translateY(2.5px); } }
+.ic-float svg { animation: ic-float 3.2s ease-in-out infinite; }
+.ic-pulse svg { animation: ic-pulse 2.6s ease-in-out infinite; }
+.ic-spin svg { animation: ic-spin 14s linear infinite; }
+.ic-wiggle svg { animation: ic-wiggle 3.4s ease-in-out infinite; }
+.ic-bob svg { animation: ic-bob 2.4s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .guide-ic svg { animation: none !important; } }

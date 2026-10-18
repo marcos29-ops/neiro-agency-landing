@@ -40,6 +40,7 @@
     { id: 'c26', tag: 'claude', title: 'ECC: un equipo de revisión y seguridad dentro de Claude Code', titleEn: 'ECC: a review and security team inside Claude Code', desc: 'Un paquete gratuito con agentes, skills y hooks para planear, probar y auditar lo que construís, con sus costos y riesgos.', descEn: 'A free package of agents, skills and hooks to plan, test and audit what you build, including its costs and risks.' },
     { id: 'c27', tag: 'claude', title: 'Videos animados con Claude Code: motion graphics desde código', titleEn: 'Animated videos with Claude Code: motion graphics from code', desc: 'Claude escribe el código del video y otra herramienta lo vuelve MP4: Brag, Hyperframes y Remotion, paso a paso.', descEn: 'Claude writes the video code and another tool turns it into MP4: Brag, Hyperframes and Remotion, step by step.' },
     { id: 'c28', tag: 'claude', title: 'Skills para diseñar páginas web con Claude: las más usadas', titleEn: 'Skills to design web pages with Claude: the most used ones', desc: 'Las skills de diseño web más instaladas, cómo instalarlas, el orden de uso y los cuidados de seguridad.', descEn: 'The most installed web design skills, how to install them, the order to use them and the security precautions.' },
+    { id: 'c29', tag: 'claude', title: 'Ingeniería inversa con IA: qué es REA y qué riesgos tiene', titleEn: 'Reverse engineering with AI: what REA is and what risks it has', desc: 'Conectá a tu agente con herramientas para inspeccionar apps sin su código, y conocé los riesgos técnicos y legales.', descEn: 'Connect your agent to tools that inspect apps without their source code, and learn the technical and legal risks.' },
     { id: 'n01', tag: 'negocio', title: 'Contenido en video para tu negocio, sin cámara', titleEn: 'Video content for your business, no camera', desc: 'Guion, voz y video para Shorts y Reels sin que nadie grabe.', descEn: 'Script, voice and video for Shorts and Reels without anyone filming.' },
     { id: 'n02', tag: 'negocio', title: 'Anuncios con avatares de IA', titleEn: 'Ads with AI avatars', desc: 'Tu avatar en HeyGen y anuncios testimoniales, sin actores ni grabación.', descEn: 'Your HeyGen avatar and testimonial ads, no actors or shoot needed.' },
     { id: 'n03', tag: 'negocio', title: 'Tu propio MCP, conectado a tu negocio', titleEn: 'Your own MCP, connected to your business', desc: 'La ruta técnica para que Claude trabaje con tus sistemas, con permisos mínimos.', descEn: 'The technical route for Claude to work with your systems, with minimal permissions.' },
@@ -150,7 +151,8 @@
     user: '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
     plug: '<path d="M9 2v6M15 2v6M7 8h10v4a5 5 0 0 1-10 0z"/><path d="M12 17v5"/>',
     sparkles: '<path d="M12 3l1.8 4.6L18.5 9l-4.7 1.4L12 15l-1.8-4.6L5.5 9l4.7-1.4z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/>',
-    window: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/>'
+    window: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/>',
+    scan: '<path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3"/>'
   };
   var GUIA_ICON = {
     c01: ['lines', 'wiggle'], c02: ['doc', 'float'], c03: ['folder', 'float'], c04: ['puzzle', 'wiggle'], c05: ['terminal', 'pulse'],
@@ -158,7 +160,7 @@
     c11: ['briefcase', 'float'], c12: ['award', 'float'], c13: ['chat', 'pulse'], c14: ['target', 'pulse'], c15: ['globe', 'spin'],
     c16: ['video', 'pulse'], c17: ['compass', 'spin'], c18: ['pen', 'wiggle'], c19: ['table', 'float'], c20: ['network', 'pulse'],
     c21: ['search', 'wiggle'], c22: ['lock', 'pulse'], c23: ['fileplus', 'bob'], c24: ['bars', 'pulse'], c25: ['clock', 'pulse'],
-    c26: ['shield', 'pulse'], c27: ['play', 'pulse'], c28: ['window', 'float'],
+    c26: ['shield', 'pulse'], c27: ['play', 'pulse'], c28: ['window', 'float'], c29: ['scan', 'pulse'],
     n01: ['video', 'pulse'], n02: ['user', 'float'], n03: ['plug', 'bob'], n04: ['sparkles', 'spin'], n05: ['shield', 'pulse']
   };
 

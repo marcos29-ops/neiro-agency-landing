@@ -621,6 +621,26 @@
   })();
 
 
+  // El país se ajusta solo al elegir el prefijo del teléfono (si la persona no eligió el país a mano).
+  // Si el prefijo no tiene un país propio en la lista, el país pasa a "Otro".
+  (function () {
+    var tel = document.getElementById('guia-pais-tel');
+    var pais = document.getElementById('guia-pais');
+    if (!tel || !pais) { return; }
+    var paisTocado = false;
+    pais.addEventListener('change', function () { paisTocado = true; });
+    tel.addEventListener('change', function () {
+      if (paisTocado) { return; }
+      var nombre = (tel.value || '').replace(/^\+\d+\s*/, '').trim();
+      var destino = 'Otro';
+      for (var i = 0; i < pais.options.length; i++) {
+        if ((pais.options[i].value || pais.options[i].text).trim() === nombre) { destino = pais.options[i].value || pais.options[i].text; break; }
+      }
+      pais.value = destino;
+    });
+  })();
+
+
   // Chat de la web (Chatwoot en servidor propio): burbuja a la izquierda; el botón "Pruébalo aquí" lo abre.
   (function () {
     var BASE_URL = 'https://chatwoot.neiro.agency';

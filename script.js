@@ -42,6 +42,7 @@
     { id: 'c28', tag: 'claude', title: 'Skills para diseñar páginas web con Claude: las más usadas', titleEn: 'Skills to design web pages with Claude: the most used ones', desc: 'Las skills de diseño web más instaladas, cómo instalarlas, el orden de uso y los cuidados de seguridad.', descEn: 'The most installed web design skills, how to install them, the order to use them and the security precautions.' },
     { id: 'c29', tag: 'claude', title: 'Ingeniería inversa con IA: qué es REA y qué riesgos tiene', titleEn: 'Reverse engineering with AI: what REA is and what risks it has', desc: 'Conectá a tu agente con herramientas para inspeccionar apps sin su código, y conocé los riesgos técnicos y legales.', descEn: 'Connect your agent to tools that inspect apps without their source code, and learn the technical and legal risks.' },
     { id: 'c30', tag: 'claude', title: 'MiroFish: simular cómo reaccionaría la gente y qué tan útil es para probar webs', titleEn: 'MiroFish: simulate how people would react and how useful it is to test websites', desc: 'Un mundo paralelo de agentes de IA que opinan sobre tu tema: cómo funciona, qué necesita y hasta dónde sirve para probar landings.', descEn: 'A parallel world of AI agents that react to your topic: how it works, what it needs and how far it helps to test landing pages.' },
+    { id: 'c31', tag: 'claude', title: 'Mods de Claude Code: qué son, cómo instalarlos y para qué sirven', titleEn: 'Claude Code mods: what they are, how to install them and what they are for', desc: 'Plugins hechos de código que corren dentro de Claude Code: paneles, barras y reacciones a lo que hace. Instalación, creación y cuidados.', descEn: 'Code-based plugins that run inside Claude Code: panels, bars and reactions to what it does. Installation, creation and precautions.' },
     { id: 'n01', tag: 'negocio', title: 'Contenido en video para tu negocio, sin cámara', titleEn: 'Video content for your business, no camera', desc: 'Guion, voz y video para Shorts y Reels sin que nadie grabe.', descEn: 'Script, voice and video for Shorts and Reels without anyone filming.' },
     { id: 'n02', tag: 'negocio', title: 'Anuncios con avatares de IA', titleEn: 'Ads with AI avatars', desc: 'Tu avatar en HeyGen y anuncios testimoniales, sin actores ni grabación.', descEn: 'Your HeyGen avatar and testimonial ads, no actors or shoot needed.' },
     { id: 'n03', tag: 'negocio', title: 'Tu propio MCP, conectado a tu negocio', titleEn: 'Your own MCP, connected to your business', desc: 'La ruta técnica para que Claude trabaje con tus sistemas, con permisos mínimos.', descEn: 'The technical route for Claude to work with your systems, with minimal permissions.' },
@@ -154,7 +155,8 @@
     sparkles: '<path d="M12 3l1.8 4.6L18.5 9l-4.7 1.4L12 15l-1.8-4.6L5.5 9l4.7-1.4z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/>',
     window: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/>',
     scan: '<path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3"/>',
-    users: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.6a3.5 3.5 0 0 1 0 6.8M18.5 14.6a6.5 6.5 0 0 1 3 5.4"/>'
+    users: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.6a3.5 3.5 0 0 1 0 6.8M18.5 14.6a6.5 6.5 0 0 1 3 5.4"/>',
+    sliders: '<path d="M4 6h8M18 6h2M4 12h2M12 12h8M4 18h10M20 18h0"/><circle cx="15" cy="6" r="2.2"/><circle cx="9" cy="12" r="2.2"/><circle cx="17" cy="18" r="2.2"/>'
   };
   var GUIA_ICON = {
     c01: ['lines', 'wiggle'], c02: ['doc', 'float'], c03: ['folder', 'float'], c04: ['puzzle', 'wiggle'], c05: ['terminal', 'pulse'],
@@ -162,7 +164,7 @@
     c11: ['briefcase', 'float'], c12: ['award', 'float'], c13: ['chat', 'pulse'], c14: ['target', 'pulse'], c15: ['globe', 'spin'],
     c16: ['video', 'pulse'], c17: ['compass', 'spin'], c18: ['pen', 'wiggle'], c19: ['table', 'float'], c20: ['network', 'pulse'],
     c21: ['search', 'wiggle'], c22: ['lock', 'pulse'], c23: ['fileplus', 'bob'], c24: ['bars', 'pulse'], c25: ['clock', 'pulse'],
-    c26: ['shield', 'pulse'], c27: ['play', 'pulse'], c28: ['window', 'float'], c29: ['scan', 'pulse'], c30: ['users', 'float'],
+    c26: ['shield', 'pulse'], c27: ['play', 'pulse'], c28: ['window', 'float'], c29: ['scan', 'pulse'], c30: ['users', 'float'], c31: ['sliders', 'wiggle'],
     n01: ['video', 'pulse'], n02: ['user', 'float'], n03: ['plug', 'bob'], n04: ['sparkles', 'spin'], n05: ['shield', 'pulse']
   };
 

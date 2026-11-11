@@ -391,11 +391,7 @@
       empresaErr.textContent = '';
     }
 
-    // El teléfono es obligatorio siempre (tenga o no empresa): sin él no se envía la guía.
-    var telOk = showFieldError('guia-telefono', 'guia-tel-error', validatePhone(document.getElementById('guia-pais-tel').value, document.getElementById('guia-telefono').value));
-
-    if (!nameOk || !emailOk || !empresaSel || !telOk) { return; }
-    var telefonoContacto = (document.getElementById('guia-pais-tel').value || '').split(' ')[0] + ' ' + document.getElementById('guia-telefono').value.replace(/\D/g, '');
+    if (!nameOk || !emailOk || !empresaSel) { return; }
 
     var restoreText = btn.textContent;
     var guias = GUIAS.filter(function (g) { return picked[g.id]; }).map(function (g) { return g.id + ': ' + g.title; });
@@ -407,7 +403,6 @@
       pais: document.getElementById('guia-pais').value,
       rol: document.getElementById('guia-rol').value,
       empresa: empresaSel.value,
-      telefono: telefonoContacto,
       guias: guias,
       idioma: lang,
       website: document.getElementById('guia-website').value
@@ -416,7 +411,6 @@
       document.getElementById('guia-nombre').value = '';
       document.getElementById('guia-correo').value = '';
       empresaSel.checked = false;
-      document.getElementById('guia-telefono').value = '';
       renderGuias();
       openModal('guias', null);
     }, function () {
@@ -607,7 +601,7 @@
   })();
 
 
-  // "¿Tienes una empresa?": el teléfono ya es obligatorio siempre; aquí solo se limpian los errores al corregir.
+  // "¿Tienes una empresa?": al elegir una opción se limpia el error.
   (function () {
     var radios = document.querySelectorAll('input[name="guia-empresa"]');
     radios.forEach(function (r) {
@@ -618,30 +612,6 @@
         err.hidden = true;
         err.textContent = '';
       });
-    });
-    var gt = document.getElementById('guia-telefono');
-    var gs = document.getElementById('guia-pais-tel');
-    if (gt) { gt.addEventListener('input', function () { clearFieldError('guia-telefono', 'guia-tel-error'); }); }
-    if (gs) { gs.addEventListener('change', function () { clearFieldError('guia-telefono', 'guia-tel-error'); }); }
-  })();
-
-
-  // El país se ajusta solo al elegir el prefijo del teléfono (si la persona no eligió el país a mano).
-  // Si el prefijo no tiene un país propio en la lista, el país pasa a "Otro".
-  (function () {
-    var tel = document.getElementById('guia-pais-tel');
-    var pais = document.getElementById('guia-pais');
-    if (!tel || !pais) { return; }
-    var paisTocado = false;
-    pais.addEventListener('change', function () { paisTocado = true; });
-    tel.addEventListener('change', function () {
-      if (paisTocado) { return; }
-      var nombre = (tel.value || '').replace(/^\+\d+\s*/, '').trim();
-      var destino = 'Otro';
-      for (var i = 0; i < pais.options.length; i++) {
-        if ((pais.options[i].value || pais.options[i].text).trim() === nombre) { destino = pais.options[i].value || pais.options[i].text; break; }
-      }
-      pais.value = destino;
     });
   })();
 

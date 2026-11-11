@@ -552,3 +552,8 @@ html body button.woot-widget-bubble.woot-elements--left:active, html body button
 .ic-wiggle svg { animation: ic-wiggle 3.4s ease-in-out infinite; }
 .ic-bob svg { animation: ic-bob 2.4s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .guide-ic svg { animation: none !important; } }
+
+/* Formulario de guías: 2 columnas en PC, 1 en celular; "¿Tienes una empresa?" ocupa toda la fila */
+#guia-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+#guia-fields .guia-full { grid-column: 1 / -1; }
+@media (max-width: 560px) { #guia-fields { grid-template-columns: minmax(0, 1fr); } }

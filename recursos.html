@@ -102,7 +102,16 @@
     .reveal, .pop, .lift, .btn, .arrow, .modal-card, .modal-backdrop { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; }
   }
 </style>
-<link rel="stylesheet" href="neiro-theme.css">
+<style>
+  /* Formulario de guías: 2 columnas en PC, 1 en celular; separación clara entre campos */
+  #guia-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 20px; }
+  #guia-fields > div { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+  #guia-fields .guia-full { grid-column: 1 / -1; }
+  #guia-fields input[type="text"], #guia-fields input[type="email"], #guia-fields select { width: 100%; }
+  #guia-fields .yn { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  @media (max-width: 600px) { #guia-fields { grid-template-columns: minmax(0, 1fr); gap: 18px; } }
+</style>
+<link rel="stylesheet" href="neiro-theme.css?v=20261111">
 <link rel="preconnect" href="https://chatwoot.neiro.agency" crossorigin>
 <link rel="preload" as="script" href="https://chatwoot.neiro.agency/packs/js/sdk.js">
 </head>

@@ -557,3 +557,6 @@ html body button.woot-widget-bubble.woot-elements--left:active, html body button
 #guia-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 #guia-fields .guia-full { grid-column: 1 / -1; }
 @media (max-width: 560px) { #guia-fields { grid-template-columns: minmax(0, 1fr); } }
+
+/* Accesibilidad: el texto de ayuda de los campos tenía contraste 2.4:1; ahora ~5:1 sobre blanco */
+input::placeholder, textarea::placeholder { color: #6B7080; opacity: 1; }
